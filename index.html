@@ -3,154 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Belinna Store | Vitrine Digital Premium</title>
-    <!-- Importando uma fonte com serifa elegante para os títulos -->
+    <title>Belinna Store | Sua Essência, Seu Brilho</title>
+    <!-- Fontes Premium -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Header / Identidade Premium -->
     <header>
         <div class="logo-container">
-            <h1>BELINNA STORE</h1>
-            <p class="subtitle">Sua essência, seu brilho</p>
+            <h1>Belinna Store</h1>
+            <p class="subtitle">Sua beleza já existe, nossa missão é apenas realça-la!</p>
         </div>
     </header>
 
-    <!-- Conteúdo Principal - SPA Navigation -->
     <main class="main-content">
-
-        <!-- HOME: Grid de Cards Editoriais (Aparece por padrão se nenhuma section estiver ativa) -->
-        <section id="home" class="home-grid">
-            
-            <!-- Card Sobre Nós -->
-            <div class="channel-card">
+        <!-- Grid de Cards Principais (Home) -->
+        <div class="home-grid">
+            <div class="channel-card" onclick="window.location.hash='sobre'">
                 <div class="card-icon-circle">❤️</div>
                 <h2>Sobre Nós</h2>
                 <p>Conheça a história, nossa curadoria premium e o propósito por trás da marca.</p>
-                <a href="#sobre" class="card-btn">SABER MAIS &rarr;</a>
+                <span class="card-btn">Saber Mais →</span>
             </div>
 
-            <!-- Card Clientes -->
-            <div class="channel-card">
-                <div class="card-icon-circle">👥</div>
-                <h2>Clientes</h2>
-                <p>Veja o feedback de quem compra e confia no nosso atendimento exclusivo.</p>
-                <a href="#clientes" class="card-btn">VER DEPOIMENTOS &rarr;</a>
-            </div>
-
-            <!-- Card Makes -->
-            <div class="channel-card">
-                <div class="card-icon-circle">🪄</div>
-                <h2>Makes</h2>
-                <p>Bases, paletas, pós e batons das melhores marcas do mercado atual.</p>
-                <a href="#makes" class="card-btn">VER CATÁLOGO &rarr;</a>
-            </div>
-
-            <!-- Card Skincare -->
-            <div class="channel-card">
+            <div class="channel-card" onclick="window.location.hash='makes'">
                 <div class="card-icon-circle">✨</div>
-                <h2>Skincare</h2>
-                <p>Géis de limpeza, séruns e hidratantes para a sua rotina diária.</p>
-                <a href="#skincare" class="card-btn">VER CATÁLOGO &rarr;</a>
+                <h2>Maquiagens</h2>
+                <p>Produtos selecionados para realçar seus traços com elegância e alta durabilidade.</p>
+                <span class="card-btn">Explorar Linha →</span>
             </div>
 
-            <!-- Card Bem-Estar & Intimidade -->
-            <div class="channel-card">
+            <div class="channel-card" onclick="window.location.hash='skincare'">
+                <div class="card-icon-circle">🌿</div>
+                <h2>Skincare</h2>
+                <p>Fórmulas tecnológicas e delicadas para o ritual diário de cuidado com a sua pele.</p>
+                <span class="card-btn">Ver Produtos →</span>
+            </div>
+
+            <div class="channel-card" onclick="window.location.hash='bemestar'">
                 <div class="card-icon-circle">🌹</div>
                 <h2>Bem-Estar & Intimidade</h2>
                 <p>Linha exclusiva de autocuidado, óleos essenciais e bem-estar íntimo.</p>
-                <a href="#bemestar" class="card-btn">VER LINHA &rarr;</a>
+                <span class="card-btn">Ver Linha →</span>
             </div>
 
-        </section>
+            <div class="channel-card" onclick="window.location.hash='clientes'">
+                <div class="card-icon-circle">👥</div>
+                <h2>Clientes</h2>
+                <p>Veja o feedback de quem compra e confia no nosso atendimento exclusivo.</p>
+                <span class="card-btn">Ver Depoimentos →</span>
+            </div>
+        </div>
 
-        <!-- SEÇÕES DAS ABAS (Escondidas por padrão, aparecem via :target) -->
+        <!-- SEÇÕES SPA (PÁGINAS INTERNAS) -->
         
+        <!-- Sobre Nós -->
         <section id="sobre" class="spa-section">
-            <a href="#home" class="back-btn">&larr; Voltar para o início</a>
-            <div class="content-box">
-                <h2>Nossa História</h2>
-                <p>A Belinna Store nasceu para traduzir a sofisticação e o autocuidado em produtos premium de altíssima qualidade. Nossa missão é realçar a sua beleza natural e proporcionar momentos únicos de bem-estar diário.</p>
-            </div>
+            <a href="#" class="back-btn">← Voltar para o início</a>
+            <h2>Nossa História</h2>
+            <p>A Belinna Store nasceu para traduzir a sofisticação e o autocuidado em produtos premium de altíssima qualidade...</p>
         </section>
 
-        <section id="clientes" class="spa-section">
-            <a href="#home" class="back-btn">&larr; Voltar para o início</a>
-            <h2>Espaço Clientes Belinna</h2>
-            <div class="content-box">
-                <p class="review-text">"Os produtos são fantásticos e a experiência de compra é incrível. O atendimento via WhatsApp foi super rápido!"</p>
-                <p class="review-author">- Mariana S., São Paulo SP</p>
-            </div>
-        </section>
-
+        <!-- Maquiagens -->
         <section id="makes" class="spa-section">
-            <a href="#home" class="back-btn">&larr; Voltar para o início</a>
-            <h2>Maquiagens Premium</h2>
+            <a href="#" class="back-btn">← Voltar para o início</a>
+            <h2>Linha de Maquiagens Premium</h2>
             <div class="products-grid">
-                <!-- Seus cards de produtos reais entram aqui -->
                 <div class="product-item">
-                    <h3>Base Fluida Glow Hialurônico</h3>
-                    <p>R$ 89,90</p>
-                    <button class="add-to-cart" onclick="addToCart('Base Fluida Glow', 89.90, this)">Adicionar</button>
+                    <h3>Batom Matte Velvet Rosé</h3>
+                    <p class="product-desc">Alta pigmentação com acabamento aveludado e hidratação por 12h.</p>
+                    <span class="product-price">R$ 89,90</span>
+                    <button class="add-to-cart" onclick="adicionarAoCarrinho('Batom Matte Velvet Rosé', 89.90)">Adicionar ao Carrinho</button>
                 </div>
             </div>
         </section>
 
+        <!-- Skincare -->
         <section id="skincare" class="spa-section">
-            <a href="#home" class="back-btn">&larr; Voltar para o início</a>
-            <h2>Skincare Avançado</h2>
+            <a href="#" class="back-btn">← Voltar para o início</a>
+            <h2>Ritual de Skincare</h2>
             <div class="products-grid">
                 <div class="product-item">
-                    <h3>Sérum Iluminador Vitamina C</h3>
-                    <p>R$ 119,90</p>
-                    <button class="add-to-cart" onclick="addToCart('Sérum Vitamina C', 119.90, this)">Adicionar</button>
+                    <h3>Sérum Luminosidade Radiante</h3>
+                    <p class="product-desc">Com Vitamina C estabilizada e ácido hialurônico para um viço natural.</p>
+                    <span class="product-price">R$ 139,90</span>
+                    <button class="add-to-cart" onclick="adicionarAoCarrinho('Sérum Luminosidade Radiante', 139.90)">Adicionar ao Carrinho</button>
                 </div>
             </div>
         </section>
 
+        <!-- Bem-Estar & Intimidade -->
         <section id="bemestar" class="spa-section">
-            <a href="#home" class="back-btn">&larr; Voltar para o início</a>
-            <h2>Bem-Estar & Linha Íntima</h2>
+            <a href="#" class="back-btn">← Voltar para o início</a>
+            <h2>Bem-Estar & Intimidade</h2>
             <div class="products-grid">
                 <div class="product-item">
-                    <h3>Óleo Corporal Bifásico de Rosas</h3>
-                    <p>R$ 74,90</p>
-                    <button class="add-to-cart" onclick="addToCart('Óleo Corporal Bifásico', 74.90, this)">Adicionar</button>
+                    <h3>Óleo Essencial Absoluto de Rosas</h3>
+                    <p class="product-desc">Gotas concentradas de relaxamento, hidratação profunda e perfumação marcante.</p>
+                    <span class="product-price">R$ 119,90</span>
+                    <button class="add-to-cart" onclick="adicionarAoCarrinho('Óleo Essencial Absoluto de Rosas', 119.90)">Adicionar ao Carrinho</button>
                 </div>
             </div>
         </section>
 
+        <!-- Clientes -->
+        <section id="clientes" class="spa-section">
+            <a href="#" class="back-btn">← Voltar para o início</a>
+            <h2>O que dizem nossas clientes</h2>
+            <div class="depoimento-item">
+                <p>"Os produtos de skincare transformaram a minha rotina. Atendimento impecável!" - Mariana S.</p>
+            </div>
+        </section>
     </main>
 
-    <!-- Botão do Carrinho Flutuante -->
-    <button class="cart-toggle-btn" onclick="toggleCart()">
+    <!-- Botão Flutuante do Carrinho -->
+    <button class="cart-toggle-btn" onclick="toggleCarrinho()">
         🛒 <span id="cart-count">0</span>
     </button>
 
-    <!-- Carrinho Lateral -->
-    <div id="side-cart" class="side-cart">
+    <!-- Estrutura do Carrinho Lateral Oculto -->
+    <div class="side-cart" id="side-cart">
         <div class="cart-header">
             <h3>Seu Carrinho</h3>
-            <button class="close-cart" onclick="toggleCart()">&times;</button>
+            <button class="close-cart" onclick="toggleCarrinho()">×</button>
         </div>
-        <div id="cart-items" class="cart-items-container">
-            <p class="empty-msg">Seu carrinho está vazio.</p>
+        <div class="cart-items-container" id="cart-items">
+            <p class="empty-message">Seu carrinho está vazio.</p>
         </div>
         <div class="cart-footer">
-            <div class="cart-total">Total: <span id="cart-total-val">R$ 0,00</span></div>
-            <button class="checkout-btn" onclick="sendWhatsApp()">Enviar Pedido via WhatsApp 📱</button>
+            <div class="cart-total">
+                <strong>Total:</strong> <span id="cart-total-value">R$ 0,00</span>
+            </div>
+            <button class="checkout-btn" onclick="enviarPedidoWhatsApp()">Enviar Pedido via WhatsApp 📱</button>
         </div>
     </div>
 
-    <!-- Rodapé Oficial -->
     <footer>
         <div class="footer-content">
             <p>&copy; 2026 BELINNA STORE. Todos os direitos reservados.</p>
-           <div class="social-links">
+            <div class="social-links">
                 <a href="https://instagram.com/belinna.store" target="_blank">@belinna.store</a>
                 <a href="https://www.tiktok.com/@belinnastore" target="_blank">@belinnastore (TikTok)</a>
             </div>
