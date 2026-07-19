@@ -1,54 +1,71 @@
-// Estado global do carrinho
+// Armazenamento dos produtos adicionados
 let carrinho = [];
 
-// Função para abrir e fechar a barra lateral do carrinho
+// Abre ou fecha a barra lateral
 function toggleCarrinho() {
     document.body.classList.toggle('cart-open');
 }
 
-// Função para adicionar itens ao carrinho
+// Injeta o produto no array e renderiza
 function adicionarAoCarrinho(nome, preco) {
     carrinho.push({ nome, preco });
+    
+    // Atualiza a interface visual
     atualizarInterfaceCarrinho();
     
-    // Abre automaticamente o carrinho para dar feedback visual à cliente
+    // Força o carrinho a abrir na lateral para mostrar o produto entrando
     document.body.classList.add('cart-open');
 }
 
-// Atualiza os números da bolinha e a lista interna
+// Recarrega os elementos dentro do carrinho
 function atualizarInterfaceCarrinho() {
-    const totalItens = carrinho.length;
-    document.getElementById('cart-count').innerText = totalItens;
-
+    const contador = document.getElementById('cart-count');
     const containerItens = document.getElementById('cart-items');
-    containerItens.innerHTML = ''; // Limpa conteúdo anterior
+    const valorTotalElemento = document.getElementById('cart-total-value');
 
-    if (totalItens === 0) {
-        containerItens.innerHTML = '<p class="empty-message">Seu carrinho está vazio.</p>';
-        document.getElementById('cart-total-value').innerText = 'R$ 0,00';
+    // Atualiza a bolinha rosa de quantidade
+    if (contador) {
+        contador.innerText = carrinho.length;
+    }
+
+    if (!containerItens) return;
+    containerItens.innerHTML = ''; 
+
+    if (carrinho.length === 0) {
+        containerItens.innerHTML = '<p class="empty-message" style="color: #999; text-align: center; padding-top: 20px;">Seu carrinho está vazio.</p>';
+        if (valorTotalElemento) valorTotalElemento.innerText = 'R$ 0,00';
         return;
     }
 
-    let valorTotal = 0;
+    let totalAcumulado = 0;
+
     carrinho.forEach(item => {
-        valorTotal += item.preco;
+        totalAcumulado += item.preco;
         
-        const elementoItem = document.createElement('div');
-        elementoItem.className = 'cart-item-row';
-        elementoItem.innerHTML = `
-            <span>${item.nome}</span>
-            <strong>R$ ${item.preco.toFixed(2).replace('.', ',')}</strong>
+        const linha = document.createElement('div');
+        linha.className = 'cart-item-row';
+        linha.style.display = 'flex';
+        linha.style.justifyContent = 'space-between';
+        linha.style.marginBottom = '12px';
+        linha.style.borderBottom = '1px solid #F6ECE7';
+        linha.style.paddingBottom = '8px';
+        
+        linha.innerHTML = `
+            <span style="font-weight: 400; color: #1A1A1A;">${item.nome}</span>
+            <strong style="color: #B76E79;">R$ ${item.preco.toFixed(2).replace('.', ',')}</strong>
         `;
-        containerItens.appendChild(elementoItem);
+        containerItens.appendChild(linha);
     });
 
-    document.getElementById('cart-total-value').innerText = `R$ ${valorTotal.toFixed(2).replace('.', ',')}`;
+    if (valorTotalElemento) {
+        valorTotalElemento.innerText = `R$ ${totalAcumulado.toFixed(2).replace('.', ',')}`;
+    }
 }
 
-// Envia a lista tratada direto para o WhatsApp comercial da loja
+// Prepara o texto formatado profissional e dispara o WhatsApp
 function enviarPedidoWhatsApp() {
     if (carrinho.length === 0) {
-        alert("Seu carrinho está vazio!");
+        alert("Seu carrinho está vazio! Adicione produtos primeiro.");
         return;
     }
 
@@ -56,16 +73,17 @@ function enviarPedidoWhatsApp() {
     let total = 0;
 
     carrinho.forEach((item, index) => {
-        mensagem += `${index + 1}. ${item.nome} - R$ ${item.preco.toFixed(2).replace('.', ',')}\n`;
+        mensagem += `*${index + 1}.* ${item.nome} - R$ ${item.preco.toFixed(2).replace('.', ',')}\n`;
         total += item.preco;
     });
 
-    mensagem += `\n💰 *Total:* R$ ${total.toFixed(2).replace('.', ',')}`;
-    mensagem += "\n\nGostaria de confirmar o pagamento e combinar a entrega! 💕";
+    mensagem += `\n💰 *Total do Pedido:* R$ ${total.toFixed(2).replace('.', ',')}`;
+    mensagem += "\n\nQuero combinar a forma de pagamento e entrega! 💕";
 
-    const mensagemCodificada = encodeURIComponent(mensagem);
-    // Substitua pelo número oficial da sua loja futuramente se quiser
-    const numeroWhatsApp = "5511999999999"; 
+    const mensagemFormatada = encodeURIComponent(mensagem);
     
-    window.open(`https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${mensagemCodificada}`, '_blank');
+    // Insira seu número de teste aqui (com DDD)
+    const telefoneLoja = "5511999999999"; 
+    
+    window.open(`https://api.whatsapp.com/send?phone=${telefoneLoja}&text=${mensagemFormatada}`, '_blank');
 }
