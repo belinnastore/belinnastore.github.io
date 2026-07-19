@@ -3,109 +3,350 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Belinna Store | Premium</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
-    <style>
-        :root { --rose: #b76e79; --gold: #d4af37; --off-white: #fdfbf7; --text: #4a4a4a; }
-        body { font-family: 'Montserrat', sans-serif; background-color: var(--off-white); color: var(--text); margin: 0; }
-        
-        h1, h2, h3 { font-family: 'Playfair Display', serif; }
-        
-        header { text-align: center; padding: 60px 20px; }
-        header h1 { color: var(--rose); font-size: 2.5rem; margin-bottom: 10px; }
-        
-        .container { max-width: 900px; margin: auto; padding: 20px; }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 40px; }
-        
-        .card { background: white; padding: 30px; border-radius: 20px; border: 1px solid #f0e6e6; box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: 0.4s; text-align: center; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(183, 110, 121, 0.15); }
-        
-        .btn-premium { background: var(--rose); color: white; border: none; padding: 12px 30px; border-radius: 30px; cursor: pointer; transition: 0.3s; font-weight: 600; letter-spacing: 1px; }
-        .btn-premium:hover { background: var(--gold); }
-        
-        .section { display: none; }
-        .active { display: block; }
-        
-        #cart-sidebar { position: fixed; top: 0; right: -400px; width: 350px; height: 100%; background: white; box-shadow: -10px 0 30px rgba(0,0,0,0.1); z-index: 999; padding: 40px; transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1); }
-        .cart-open #cart-sidebar { right: 0; }
-        
-        .qty-input { display: flex; align-items: center; justify-content: center; gap: 15px; margin: 15px 0; }
-    </style>
+    <title>Belinna Store | Vitrine Premium</title>
+    <!-- Ícones Globais -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
-    <header>
-        <h1>Belinna Store</h1>
-        <p>A curadoria que você merece.</p>
-    </header>
-
-    <div class="container" id="main-content">
-        <div class="grid">
-            <div class="card">
-                <h2>Makes</h2>
-                <p>Acabamento impecável.</p>
-                <button class="btn-premium" onclick="showSection('makes')">Ver Coleção</button>
-            </div>
-            <!-- Adicione mais cards aqui -->
-        </div>
+    <!-- BARRA DE AVISO TOPO -->
+    <div class="top-bar">
+        <p>Atendimento Exclusivo via WhatsApp | Enviamos para todo o Brasil</p>
     </div>
 
-    <!-- Seção de Produtos (Inicialmente oculta) -->
-    <div id="makes" class="container section">
-        <button onclick="showSection('main-content')">← Voltar</button>
-        <h2>Coleção Makes</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Batom Velvet</h3>
-                <p>R$ 89,90</p>
-                <div class="qty-input">
-                    <button onclick="changeQty('b1', -1)">-</button>
-                    <span id="qty-b1">0</span>
-                    <button onclick="changeQty('b1', 1)">+</button>
+    <!-- ==========================================
+         PÁGINA 1: INÍCIO (HOME)
+         ========================================== -->
+    <div id="home" class="page-section">
+        <header>
+            <div class="logo">
+                <h1>BELINNA STORE</h1>
+            </div>
+        </header>
+
+        <main class="main-container">
+            <section class="intro-section">
+                <h2>Sua beleza já existe. Nós apenas a realçamos.</h2>
+                <p>Selecione uma das opções abaixo para explorar nossa curadoria exclusiva.</p>
+            </section>
+
+            <section class="grid-cards-channels">
+                <!-- [CARD 1]: SOBRE NÓS -->
+                <a href="#sobre" class="premium-card-link">
+                    <div class="premium-card">
+                        <div class="card-icon-wrapper"><i class="fa-solid fa-heart"></i></div>
+                        <h3>Sobre Nós</h3>
+                        <p>Conheça a história, nossa curadoria premium e o propósito por trás da marca.</p>
+                        <span class="card-action">Saber mais <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <!-- [CARD 2]: MAKES -->
+                <a href="#makes" class="premium-card-link">
+                    <div class="premium-card">
+                        <div class="card-icon-wrapper"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                        <h3>Makes</h3>
+                        <p>Bases, paletas, pós e batons das melhores marcas do mercado atual.</p>
+                        <span class="card-action">Ver catálogo <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <!-- [CARD 3]: SKINCARE -->
+                <a href="#skincare" class="premium-card-link">
+                    <div class="premium-card">
+                        <div class="card-icon-wrapper"><i class="fa-solid fa-pump-soap"></i></div>
+                        <h3>Skincare</h3>
+                        <p>Géis de limpeza, séruns e hidratantes para a sua rotina de autocuidado.</p>
+                        <span class="card-action">Ver rotinas <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <!-- [CARD 4]: BEM-ESTAR & INTIMIDADE -->
+                <a href="#intimidade" class="premium-card-link">
+                    <div class="premium-card">
+                        <div class="card-icon-wrapper"><i class="fa-solid fa-feather-pointed"></i></div>
+                        <h3>Bem-Estar & Intimidade</h3>
+                        <p>Perfumes íntimos, géis de massagem e cuidados especiais com o corpo.</p>
+                        <span class="card-action">Explorar <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <!-- [CARD 5]: CLIENTES -->
+                <a href="#clientes" class="premium-card-link">
+                    <div class="premium-card">
+                        <div class="card-icon-wrapper"><i class="fa-solid fa-users"></i></div>
+                        <h3>Clientes</h3>
+                        <p>Veja o feedback de quem compra e confia no nosso atendimento exclusivo.</p>
+                        <span class="card-action">Ver depoimentos <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </a>
+            </section>
+        </main>
+    </div>
+
+    <!-- ==========================================
+         PÁGINA 2: SOBRE NÓS
+         ========================================== -->
+    <div id="sobre" class="page-section">
+        <div class="back-navigation">
+            <a href="#home" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Voltar ao Início</a>
+        </div>
+        <main class="editorial-container">
+            <div class="page-logo-header">
+                <h1>BELINNA STORE</h1>
+                <span class="subtitle">BEAUTY & MAKEUP</span>
+            </div>
+            <article class="about-editorial-text">
+                <p>A <strong>Belinna Store</strong> nasceu do desejo profundo de conectar você com o que há de mais refinado no universo da beleza e do autocuidado. Nós não enxergamos a maquiagem como uma forma de mascarar, mas sim como uma poderosa ferramenta para celebrar sua identidade única.</p>
+                <p>Nossa assinatura é pautada por uma curadoria exclusiva, humanizada e extremamente rigorosa. Selecionamos a dedo marcas que são referência absoluta no mercado, como <em>Ruby Rose, Melu, Venzza e Mia Make</em>.</p>
+            </article>
+        </main>
+    </div>
+
+    <!-- ==========================================
+         PÁGINA 3: CLIENTES
+         ========================================== -->
+    <div id="clientes" class="page-section">
+        <div class="back-navigation">
+            <a href="#home" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Voltar ao Início</a>
+        </div>
+        <main class="editorial-container">
+            <div class="page-logo-header">
+                <h2>CLIENTES</h2>
+                <span class="subtitle">QUEM CONFIA NA BELINNA STORE</span>
+            </div>
+            <article class="about-editorial-text">
+                <p>Aqui você poderá exibir os depoimentos, fotos de caixinhas recebidas e o carinho das suas clientes reais.</p>
+                <a href="https://wa.me/5511993610210?text=Olá!%20Gostaria%20de%20ver%20depoimentos%20de%20clientes" target="_blank" class="btn-cta-whatsapp">Conversar Conosco no WhatsApp</a>
+            </article>
+        </main>
+    </div>
+
+    <!-- ==========================================
+         PÁGINA 4: MAKES
+         ========================================== -->
+    <div id="makes" class="page-section">
+        <div class="back-navigation">
+            <a href="#home" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Voltar ao Início</a>
+        </div>
+        <main class="catalog-container">
+            <div class="page-logo-header">
+                <h2>MAQUIAGENS</h2>
+                <span class="subtitle">CURADORIA PREMIUM</span>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card" data-id="m1" data-name="Base Fluida Ruby Rose" data-price="49.90">
+                    <div class="product-img-placeholder">
+                        <i class="fa-solid fa-bottle-dropper"></i>
+                        <span>[Foto da Base]</span>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-brand">Ruby Rose</span>
+                        <h3>Base Líquida Fluida</h3>
+                        <p class="product-desc"><strong>O que é:</strong> Base de cobertura média a alta com acabamento natural e toque aveludado.</p>
+                        <p class="product-spec"><strong>O que faz:</strong> Uniformiza o tom da pele, disfarça imperfeições e resiste ao suor.</p>
+                        <p class="product-spec"><strong>Como usar:</strong> Aplique com esponja úmida ou pincel do centro do rosto para fora.</p>
+                        <div class="product-meta">
+                            <span class="product-price">R$ 49,90</span>
+                            <div class="quantity-selector">
+                                <button class="qty-btn minus">-</button>
+                                <input type="number" value="1" min="1" class="qty-input">
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <button class="btn-add-to-cart">Adicionar ao Carrinho</button>
+                    </div>
                 </div>
-                <button class="btn-premium" onclick="addToCart('Batom Velvet', 89.90, 'qty-b1')">Adicionar</button>
+
+                <div class="product-card" data-id="m2" data-name="Paleta de Sombras Melu" data-price="39.90">
+                    <div class="product-img-placeholder">
+                        <i class="fa-solid fa-palette"></i>
+                        <span>[Foto da Paleta]</span>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-brand">Melu</span>
+                        <h3>Paleta de Sombras Pop</h3>
+                        <p class="product-desc"><strong>O que é:</strong> Paleta com 9 cores super pigmentadas entre tons matte e cintilantes.</p>
+                        <p class="product-spec"><strong>O que faz:</strong> Permite criar desde makes básicas para o dia até super produções.</p>
+                        <p class="product-spec"><strong>Como usar:</strong> Esfume os tons matte no côncavo e aplique os cintilantes no centro da pálpebra.</p>
+                        <div class="product-meta">
+                            <span class="product-price">R$ 39,90</span>
+                            <div class="quantity-selector">
+                                <button class="qty-btn minus">-</button>
+                                <input type="number" value="1" min="1" class="qty-input">
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <button class="btn-add-to-cart">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
             </div>
+        </main>
+    </div>
+
+    <!-- ==========================================
+         PÁGINA 5: SKINCARE
+         ========================================== -->
+    <div id="skincare" class="page-section">
+        <div class="back-navigation">
+            <a href="#home" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Voltar ao Início</a>
+        </div>
+        <main class="catalog-container">
+            <div class="page-logo-header">
+                <h2>SKINCARE</h2>
+                <span class="subtitle">ROTINA DE AUTOCUIDADO</span>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card" data-id="s1" data-name="Sérum Ácido Hialurônico Venzza" data-price="59.90">
+                    <div class="product-img-placeholder">
+                        <i class="fa-solid fa-prescription-bottle"></i>
+                        <span>[Foto do Sérum]</span>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-brand">Venzza</span>
+                        <h3>Sérum Preenchedor Hialurônico</h3>
+                        <p class="product-desc"><strong>O que é:</strong> Concentrado de hidratação profunda de rápida absorção.</p>
+                        <p class="product-spec"><strong>O que faz:</strong> Retém a umidade natural da pele, suavizando linhas e devolvendo o viço.</p>
+                        <p class="product-spec"><strong>Como usar:</strong> Aplique 3 a 4 gotas no rosto limpo e seco antes do hidratante.</p>
+                        <div class="product-meta">
+                            <span class="product-price">R$ 59,90</span>
+                            <div class="quantity-selector">
+                                <button class="qty-btn minus">-</button>
+                                <input type="number" value="1" min="1" class="qty-input">
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <button class="btn-add-to-cart">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ==========================================
+         PÁGINA 6: BEM-ESTAR & INTIMIDADE (NOVA!)
+         ========================================= -->
+    <div id="intimidade" class="page-section">
+        <div class="back-navigation">
+            <a href="#home" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Voltar ao Início</a>
+        </div>
+        <main class="catalog-container">
+            <div class="page-logo-header">
+                <h2>BEM-ESTAR & INTIMIDADE</h2>
+                <span class="subtitle">CUIDADO INTENSO E SENSUAL</span>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Produto 1: Perfume de calcinha -->
+                <div class="product-card" data-id="i1" data-name="Perfume para Calcinha Soft" data-price="29.90">
+                    <div class="product-img-placeholder">
+                        <i class="fa-solid fa-spray-can"></i>
+                        <span>[Perfume Íntimo]</span>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-brand">Belinna Secreta</span>
+                        <h3>Perfume para Calcinha</h3>
+                        <p class="product-desc"><strong>O que é:</strong> Uma fragrância suave, delicada e hipoalergênica desenvolvida para tecidos íntimos.</p>
+                        <p class="product-spec"><strong>O que faz:</strong> Deixa as peças com aroma prolongado de frescor e limpeza, promovendo bem-estar o dia todo.</p>
+                        <p class="product-spec"><strong>Como usar:</strong> Borrife a uma distância de 20cm da peça de roupa íntima após lavada ou antes de vestir.</p>
+                        <div class="product-meta">
+                            <span class="product-price">R$ 29,90</span>
+                            <div class="quantity-selector">
+                                <button class="qty-btn minus">-</button>
+                                <input type="number" value="1" min="1" class="qty-input">
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <button class="btn-add-to-cart">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+
+                <!-- Produto 2: Gel beijável bumbum/virilha -->
+                <div class="product-card" data-id="i2" data-name="Gel Beijável Bumbum e Virilha" data-price="34.90">
+                    <div class="product-img-placeholder">
+                        <i class="fa-solid fa-ice-cream"></i>
+                        <span>[Gel Beijável]</span>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-brand">Soft Cosméticos</span>
+                        <h3>Gel Gourmet Beijável</h3>
+                        <p class="product-desc"><strong>O que é:</strong> Gel aromático e corporal perfeito para momentos a dois na região do bumbum e virilha.</p>
+                        <p class="product-spec"><strong>O que faz:</strong> Desperta sensações térmicas deliciosas na pele, além de possuir um sabor irresistível.</p>
+                        <p class="product-spec"><strong>Como usar:</strong> Aplique a quantidade desejada na área escolhida e massageie suavemente ou sopre suavemente para ativar o calor.</p>
+                        <div class="product-meta">
+                            <span class="product-price">R$ 34,90</span>
+                            <div class="quantity-selector">
+                                <button class="qty-btn minus">-</button>
+                                <input type="number" value="1" min="1" class="qty-input">
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <button class="btn-add-to-cart">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+
+                <!-- Produto 3: Creme de Melaleuca -->
+                <div class="product-card" data-id="i3" data-name="Creme de Melaleuca (Antimicótico)" data-price="42.00">
+                    <div class="product-img-placeholder">
+                        <i class="fa-solid fa-leaf"></i>
+                        <span>[Creme de Melaleuca]</span>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-brand">Cuidado Natural</span>
+                        <h3>Creme Reparador de Melaleuca</h3>
+                        <p class="product-desc"><strong>O que é:</strong> Creme regenerador enriquecido com óleo essencial de Melaleuca (Tea Tree).</p>
+                        <p class="product-spec"><strong>O que faz:</strong> Ação antisséptica e antifúngica natural potente. Auxilia no combate e prevenção de micoses e irritações cutâneas.</p>
+                        <p class="product-spec"><strong>Como usar:</strong> Aplique uma camada fina sobre a região limpa e seca de 1 a 2 vezes ao dia, massageando até absorver.</p>
+                        <div class="product-meta">
+                            <span class="product-price">R$ 42,00</span>
+                            <div class="quantity-selector">
+                                <button class="qty-btn minus">-</button>
+                                <input type="number" value="1" min="1" class="qty-input">
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <button class="btn-add-to-cart">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- MODAL / SEÇÃO DO CARRINHO LATERAL -->
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Seu Carrinho</h3>
+            <button id="close-cart-btn" class="close-cart">&times;</button>
+        </div>
+        <div id="cart-items-container" class="cart-items-list">
+            <p class="empty-cart-text">Seu carrinho está vazio.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span>Total:</span>
+                <span id="cart-total-value">R$ 0,00</span>
+            </div>
+            <button id="btn-checkout-whatsapp" class="btn-send-order">
+                <i class="fa-brands fa-whatsapp"></i> Enviar Pedido no WhatsApp
+            </button>
         </div>
     </div>
 
-    <div id="cart-sidebar">
-        <h2 style="color: var(--rose);">Seu Carrinho</h2>
-        <div id="cart-items"></div>
-        <button class="btn-premium" style="width:100%; margin-top:20px;" onclick="checkout()">Finalizar Pedido</button>
-    </div>
+    <!-- BOTÃO FLUTUANTE DO CARRINHO -->
+    <button id="cart-floating-btn" class="cart-floating-btn">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span id="cart-badge" class="cart-badge">0</span>
+    </button>
 
-    <script>
-        function showSection(id) {
-            document.querySelectorAll('.container').forEach(s => s.style.display = 'none');
-            document.getElementById(id).style.display = 'block';
-        }
-        
-        function changeQty(id, delta) {
-            let el = document.getElementById('qty-'+id);
-            el.innerText = Math.max(0, parseInt(el.innerText) + delta);
-        }
+    <!-- RODAPÉ GLOBAL -->
+    <footer>
+        <p>&copy; 2026 Belinna Store. Todos os direitos reservados.</p>
+    </footer>
 
-        let cart = [];
-        function addToCart(nome, preco, qId) {
-            let q = parseInt(document.getElementById(qId).innerText);
-            if(q > 0) {
-                cart.push({nome, q});
-                renderCart();
-                document.body.classList.add('cart-open');
-            }
-        }
-
-        function renderCart() {
-            document.getElementById('cart-items').innerHTML = cart.map(i => `<p>${i.q}x ${i.nome}</p>`).join('');
-        }
-
-        function checkout() {
-            let text = "✨ *Novo Pedido Belinna Store*\n\n";
-            cart.forEach(i => text += `• ${i.q}x ${i.nome}\n`);
-            text += "\nAguardo confirmação! Obrigada.";
-            window.open(`https://wa.me/5511993610210?text=${encodeURIComponent(text)}`);
-        }
-    </script>
+    <!-- Script de Automação do Carrinho -->
+    <script src="./script.js"></script>
 </body>
 </html>
