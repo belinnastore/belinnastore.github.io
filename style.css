@@ -53,11 +53,11 @@ header {
     padding: 20px 0;
 }
 
-/* Estilo dos Seus Cards Originais */
+/* Estilo dos Cards Originais */
 .channel-card {
-    background-color: #FDF5F2; /* Fundo rosé suave */
-    border: 1px solid #F6ECE7; /* Borda sutil */
-    border-radius: 16px;       /* Cantos arredondados */
+    background-color: #FDF5F2;
+    border: 1px solid #F6ECE7;
+    border-radius: 16px;
     padding: 45px 30px;
     text-align: center;
     display: flex;
@@ -105,23 +105,16 @@ header {
     text-transform: uppercase;
 }
 
-/* LÓGICA SPA SEGURA (Esconde as seções e exibe apenas o Alvo/:target) */
+/* LÓGICA SPA */
 .spa-section {
     display: none;
     padding: 40px 20px;
 }
 
-/* Quando uma seção interna é ativada */
 #sobre:target, #makes:target, #skincare:target, #bemestar:target, #clientes:target {
     display: block;
 }
 
-/* Se NENHUMA seção estiver no link (Home ativa), mostra a Home Grid */
-.home-grid {
-    display: grid;
-}
-
-/* Se QUALQUER seção estiver ativa, o CSS moderno oculta a Home Grid com segurança */
 body:has(#sobre:target) .home-grid,
 body:has(#makes:target) .home-grid,
 body:has(#skincare:target) .home-grid,
@@ -130,7 +123,6 @@ body:has(#clientes:target) .home-grid {
     display: none !important;
 }
 
-/* Botão de Voltar */
 .back-btn {
     display: inline-block;
     margin-bottom: 25px;
@@ -140,7 +132,7 @@ body:has(#clientes:target) .home-grid {
     font-weight: 500;
 }
 
-/* Estilo Simples dos Botões de Produto de Sistema */
+/* Vitrine de Produtos Internos */
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -164,6 +156,100 @@ body:has(#clientes:target) .home-grid {
     margin-top: 10px;
     cursor: pointer;
     border-radius: 4px;
+}
+
+/* ==========================================
+   ESTRUTURA FORÇADA DO CARRINHO (CORREÇÃO)
+   ========================================== */
+
+/* Botão Flutuante Fixo */
+.cart-toggle-btn {
+    position: fixed !important;
+    bottom: 30px !important;
+    right: 30px !important;
+    background: #B76E79 !important;
+    color: white !important;
+    border: none !important;
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 50% !important;
+    font-size: 1.5rem !important;
+    cursor: pointer !important;
+    z-index: 2000 !important;
+    box-shadow: 0 4px 12px rgba(183, 110, 121, 0.3) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+#cart-count {
+    background: #1A1A1A;
+    color: white;
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border-radius: 10px;
+    margin-left: 5px;
+}
+
+/* Carrinho Lateral Escondido à Direita */
+.side-cart {
+    position: fixed !important;
+    top: 0 !important;
+    right: -360px !important; /* Joga para fora da tela na direita */
+    width: 320px !important;
+    height: 100% !important;
+    background: #FFFFFF !important;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1) !important;
+    z-index: 3000 !important;
+    transition: right 0.3s ease-in-out !important;
+    padding: 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    text-align: left !important;
+}
+
+/* Quando o JavaScript ativa o carrinho */
+body.cart-open .side-cart {
+    right: 0 !important; /* Desliza para dentro da tela */
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #EAE6E1;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.close-cart {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.cart-items-container {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.cart-footer {
+    border-top: 1px solid #EAE6E1;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+.checkout-btn {
+    background: #27AE60;
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 12px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
 }
 
 /* Rodapé */
@@ -191,33 +277,4 @@ footer {
     color: #B76E79;
     text-decoration: none;
     font-size: 0.9rem;
-}
-
-/* Carrinho Flutuante Fixo */
-.cart-toggle-btn {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: #B76E79;
-    color: white;
-    border: none;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    cursor: pointer;
-    z-index: 200;
-}
-
-/* Carrinho Lateral Escondido por Padrão */
-.side-cart {
-    position: fixed;
-    top: 0;
-    right: -350px;
-    width: 350px;
-    height: 100%;
-    background: #FFFFFF;
-    box-shadow: -4px 0 15px rgba(0,0,0,0.05);
-    z-index: 300;
-    transition: right 0.3s ease;
 }
