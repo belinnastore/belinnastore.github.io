@@ -1,4 +1,4 @@
-/* Paleta Premium: Rosé Gold Soft (#FDF5F2), Borda Rosé (#F6ECE7), Texto Escuro (#1A1A1A) */
+/* Paleta Premium: Rosé Gold Soft (#FDF5F2), Borda Rosé (#F6ECE7), Texto Escuro (#1A1A1A), Brilho Rosé (#B76E79) */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -53,7 +53,7 @@ header {
     padding: 20px 0;
 }
 
-/* Estilo dos Cards Originais */
+/* CARDS EDITORIAIS COM INTERAÇÃO E GLOW ROSÉ */
 .channel-card {
     background-color: #FDF5F2;
     border: 1px solid #F6ECE7;
@@ -66,6 +66,21 @@ header {
     justify-content: space-between;
     min-height: 320px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.01);
+    
+    /* Transição suave para dar efeito de animação fluida */
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.4s ease;
+    cursor: pointer;
+}
+
+/* O Efeito de Brilho e Elevação ao passar o mouse (Hover) */
+.channel-card:hover {
+    transform: translateY(-8px); /* Eleva o card sutilmente */
+    border-color: #D4A396; /* Escurece a borda de leve */
+    /* Efeito Glow: sombra desfocada usando o tom Rosé Gold da marca */
+    box-shadow: 0 15px 30px rgba(183, 110, 121, 0.15), 
+                0 0 15px rgba(183, 110, 121, 0.1); 
 }
 
 .card-icon-circle {
@@ -78,6 +93,12 @@ header {
     justify-content: center;
     font-size: 1.5rem;
     margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+/* Ícone pulsa levemente quando passa o mouse no card */
+.channel-card:hover .card-icon-circle {
+    transform: scale(1.08);
 }
 
 .channel-card h2 {
@@ -103,12 +124,25 @@ header {
     color: #D4A396;
     text-decoration: none;
     text-transform: uppercase;
+    transition: color 0.2s ease, padding-left 0.2s ease;
 }
 
-/* LÓGICA SPA */
+/* Seta do botão se move sutilmente para o lado no hover */
+.channel-card:hover .card-btn {
+    color: #B76E79;
+    padding-left: 5px;
+}
+
+/* LÓGICA SPA COM ANIMAÇÃO FADE-IN */
 .spa-section {
     display: none;
     padding: 40px 20px;
+    animation: fadeInPage 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInPage {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 #sobre:target, #makes:target, #skincare:target, #bemestar:target, #clientes:target {
@@ -130,6 +164,10 @@ body:has(#clientes:target) .home-grid {
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 500;
+    transition: transform 0.2s ease;
+}
+.back-btn:hover {
+    transform: translateX(-3px);
 }
 
 /* Vitrine de Produtos Internos */
@@ -146,6 +184,10 @@ body:has(#clientes:target) .home-grid {
     border-radius: 8px;
     border: 1px solid #EAE6E1;
     text-align: center;
+    transition: box-shadow 0.3s ease;
+}
+.product-item:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.04);
 }
 
 .add-to-cart {
@@ -156,13 +198,16 @@ body:has(#clientes:target) .home-grid {
     margin-top: 10px;
     cursor: pointer;
     border-radius: 4px;
+    transition: background 0.2s ease;
+}
+.add-to-cart:hover {
+    background: #B76E79;
 }
 
 /* ========================================================
-   SELETORES CORINGA PARA O CARRINHO (PEGA QUALQUER CÓDIGO)
+   CARRINHO E BOTÃO FLUTUANTE
    ======================================================== */
 
-/* Botão Flutuante do Ícone Rosa */
 .cart-toggle-btn, #cart-toggle, [class*="cart-btn"], [id*="cart-btn"] {
     position: fixed !important;
     bottom: 30px !important;
@@ -180,37 +225,48 @@ body:has(#clientes:target) .home-grid {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+.cart-toggle-btn:hover {
+    transform: scale(1.05) !important;
+    box-shadow: 0 6px 15px rgba(183, 110, 121, 0.4) !important;
 }
 
-/* Força a barra do carrinho a sumir da esquerda e ir para a lateral oculta */
+#cart-count {
+    background: #1A1A1A;
+    color: white;
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border-radius: 10px;
+    margin-left: 5px;
+}
+
 .side-cart, #side-cart, .cart-sidebar, #cart-sidebar, #carrinho, .carrinho {
     position: fixed !important;
     top: 0 !important;
-    right: -360px !important; /* Esconde totalmente na direita */
+    right: -360px !important;
     width: 320px !important;
     height: 100% !important;
     background: #FFFFFF !important;
     box-shadow: -5px 0 15px rgba(0,0,0,0.1) !important;
     z-index: 3000 !important;
-    transition: right 0.3s ease-in-out !important;
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
     padding: 20px !important;
     display: flex !important;
     flex-direction: column !important;
     text-align: left !important;
 }
 
-/* Quando o carrinho ganha a ordem de abrir */
 body.cart-open .side-cart, 
 body.cart-open #side-cart, 
 body.cart-open .cart-sidebar, 
 body.cart-open #cart-sidebar,
 body.cart-open #carrinho,
 body.cart-open .carrinho {
-    right: 0 !important; /* Desliza para dentro da tela */
+    right: 0 !important;
 }
 
-/* Estilização interna rápida dos botões e textos do carrinho */
-.cart-header, [class*="cart-title"] {
+.cart-header {
     display: flex !important;
     justify-content: space-between !important;
     align-items: center !important;
@@ -219,7 +275,7 @@ body.cart-open .carrinho {
     margin-bottom: 15px !important;
 }
 
-.checkout-btn, [onclick*="sendWhatsApp"] {
+.checkout-btn {
     background: #27AE60 !important;
     color: white !important;
     border: none !important;
@@ -229,6 +285,10 @@ body.cart-open .carrinho {
     font-weight: 600 !important;
     cursor: pointer !important;
     margin-top: 10px !important;
+    transition: background 0.2s ease !important;
+}
+.checkout-btn:hover {
+    background: #219653 !important;
 }
 
 /* Rodapé */
@@ -238,4 +298,26 @@ footer {
     padding: 40px 20px;
     margin-top: 60px;
     text-align: center;
+}
+
+.footer-content p {
+    font-size: 0.85rem;
+    color: #AAA;
+}
+
+.social-links {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-links a {
+    color: #B76E79;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+.social-links a:hover {
+    color: #FFFFFF;
 }
