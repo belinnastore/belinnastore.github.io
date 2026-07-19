@@ -1,339 +1,39 @@
-/* Paleta Premium: Rosé Gold Soft (#FDF5F2), Borda Rosé (#F6ECE7), Texto Escuro (#1A1A1A) */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+/* --- ESTILOS GERAIS E FAIXA --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Montserrat', sans-serif; background-color: #fdfbf7; color: #333; }
 
-body {
-    background-color: #FAF8F5;
-    color: #1A1A1A;
-    font-family: 'Montserrat', sans-serif;
-    overflow-x: hidden;
-}
-
-/* Header & Logo */
-header {
-    background: #FFFFFF;
-    padding: 40px 20px;
-    text-align: center;
-    border-bottom: 1px solid #F1EAE4;
-}
-
-.logo-container h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.8rem;
-    font-weight: 300;
-    letter-spacing: 5px;
-    color: #1A1A1A;
-    text-transform: uppercase;
-}
-
-.logo-container .subtitle {
-    font-size: 0.9rem;
-    color: #B76E79;
-    letter-spacing: 1px;
-    margin-top: 12px;
-    font-weight: 400;
-    font-style: italic;
-}
-
-/* Container Principal */
-.main-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Grid de Cards da Home */
-.home-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-    padding: 20px 0;
-}
-
-/* CARDS EDITORIAIS PRINCIPAIS */
-.channel-card {
-    background-color: #FDF5F2 !important;
-    border: 1px solid #F6ECE7 !important;
-    border-radius: 16px !important;
-    padding: 45px 30px !important;
-    text-align: center !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    min-height: 320px !important;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.01) !important;
-    transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1) !important;
-    cursor: pointer !important;
-}
-
-.channel-card:hover {
-    transform: translateY(-8px) !important;
-    border-color: #D4A396 !important;
-    box-shadow: 0 15px 30px rgba(183, 110, 121, 0.22), 
-                0 0 20px rgba(183, 110, 121, 0.12) !important;
-}
-
-.card-icon-circle {
-    width: 60px;
-    height: 60px;
-    background: #FFFFFF;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    transition: transform 0.3s ease;
-}
-
-.channel-card:hover .card-icon-circle {
-    transform: scale(1.1) !important;
-}
-
-.channel-card h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.9rem;
-    font-weight: 400;
-    color: #1A1A1A;
-    margin-bottom: 15px;
-}
-
-.channel-card p {
-    font-size: 0.95rem;
-    color: #666666;
-    line-height: 1.6;
-    margin-bottom: 25px;
-    font-weight: 300;
-}
-
-.card-btn {
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    color: #D4A396;
-    text-decoration: none;
-    text-transform: uppercase;
-}
-
-/* LÓGICA SPA */
-.spa-section {
-    display: none;
-    padding: 40px 20px;
-    animation: fadeIn 0.4s ease forwards;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-#sobre:target, #makes:target, #skincare:target, #bemestar:target, #clientes:target {
-    display: block;
-}
-
-body:has(#sobre:target) .home-grid,
-body:has(#makes:target) .home-grid,
-body:has(#skincare:target) .home-grid,
-body:has(#bemestar:target) .home-grid,
-body:has(#clientes:target) .home-grid {
-    display: none !important;
-}
-
-.back-btn {
-    display: inline-block;
-    margin-bottom: 25px;
-    color: #B76E79;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-}
-
-/* VITRINE EM CARDS DE PRODUTOS LADO A LADO */
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin-top: 30px;
-}
-
-.product-item {
-    background: #FFFFFF;
-    border: 1px solid #F6ECE7;
-    border-radius: 14px;
-    padding: 30px 20px;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 280px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.product-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(183, 110, 121, 0.1);
-    border-color: #D4A396;
-}
-
-.product-item h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    font-weight: 400;
-    color: #1A1A1A;
-    margin-bottom: 12px;
-}
-
-.product-desc {
-    font-size: 0.88rem;
-    color: #666666;
-    line-height: 1.5;
-    margin-bottom: 15px;
-    font-weight: 300;
-}
-
-.product-price {
-    display: block;
-    font-weight: 600;
-    color: #B76E79;
-    font-size: 1.15rem;
-    margin-bottom: 18px;
-}
-
-.add-to-cart {
-    background: #1A1A1A;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    width: 100%;
-    cursor: pointer;
-    border-radius: 8px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    transition: background 0.2s ease;
-}
-
-.add-to-cart:hover {
-    background: #B76E79;
-}
-
-/* ESTRUTURA DO CARRINHO LATERAL */
-.cart-toggle-btn {
-    position: fixed !important;
-    bottom: 30px !important;
-    right: 30px !important;
-    background: #B76E79 !important;
-    color: white !important;
-    border: none !important;
-    width: 60px !important;
-    height: 60px !important;
-    border-radius: 50% !important;
-    font-size: 1.5rem !important;
-    cursor: pointer !important;
-    z-index: 4000 !important;
-    box-shadow: 0 4px 12px rgba(183, 110, 121, 0.3) !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
-
-.side-cart {
-    position: fixed !important;
-    top: 0 !important;
-    right: -360px !important; 
-    width: 340px !important;
-    height: 100% !important;
-    background: #FFFFFF !important;
-    box-shadow: -5px 0 25px rgba(0,0,0,0.08) !important;
-    z-index: 5000 !important;
-    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
-    padding: 25px !important;
-    display: flex !important;
-    flex-direction: column !important;
-}
-
-body.cart-open .side-cart {
-    right: 0 !important;
-}
-
-.cart-header {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    border-bottom: 1px solid #F1EAE4 !important;
-    padding-bottom: 15px !important;
-    margin-bottom: 20px !important;
-}
-
-.close-cart {
-    background: none;
-    border: none;
-    font-size: 1.8rem;
-    cursor: pointer;
-    color: #999;
-}
-
-.cart-items-container {
-    flex-grow: 1;
-    overflow-y: auto;
-}
-
-.cart-item-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-    font-size: 0.9rem;
-    border-bottom: 1px solid #FAF8F5;
-    padding-bottom: 8px;
-}
-
-.cart-footer {
-    border-top: 1px solid #F1EAE4 !important;
-    padding-top: 20px !important;
-}
-
-.cart-total {
-    display: flex;
-    justify-content: space-between;
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-}
-
-.checkout-btn {
-    background: #27AE60 !important;
-    color: white !important;
-    border: none !important;
-    width: 100% !important;
-    padding: 14px !important;
-    border-radius: 6px !important;
-    font-weight: 600 !important;
-    cursor: pointer;
-}
-
-/* Rodapé */
-footer {
-    background: #2C2C2C;
+.top-banner {
+    background-color: #B76E79;
     color: #FFFFFF;
-    padding: 40px 20px;
-    margin-top: 60px;
     text-align: center;
+    padding: 12px 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    width: 100%;
 }
 
-.social-links {
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
+/* --- ESTRUTURA --- */
+header { padding: 40px 20px; text-align: center; }
+.logo-container h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #B76E79; }
+.subtitle { font-size: 0.9rem; margin-top: 10px; color: #666; }
 
-.social-links a {
-    color: #B76E79;
-    text-decoration: none;
-    font-size: 0.9rem;
+.main-content { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* --- CARDS E GRID --- */
+.home-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; }
+.channel-card { background: white; padding: 30px; border-radius: 15px; text-align: center; cursor: pointer; transition: 0.3s; border: 1px solid #eee; }
+.channel-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+
+/* --- CARRINHO LATERAL --- */
+.side-cart {
+    position: fixed; top: 0; right: -400px; width: 350px; height: 100%;
+    background: white; box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    transition: 0.3s; z-index: 1000; display: flex; flex-direction: column;
 }
+.cart-open .side-cart { right: 0; }
+.cart-header { padding: 20px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; }
+.cart-items-container { flex: 1; padding: 20px; overflow-y: auto; }
+.cart-footer { padding: 20px; border-top: 1px solid #eee; }
+.checkout-btn { width: 100%; padding: 15px; background: #B76E79; color: white; border: none; cursor: pointer; font-weight: 600; }
