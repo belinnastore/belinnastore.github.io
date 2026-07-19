@@ -3,23 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Belinna Store</title>
+    <title>Belinna Store | Sua Essência, Seu Brilho</title>
     <style>
         :root { --primary: #B76E79; --dark: #333; }
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: #fdfbf7; }
-        .top-banner { background: var(--primary); color: #fff; text-align: center; padding: 10px; font-size: 0.8rem; text-transform: uppercase; }
+        body { font-family: 'Montserrat', sans-serif; margin: 0; background-color: #fdfbf7; }
+        .top-banner { background: var(--primary); color: #fff; text-align: center; padding: 12px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+        
         header { padding: 40px 20px; text-align: center; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1000px; margin: auto; padding: 20px; }
+        h1 { font-family: 'Playfair Display', serif; color: var(--primary); }
         
-        /* Estilo do Card */
-        .product-card { background: white; padding: 20px; border-radius: 15px; border: 1px solid #eee; text-align: center; }
-        .qty-selector { display: inline-flex; align-items: center; gap: 10px; margin: 10px; }
-        .btn-add { background: var(--dark); color: white; padding: 10px 20px; border-radius: 5px; border: none; cursor: pointer; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1000px; margin: auto; padding: 20px; }
+        .product-card { background: white; padding: 20px; border-radius: 15px; border: 1px solid #eee; text-align: center; transition: 0.3s; }
         
-        /* Carrinho Lateral Bonito */
+        .qty-selector { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 15px 0; }
+        .btn-add { background: var(--primary); color: white; padding: 10px 20px; border-radius: 5px; border: none; cursor: pointer; width: 100%; }
+        
         #side-cart { position: fixed; top: 0; right: -400px; width: 350px; height: 100%; background: white; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: 0.3s; z-index: 1000; padding: 20px; display: flex; flex-direction: column; }
         .cart-open #side-cart { right: 0; }
-        .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #eee; }
+        .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee; font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -32,19 +33,60 @@
     </header>
 
     <div class="grid" id="produtos">
-        <!-- Card de Produto -->
-        <div class="product-card">
-            <h3>Batom Matte Velvet Rosé</h3>
-            <p><strong>Marca:</strong> Belinna Beauty | <strong>4g</strong></p>
-            <p>Alta pigmentação e hidratação por 12h.</p>
-            
+        <!-- 5 CARDS CONFIGURADOS -->
+        <div class="product-card" id="card-1">
+            <h3>Batom Matte Velvet</h3>
+            <p>R$ 89,90 | 4g</p>
             <div class="qty-selector">
-                <button onclick="changeLocalQty('batom', -1)">-</button>
+                <button onclick="changeQty('batom', -1)">-</button>
                 <span id="qty-batom">1</span>
-                <button onclick="changeLocalQty('batom', 1)">+</button>
+                <button onclick="changeQty('batom', 1)">+</button>
             </div>
-            <br>
-            <button class="btn-add" onclick="addToCart('Batom Matte Velvet Rosé', 89.90, 'batom')">Adicionar ao Carrinho</button>
+            <button class="btn-add" onclick="addToCart('Batom Matte Velvet', 89.90, 'batom')">Adicionar ao Carrinho</button>
+        </div>
+        
+        <div class="product-card" id="card-2">
+            <h3>Iluminador Sun Glow</h3>
+            <p>R$ 74,90 | 5ml</p>
+            <div class="qty-selector">
+                <button onclick="changeQty('ilum', -1)">-</button>
+                <span id="qty-ilum">1</span>
+                <button onclick="changeQty('ilum', 1)">+</button>
+            </div>
+            <button class="btn-add" onclick="addToCart('Iluminador Sun Glow', 74.90, 'ilum')">Adicionar ao Carrinho</button>
+        </div>
+
+        <div class="product-card" id="card-3">
+            <h3>Blush Cream Soft</h3>
+            <p>R$ 68,00 | 6g</p>
+            <div class="qty-selector">
+                <button onclick="changeQty('blush', -1)">-</button>
+                <span id="qty-blush">1</span>
+                <button onclick="changeQty('blush', 1)">+</button>
+            </div>
+            <button class="btn-add" onclick="addToCart('Blush Cream Soft', 68.00, 'blush')">Adicionar ao Carrinho</button>
+        </div>
+
+        <div class="product-card" id="card-4">
+            <h3>Sérum Luminosidade</h3>
+            <p>R$ 139,90 | 30ml</p>
+            <div class="qty-selector">
+                <button onclick="changeQty('serum', -1)">-</button>
+                <span id="qty-serum">1</span>
+                <button onclick="changeQty('serum', 1)">+</button>
+            </div>
+            <button class="btn-add" onclick="addToCart('Sérum Luminosidade', 139.90, 'serum')">Adicionar ao Carrinho</button>
+        </div>
+
+        <div class="product-card" id="card-5">
+            <h3>Vela Vanilla Premium</h3>
+            <p>R$ 62,90 | 150g</p>
+            <div class="qty-selector">
+                <button onclick="changeQty('vela', -1)">-</button>
+                <span id="qty-vela">1</span>
+                <button onclick="changeQty('vela', 1)">+</button>
+            </div>
+            <button class="btn-add" onclick="addToCart('Vela Vanilla Premium', 62.90, 'vela')">Adicionar ao Carrinho</button>
         </div>
     </div>
 
@@ -53,26 +95,24 @@
         <h2 style="color: var(--primary);">Seu Carrinho</h2>
         <div id="cart-items" style="flex-grow: 1; overflow-y: auto;"></div>
         <p><strong>Total: <span id="cart-total">R$ 0,00</span></strong></p>
-        <button onclick="enviarWhatsApp()" style="width: 100%; background: #25D366; color: white; padding: 15px; border: none; cursor: pointer;">Finalizar Pedido (WhatsApp)</button>
-        <button onclick="toggleCart()" style="width: 100%; background: #eee; margin-top: 10px; padding: 10px; border: none; cursor: pointer;">Fechar</button>
+        <button onclick="enviarWhatsApp()" style="width: 100%; background: #25D366; color: white; padding: 15px; border: none; cursor: pointer; font-weight: bold;">FINALIZAR PEDIDO NO WHATSAPP 📱</button>
+        <button onclick="toggleCart()" style="width: 100%; background: #eee; margin-top: 10px; padding: 10px; border: none; cursor: pointer;">Continuar Comprando</button>
     </div>
 
     <script>
         let carrinho = [];
-        let localQtys = { batom: 1 };
+        let qtys = { batom: 1, ilum: 1, blush: 1, serum: 1, vela: 1 };
 
         function toggleCart() { document.body.classList.toggle('cart-open'); }
-
-        function changeLocalQty(id, delta) {
-            localQtys[id] = Math.max(1, localQtys[id] + delta);
-            document.getElementById('qty-' + id).innerText = localQtys[id];
+        function changeQty(id, delta) {
+            qtys[id] = Math.max(1, qtys[id] + delta);
+            document.getElementById('qty-'+id).innerText = qtys[id];
         }
 
         function addToCart(nome, preco, id) {
-            let qtd = localQtys[id];
             let item = carrinho.find(i => i.nome === nome);
-            if (item) item.qtd += qtd;
-            else carrinho.push({ nome, preco, qtd: qtd });
+            if (item) item.qtd += qtys[id];
+            else carrinho.push({ nome, preco, qtd: qtys[id] });
             renderCart();
             toggleCart();
         }
@@ -85,20 +125,22 @@
                 total += item.preco * item.qtd;
                 container.innerHTML += `
                     <div class="cart-item">
-                        <div><strong>${item.nome}</strong><br>${item.qtd}x R$ ${item.preco.toFixed(2).replace('.',',')}</div>
+                        <span>${item.qtd}x ${item.nome}</span>
                         <div>
                             <button onclick="carrinho[${index}].qtd--; renderCart()">-</button>
-                            <button onclick="carrinho[${index}].qtd++; renderCart()">+</button>
-                            <button onclick="carrinho.splice(${index}, 1); renderCart()">🗑️</button>
+                            <button onclick="removerItem(${index})">🗑️</button>
                         </div>
                     </div>`;
             });
             document.getElementById('cart-total').innerText = `R$ ${total.toFixed(2).replace('.',',')}`;
         }
 
+        function removerItem(i) { carrinho.splice(i, 1); renderCart(); }
+
         function enviarWhatsApp() {
-            let msg = "Pedido Belinna Store:%0A";
-            carrinho.forEach(i => msg += `${i.qtd}x ${i.nome}%0A`);
+            let msg = "*✨ Novo Pedido - Belinna Store ✨*%0A%0A";
+            carrinho.forEach(i => msg += `• ${i.qtd}x ${i.nome} - R$ ${(i.preco * i.qtd).toFixed(2).replace('.',',')}%0A`);
+            msg += `%0A*💰 Total: R$ ${document.getElementById('cart-total').innerText}*%0A%0AOlá! Gostaria de finalizar este pedido e combinar a entrega.`;
             window.open(`https://api.whatsapp.com/send?phone=5511993610210&text=${msg}`);
         }
     </script>
