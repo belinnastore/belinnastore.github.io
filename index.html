@@ -3,24 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Belinna Store | Sua Essência, Seu Brilho</title>
+    <title>Belinna Store</title>
     <style>
-        :root { --primary: #B76E79; --dark: #333; }
-        body { font-family: 'Montserrat', sans-serif; margin: 0; background-color: #fdfbf7; }
-        .top-banner { background: var(--primary); color: #fff; text-align: center; padding: 12px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+        :root { --primary: #B76E79; --gold: #D4AF37; }
+        body { font-family: 'Montserrat', sans-serif; margin: 0; background-color: #fdfbf7; color: #333; }
         
+        /* Faixa Superior */
+        .top-banner { background: var(--primary); color: #fff; text-align: center; padding: 10px; font-size: 0.8rem; text-transform: uppercase; }
+        
+        /* Grid Principal */
         header { padding: 40px 20px; text-align: center; }
-        h1 { font-family: 'Playfair Display', serif; color: var(--primary); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1000px; margin: auto; padding: 20px; }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1000px; margin: auto; padding: 20px; }
-        .product-card { background: white; padding: 20px; border-radius: 15px; border: 1px solid #eee; text-align: center; transition: 0.3s; }
+        /* Cards com Efeito Dourado */
+        .nav-card { background: white; padding: 30px; border-radius: 20px; text-align: center; cursor: pointer; transition: 0.3s; border: 1px solid #eee; }
+        .nav-card:hover { box-shadow: 0 0 15px var(--gold); border-color: var(--gold); }
         
-        .qty-selector { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 15px 0; }
-        .btn-add { background: var(--primary); color: white; padding: 10px 20px; border-radius: 5px; border: none; cursor: pointer; width: 100%; }
+        /* Cards de Produto */
+        .product-card { background: white; padding: 20px; border-radius: 20px; border: 1px solid #eee; text-align: center; }
+        .btn-round { border-radius: 25px; border: none; padding: 10px 20px; cursor: pointer; background: var(--primary); color: white; margin-top: 10px; }
+        .qty-selector { margin: 10px 0; }
+        .qty-btn { border-radius: 50%; width: 30px; height: 30px; border: 1px solid #ccc; cursor: pointer; background: white; }
         
+        /* Carrinho Lateral */
         #side-cart { position: fixed; top: 0; right: -400px; width: 350px; height: 100%; background: white; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: 0.3s; z-index: 1000; padding: 20px; display: flex; flex-direction: column; }
         .cart-open #side-cart { right: 0; }
-        .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+        .close-btn { background: #eee; border: none; padding: 5px 10px; border-radius: 10px; cursor: pointer; float: right; }
     </style>
 </head>
 <body>
@@ -32,84 +40,48 @@
         <p>Sua beleza, nossa missão.</p>
     </header>
 
-    <div class="grid" id="produtos">
-        <!-- 5 CARDS CONFIGURADOS -->
-        <div class="product-card" id="card-1">
+    <div class="grid">
+        <div class="nav-card"><h3>Sobre Nós</h3></div>
+        <div class="nav-card"><h3>Makes</h3></div>
+        <div class="nav-card"><h3>Skincare</h3></div>
+        <div class="nav-card"><h3>Corpo & Cuidados Íntimos</h3></div>
+        <div class="nav-card"><h3>Clientes</h3></div>
+    </div>
+
+    <div class="grid">
+        <div class="product-card">
             <h3>Batom Matte Velvet</h3>
-            <p>R$ 89,90 | 4g</p>
+            <p>R$ 89,90</p>
             <div class="qty-selector">
-                <button onclick="changeQty('batom', -1)">-</button>
-                <span id="qty-batom">1</span>
-                <button onclick="changeQty('batom', 1)">+</button>
+                <button class="qty-btn" onclick="updateQty('batom', -1)">-</button>
+                <span id="qty-batom">0</span>
+                <button class="qty-btn" onclick="updateQty('batom', 1)">+</button>
             </div>
-            <button class="btn-add" onclick="addToCart('Batom Matte Velvet', 89.90, 'batom')">Adicionar ao Carrinho</button>
-        </div>
-        
-        <div class="product-card" id="card-2">
-            <h3>Iluminador Sun Glow</h3>
-            <p>R$ 74,90 | 5ml</p>
-            <div class="qty-selector">
-                <button onclick="changeQty('ilum', -1)">-</button>
-                <span id="qty-ilum">1</span>
-                <button onclick="changeQty('ilum', 1)">+</button>
-            </div>
-            <button class="btn-add" onclick="addToCart('Iluminador Sun Glow', 74.90, 'ilum')">Adicionar ao Carrinho</button>
-        </div>
-
-        <div class="product-card" id="card-3">
-            <h3>Blush Cream Soft</h3>
-            <p>R$ 68,00 | 6g</p>
-            <div class="qty-selector">
-                <button onclick="changeQty('blush', -1)">-</button>
-                <span id="qty-blush">1</span>
-                <button onclick="changeQty('blush', 1)">+</button>
-            </div>
-            <button class="btn-add" onclick="addToCart('Blush Cream Soft', 68.00, 'blush')">Adicionar ao Carrinho</button>
-        </div>
-
-        <div class="product-card" id="card-4">
-            <h3>Sérum Luminosidade</h3>
-            <p>R$ 139,90 | 30ml</p>
-            <div class="qty-selector">
-                <button onclick="changeQty('serum', -1)">-</button>
-                <span id="qty-serum">1</span>
-                <button onclick="changeQty('serum', 1)">+</button>
-            </div>
-            <button class="btn-add" onclick="addToCart('Sérum Luminosidade', 139.90, 'serum')">Adicionar ao Carrinho</button>
-        </div>
-
-        <div class="product-card" id="card-5">
-            <h3>Vela Vanilla Premium</h3>
-            <p>R$ 62,90 | 150g</p>
-            <div class="qty-selector">
-                <button onclick="changeQty('vela', -1)">-</button>
-                <span id="qty-vela">1</span>
-                <button onclick="changeQty('vela', 1)">+</button>
-            </div>
-            <button class="btn-add" onclick="addToCart('Vela Vanilla Premium', 62.90, 'vela')">Adicionar ao Carrinho</button>
+            <button class="btn-round" onclick="addToCart('Batom Matte Velvet', 89.90, 'batom')">Adicionar ao Carrinho</button>
         </div>
     </div>
 
     <!-- Carrinho -->
     <div id="side-cart">
-        <h2 style="color: var(--primary);">Seu Carrinho</h2>
-        <div id="cart-items" style="flex-grow: 1; overflow-y: auto;"></div>
+        <button class="close-btn" onclick="toggleCart()">Fechar X</button>
+        <h2>Seu Carrinho</h2>
+        <div id="cart-items" style="flex-grow: 1;"></div>
         <p><strong>Total: <span id="cart-total">R$ 0,00</span></strong></p>
-        <button onclick="enviarWhatsApp()" style="width: 100%; background: #25D366; color: white; padding: 15px; border: none; cursor: pointer; font-weight: bold;">FINALIZAR PEDIDO NO WHATSAPP 📱</button>
-        <button onclick="toggleCart()" style="width: 100%; background: #eee; margin-top: 10px; padding: 10px; border: none; cursor: pointer;">Continuar Comprando</button>
+        <button class="btn-round" style="width: 100%; background: #25D366;" onclick="finalizar()">FINALIZAR PEDIDO NO WHATSAPP 📱</button>
     </div>
 
     <script>
         let carrinho = [];
-        let qtys = { batom: 1, ilum: 1, blush: 1, serum: 1, vela: 1 };
+        let qtys = { batom: 0 };
 
         function toggleCart() { document.body.classList.toggle('cart-open'); }
-        function changeQty(id, delta) {
-            qtys[id] = Math.max(1, qtys[id] + delta);
+        function updateQty(id, delta) {
+            qtys[id] = Math.max(0, qtys[id] + delta);
             document.getElementById('qty-'+id).innerText = qtys[id];
         }
 
         function addToCart(nome, preco, id) {
+            if (qtys[id] === 0) return alert("Escolha uma quantidade!");
             let item = carrinho.find(i => i.nome === nome);
             if (item) item.qtd += qtys[id];
             else carrinho.push({ nome, preco, qtd: qtys[id] });
@@ -123,25 +95,14 @@
             let total = 0;
             carrinho.forEach((item, index) => {
                 total += item.preco * item.qtd;
-                container.innerHTML += `
-                    <div class="cart-item">
-                        <span>${item.qtd}x ${item.nome}</span>
-                        <div>
-                            <button onclick="carrinho[${index}].qtd--; renderCart()">-</button>
-                            <button onclick="removerItem(${index})">🗑️</button>
-                        </div>
-                    </div>`;
+                container.innerHTML += `<div class="cart-item">${item.qtd}x ${item.nome} <button onclick="carrinho.splice(${index},1); renderCart()">🗑️</button></div>`;
             });
-            document.getElementById('cart-total').innerText = `R$ ${total.toFixed(2).replace('.',',')}`;
+            document.getElementById('cart-total').innerText = 'R$ ' + total.toFixed(2);
         }
 
-        function removerItem(i) { carrinho.splice(i, 1); renderCart(); }
-
-        function enviarWhatsApp() {
-            let msg = "*✨ Novo Pedido - Belinna Store ✨*%0A%0A";
-            carrinho.forEach(i => msg += `• ${i.qtd}x ${i.nome} - R$ ${(i.preco * i.qtd).toFixed(2).replace('.',',')}%0A`);
-            msg += `%0A*💰 Total: R$ ${document.getElementById('cart-total').innerText}*%0A%0AOlá! Gostaria de finalizar este pedido e combinar a entrega.`;
-            window.open(`https://api.whatsapp.com/send?phone=5511993610210&text=${msg}`);
+        function finalizar() {
+            let msg = "Olá! Gostaria de finalizar: " + carrinho.map(i => i.qtd + "x " + i.nome).join(", ");
+            window.open(`https://api.whatsapp.com/send?phone=5511993610210&text=${encodeURIComponent(msg)}`);
         }
     </script>
 </body>
