@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Belinna Store | Vitrine Premium</title>
+    <title>Belinna Store - Beauty&Makup</title>
     <!-- Ícones Globais -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="./style.css">
@@ -51,32 +51,21 @@
 
         <main style="max-width: 1200px; margin: 40px auto; padding: 0 20px;">
             <section style="text-align: center; margin-bottom: 40px;">
-                <p style="color: var(--text-light); font-size: 1rem; letter-spacing: 1px;">Selecione uma das opções abaixo para explorar nossa curadoria exclusiva.</p>
+                <p style="color: var(--text-light); font-size: 1rem; letter-spacing: 1px;">Selecione uma das opções abaixo para explorar nossos produtinhos baratinhos.</p>
             </section>
 
             <!-- Grid de Navegação Isolado -->
             <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; width: 100%;">
                 
                 <!-- [CARD 1]: SOBRE NÓS -->
-               <section id="sobre-nos" class="about-section" style="padding: 40px 20px; max-width: 800px; margin: 0 auto; text-align: center; line-height: 1.6;">
-    <h2 style="font-size: 2rem; margin-bottom: 20px; color: #333;">Sobre a Belinna Store 💖</h2>
+            
+                <div onclick="switchTab('sobre nós')" class="menu-card">
+                    <div style="font-size: 2.2rem; color: var(--primary-color); margin-bottom: 15px; display: block;"><i class="fa-solid fa-feather-pointed"></i></div>
+                    <h3 style="font-weight: 400; letter-spacing: 2px; margin: 0 0 12px 0; font-size: 1.2rem; color: var(--text-color);">Bem-Estar</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-light); margin: 0 0 20px 0; line-height: 1.5; min-height: 60px;">Perfumes íntimos, géis de massagem e cuidados especiais com o corpo.</p>
+                    <span style="color: var(--primary-color); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: inline-block;">Explorar →</span>
+                </div>
     
-    <p style="font-size: 1.1rem; margin-bottom: 15px; color: #555;">
-        A <strong>Belinna Store</strong> nasceu da vontade de mostrar que se cuidar e se maquiar não precisa ser caro nem complicado. Nós somos uma <strong>loja de produtos baratinhos</strong> focada em maquiagem e cuidados com a pele!
-    </p>
-
-    <p style="font-size: 1.05rem; margin-bottom: 15px; color: #555;">
-        Sabemos que nem todo mundo é expert em maquiagem (e tudo bem!), por isso reunimos opções práticas, fofas e fáceis de usar no dia a dia. Nosso objetivo é que você consiga garantir suas Makes e itens de Skincare favoritos pagando um preço justo que cabe no bolso.
-    </p>
-
-    <p style="font-size: 1.05rem; margin-bottom: 20px; color: #555;">
-        Queremos que você se sinta acolhida por aqui, escolha seus produtinhos com calma e aproveite momentos simples de carinho com você mesma.
-    </p>
-
-    <p style="font-size: 1.1rem; font-weight: bold; color: #e91e63;">
-        Seja muito bem-vinda e boas compras! ✨
-    </p>
-</section>
 
                 <!-- [CARD 2]: MAKES -->
                 <div onclick="switchTab('makes')" class="menu-card">
@@ -117,29 +106,25 @@
     <!-- ==========================================
          PÁGINA 2: SOBRE NÓS
          ========================================== -->
-    <div id="sobre" class="tab-content">
-        <header>
-            <div style="max-width: 900px; margin: 0 auto; text-align: left; padding: 0 20px;">
-                <button onclick="switchTab('home')" style="background: none; border: none; color: var(--text-light); cursor: pointer; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;"><i class="fa-solid fa-arrow-left"></i> Voltar ao Início</button>
-            </div>
-            <h1 style="margin-top: 20px;">BELINNA STORE</h1>
-            <p>BEAUTY & MAKEUP</p>
-        </header>
-        <main style="max-width: 900px; margin: 40px auto; padding: 0 20px; text-align: center;">
-            <article style="font-size: 1.1rem; line-height: 1.8; color: var(--text-color);">
-                <p style="margin-bottom: 20px;">A <strong>Belinna Store</strong> nasceu do desejo profundo de conectar você com o que há de mais refinado no universo da beleza e do autocuidado. Nós não enxergamos a maquiagem como uma forma de mascarar, mas sim como uma poderosa ferramenta para celebrar sua identidade única.</p>
-                <p style="margin-bottom: 40px;">Nossa assinatura é pautada por uma curadoria exclusiva, humanizada e extremamente rigorosa. Selecionamos a dedo marcas que são referência absoluta no mercado, como <em>Ruby Rose, Melu, Venzza e Mia Make</em>.</p>
-                
-                <div style="margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px;">
-                    <p style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-light); margin-bottom: 15px;">Acompanhe nossos bastidores:</p>
-                    <div style="display: flex; justify-content: center; gap: 30px;">
-                        <a href="https://instagram.com/belinna.store" target="_blank" style="color: var(--text-color); text-decoration: none; font-weight: 500;"><i class="fa-brands fa-instagram" style="color: var(--primary-color);"></i> @belinna.store</a>
-                        <a href="https://tiktok.com/@belinnastore" target="_blank" style="color: var(--text-color); text-decoration: none; font-weight: 500;"><i class="fa-brands fa-tiktok" style="color: var(--primary-color);"></i> @belinnastore</a>
-                    </div>
-                </div>
-            </article>
-        </main>
-    </div>
+             <section id="sobre-nos" class="about-section" style="padding: 40px 20px; max-width: 800px; margin: 0 auto; text-align: center; line-height: 1.6;">
+    <h2 style="font-size: 2rem; margin-bottom: 20px; color: #333;">Sobre a Belinna Store 💖</h2>
+    
+    <p style="font-size: 1.1rem; margin-bottom: 15px; color: #555;">
+        A <strong>Belinna Store</strong> nasceu da vontade de mostrar que se cuidar e se maquiar não precisa ser caro nem complicado. Nós somos uma <strong>loja de produtos baratinhos</strong> focada em maquiagem e cuidados com a pele!
+    </p>
+
+    <p style="font-size: 1.05rem; margin-bottom: 15px; color: #555;">
+        Sabemos que nem todo mundo é expert em maquiagem (e tudo bem!), por isso reunimos opções práticas, fofas e fáceis de usar no dia a dia. Nosso objetivo é que você consiga garantir suas Makes e itens de Skincare favoritos pagando um preço justo que cabe no bolso.
+    </p>
+
+    <p style="font-size: 1.05rem; margin-bottom: 20px; color: #555;">
+        Queremos que você se sinta acolhida por aqui, escolha seus produtinhos com calma e aproveite momentos simples de carinho com você mesma.
+    </p>
+
+    <p style="font-size: 1.1rem; font-weight: bold; color: #e91e63;">
+        Seja muito bem-vinda e boas compras! ✨
+    </p>
+</section>
 
     <!-- ==========================================
          PÁGINA 3: CLIENTES
