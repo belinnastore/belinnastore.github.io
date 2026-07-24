@@ -9,7 +9,11 @@ function switchTab(tabId) {
         tab.classList.remove('active');
     });
 
-    // 2. Procura a aba de destino pelo ID
+    // 2. Remove o destaque ativo de todos os botões do menu superior
+    const navButtons = document.querySelectorAll('.tab-btn');
+    navButtons.forEach(btn => btn.classList.remove('active'));
+
+    // 3. Procura a aba de destino pelo ID
     const targetTab = document.getElementById(tabId);
     
     if (targetTab) {
@@ -17,6 +21,14 @@ function switchTab(tabId) {
         targetTab.style.display = 'block';
         targetTab.classList.add('active');
         
+        // Destaca o botão correspondente no menu superior
+        navButtons.forEach(btn => {
+            const onClickAttr = btn.getAttribute('onclick');
+            if (onClickAttr && onClickAttr.includes(`'${tabId}'`)) {
+                btn.classList.add('active');
+            }
+        });
+
         // Rola a tela suavemente para o topo
         window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
