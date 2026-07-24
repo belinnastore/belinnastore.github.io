@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Belinna Store - Beauty&Makup</title>
+    <title>Belinna Store - Beauty&Makeup</title>
     <!-- Ícones Globais -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="./style.css">
@@ -14,6 +14,19 @@
     <div class="top-bar" style="background-color: var(--primary-color); color: var(--white); text-align: center; padding: 8px; font-size: 0.85rem; letter-spacing: 1px;">
         <p>Atendimento Exclusivo via WhatsApp | Enviamos para todo o Brasil</p>
     </div>
+
+    <!-- ==========================================
+         BARRA DE NAVEGAÇÃO SUPERIOR (MENU FIXO)
+         ========================================== -->
+    <nav class="nav-tabs">
+        <button class="tab-btn active" onclick="switchTab('home')">Home</button>
+        <button class="tab-btn" onclick="switchTab('glosses')">Glosses</button>
+        <button class="tab-btn" onclick="switchTab('maquiagem')">Maquiagem</button>
+        <button class="tab-btn" onclick="switchTab('skincare')">Skincare</button>
+        <button class="tab-btn" onclick="switchTab('intimidade')">Bem-Estar</button>
+        <button class="tab-btn" onclick="switchTab('clientes')">Clientes</button>
+        <button class="tab-btn" onclick="switchTab('sobre-nos')">Sobre Nós</button>
+    </nav>
 
     <!-- ==========================================
          PÁGINA 1: INÍCIO (HOME)
@@ -36,7 +49,7 @@
                 border: 1px solid rgba(0,0,0,0.03); 
                 transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease, border-color 0.3s ease;
             }
-            /* O segredo do movimento (transform) e do brilho (box-shadow gold) */
+            
             .menu-card:hover {
                 transform: translateY(-8px);
                 box-shadow: 0 10px 25px rgba(212, 175, 55, 0.35), 0 0 15px rgba(212, 175, 55, 0.2);
@@ -54,50 +67,58 @@
                 <p style="color: var(--text-light); font-size: 1rem; letter-spacing: 1px;">Selecione uma das opções abaixo para explorar nossos produtinhos.</p>
             </section>
 
-            <!-- Grid de Navegação Corrigido -->
-<section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; width: 100%;">
-    
-    <!-- [CARD 1]: SOBRE NÓS (Corrigido!) -->
-    <div onclick="switchTab('sobre-nos')" class="menu-card">
-        <div style="font-size: 2.2rem; color: var(--primary-color); margin-bottom: 15px; display: block;"><i class="fa-solid fa-heart"></i></div>
-        <h3 style="font-weight: 400; letter-spacing: 2px; margin: 0 0 12px 0; font-size: 1.2rem; color: var(--text-color);">Sobre Nós</h3>
-        <p style="font-size: 0.9rem; color: var(--text-light); margin: 0 0 20px 0; line-height: 1.5; min-height: 60px;">Conheça nossa história e nossa paixão por autocuidado acessível.</p>
-        <span style="color: var(--primary-color); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: inline-block;">Conhecer →</span>
-    </div>
+            <!-- Grid de Navegação -->
+            <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; width: 100%;">
+                
+                <!-- [CARD 1]: SOBRE NÓS -->
+                <div onclick="switchTab('sobre-nos')" class="menu-card">
+                    <div style="font-size: 2.2rem; color: var(--primary-color); margin-bottom: 15px; display: block;"><i class="fa-solid fa-heart"></i></div>
+                    <h3 style="font-weight: 400; letter-spacing: 2px; margin: 0 0 12px 0; font-size: 1.2rem; color: var(--text-color);">Sobre Nós</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-light); margin: 0 0 20px 0; line-height: 1.5; min-height: 60px;">Conheça nossa história e nossa paixão por autocuidado acessível.</p>
+                    <span style="color: var(--primary-color); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: inline-block;">Conhecer →</span>
+                </div>
 
-    <!-- [CARD 2]: MAKES -->
-    <div onclick="switchTab('makes')" class="menu-card">
-        <div style="font-size: 2.2rem; color: var(--primary-color); margin-bottom: 15px; display: block;"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-        <h3 style="font-weight: 400; letter-spacing: 2px; margin: 0 0 12px 0; font-size: 1.2rem; color: var(--text-color);">Makes</h3>
-        <p style="font-size: 0.9rem; color: var(--text-light); margin: 0 0 20px 0; line-height: 1.5; min-height: 60px;">Bases, paletas, pós e batons das melhores marcas do mercado atual.</p>
-        <span style="color: var(--primary-color); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: inline-block;">Ver catálogo →</span>
-    </div>
+                <!-- [CARD 2]: GLOSSES -->
+                <div onclick="switchTab('glosses')" class="menu-card">
+                    <div style="font-size: 2.2rem; color: var(--primary-color); margin-bottom: 15px; display: block;"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <h3 style="font-weight: 400; letter-spacing: 2px; margin: 0 0 12px 0; font-size: 1.2rem; color: var(--text-color);">Glosses</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-light); margin: 0 0 20px 0; line-height: 1.5; min-height: 60px;">Brilho, hidratação, efeito bocão e os labiais mais desejados do momento.</p>
+                    <span style="color: var(--primary-color); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: inline-block;">Ver Glosses →</span>
+                </div>
 
-    <!-- [CARD 3]: SKINCARE -->
-    <div onclick="switchTab('skincare')" class="menu-card">
-        <div style="font-size: 2.2rem; color: var(--primary-color); margin-bottom: 15px; display: block;"><i class="fa-solid fa-pump-soap"></i></div>
-        <h3 style="font-weight: 400; letter-spacing: 2px; margin: 0 0 12px 0; font-size: 1.2rem; color: var(--text-color);">Skincare</h3>
-        <p style="font-size: 0.9rem; color: var(--text-light); margin: 0 0 20px 0; line-height: 1.5; min-height: 60px;">Géis de limpeza, séruns e hidratantes para a sua rotina de autocuidado.</p>
-        <span style="color: var(--primary-color); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: inline-block;">Ver rotinas →</span>
-    </div>
+                <!-- [CARD 3]: MAQUIAGEM -->
+                <div onclick="switchTab('maquiagem')" class="menu-card">
+                    <div style="font-size: 2.2rem; color: var(--primary-color); margin-bottom: 15px; display: block;"><i class="fa-solid fa-paintbrush"></i></div>
+                    <h3 style="font-weight: 400; letter-spacing: 2px; margin: 0 0 12px 0; font-size: 1.2rem; color: var(--text-color);">Maquiagem</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-light); margin: 0 0 20px 0; line-height: 1.5; min-height: 60px;">Bases, corretivos, blushes, iluminação e paletas incríveis.</p>
+                    <span style="color: var(--primary-color); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: inline-block;">Ver catálogo →</span>
+                </div>
 
-    <!-- [CARD 4]: BEM-ESTAR -->
-    <div onclick="switchTab('intimidade')" class="menu-card">
-        <div style="font-size: 2.2rem; color: var(--primary-color); margin-bottom: 15px; display: block;"><i class="fa-solid fa-feather-pointed"></i></div>
-        <h3 style="font-weight: 400; letter-spacing: 2px; margin: 0 0 12px 0; font-size: 1.2rem; color: var(--text-color);">Bem-Estar</h3>
-        <p style="font-size: 0.9rem; color: var(--text-light); margin: 0 0 20px 0; line-height: 1.5; min-height: 60px;">Perfumes íntimos, géis de massagem e cuidados especiais com o corpo.</p>
-        <span style="color: var(--primary-color); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: inline-block;">Explorar →</span>
-    </div>
+                <!-- [CARD 4]: SKINCARE -->
+                <div onclick="switchTab('skincare')" class="menu-card">
+                    <div style="font-size: 2.2rem; color: var(--primary-color); margin-bottom: 15px; display: block;"><i class="fa-solid fa-pump-soap"></i></div>
+                    <h3 style="font-weight: 400; letter-spacing: 2px; margin: 0 0 12px 0; font-size: 1.2rem; color: var(--text-color);">Skincare</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-light); margin: 0 0 20px 0; line-height: 1.5; min-height: 60px;">Géis de limpeza, séruns e hidratantes para a sua rotina de autocuidado.</p>
+                    <span style="color: var(--primary-color); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: inline-block;">Ver rotinas →</span>
+                </div>
 
-    <!-- [CARD 5]: CLIENTES -->
-    <div onclick="switchTab('clientes')" class="menu-card">
-        <div style="font-size: 2.2rem; color: var(--primary-color); margin-bottom: 15px; display: block;"><i class="fa-solid fa-users"></i></div>
-        <h3 style="font-weight: 400; letter-spacing: 2px; margin: 0 0 12px 0; font-size: 1.2rem; color: var(--text-color);">Clientes</h3>
-        <p style="font-size: 0.9rem; color: var(--text-light); margin: 0 0 20px 0; line-height: 1.5; min-height: 60px;">Veja o feedback de quem compra e confia no nosso atendimento exclusivo.</p>
-        <span style="color: var(--primary-color); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: inline-block;">Ver depoimentos →</span>
-    </div>
+                <!-- [CARD 5]: BEM-ESTAR -->
+                <div onclick="switchTab('intimidade')" class="menu-card">
+                    <div style="font-size: 2.2rem; color: var(--primary-color); margin-bottom: 15px; display: block;"><i class="fa-solid fa-feather-pointed"></i></div>
+                    <h3 style="font-weight: 400; letter-spacing: 2px; margin: 0 0 12px 0; font-size: 1.2rem; color: var(--text-color);">Bem-Estar</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-light); margin: 0 0 20px 0; line-height: 1.5; min-height: 60px;">Perfumes íntimos, géis de massagem e cuidados especiais com o corpo.</p>
+                    <span style="color: var(--primary-color); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: inline-block;">Explorar →</span>
+                </div>
 
-</section>
+                <!-- [CARD 6]: CLIENTES -->
+                <div onclick="switchTab('clientes')" class="menu-card">
+                    <div style="font-size: 2.2rem; color: var(--primary-color); margin-bottom: 15px; display: block;"><i class="fa-solid fa-users"></i></div>
+                    <h3 style="font-weight: 400; letter-spacing: 2px; margin: 0 0 12px 0; font-size: 1.2rem; color: var(--text-color);">Clientes</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-light); margin: 0 0 20px 0; line-height: 1.5; min-height: 60px;">Veja o feedback de quem compra e confia no nosso atendimento exclusivo.</p>
+                    <span style="color: var(--primary-color); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: inline-block;">Ver depoimentos →</span>
+                </div>
+
+            </section>
         </main>
     </div>
 
@@ -149,19 +170,21 @@
         </main>
     </div>
 
-    <!-- ==========================================
-         PÁGINA 4: MAKES
+  <!-- ==========================================
+         PÁGINA 4: GLOSSES & LABIAIS (NOVA SEÇÃO!)
          ========================================== -->
-    <div id="makes" class="tab-content">
+    <div id="glosses" class="tab-content">
         <header>
             <div style="max-width: 900px; margin: 0 auto; text-align: left; padding: 0 20px;">
                 <button onclick="switchTab('home')" style="background: none; border: none; color: var(--text-light); cursor: pointer; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;"><i class="fa-solid fa-arrow-left"></i> Voltar ao Início</button>
             </div>
-            <h1 style="margin-top: 20px;">MAQUIAGENS</h1>
-            <p>OS BARATINHOS QUERIDINHOS</p>
+            <h1 style="margin-top: 20px;">GLOSSES & LABIAIS</h1>
+            <p>BRILHO, VOLUME E HIDRATAÇÃO</p>
         </header>
 
-        <!-- GLOSS BOBBI RARA COELHINHO COM POMPOM -->
+        <main style="max-width: 1200px; margin: 40px auto; padding: 0 20px;">
+            <!-- Insira os product-card exclusivos de Glosses aqui -->
+ <!-- GLOSS BOBBI RARA COELHINHO COM POMPOM -->
 <div class="product-card" data-id="m12" data-name="Gloss Labial Bobbi Rara Coelhinha Chaveiro" data-price="22.00">
     <div class="product-image-container">
         <img src="labubu.jpg" alt="Gloss Labial Bobbi Rara LABUBU Chaveiro" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
@@ -360,6 +383,22 @@
         </div>
     </div>
 </div>
+            
+        </main>
+    </div>
+
+    <!-- ==========================================
+         PÁGINA 5: MAQUIAGEM (ATUALIZADA)
+         ========================================== -->
+    <div id="maquiagem" class="tab-content">
+        <header>
+            <div style="max-width: 900px; margin: 0 auto; text-align: left; padding: 0 20px;">
+                <button onclick="switchTab('home')" style="background: none; border: none; color: var(--text-light); cursor: pointer; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;"><i class="fa-solid fa-arrow-left"></i> Voltar ao Início</button>
+            </div>
+            <h1 style="margin-top: 20px;">MAQUIAGEM</h1>
+            <p>OS BARATINHOS QUERIDINHOS</p>
+        </header>
+        
         
        <!-- MÁSCARA DE CÍLIOS LASHES UP - RUBY ROSE -->
 <div class="product-card" data-id="m3" data-name="Máscara de Cílios Lashes UP! Ruby Rose" data-price="19.90">
