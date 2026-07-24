@@ -70,36 +70,73 @@
 
     </div>
 
-  <!-- ==========================================
-         PÁGINA 2: SOBRE NÓS
-         ========================================== -->
-    <div id="sobre-nos" class="tab-content">
-        <header>
-            <div style="max-width: 900px; margin: 0 auto; text-align: left; padding: 0 20px;">
-                <button onclick="switchTab('home')" style="background: none; border: none; color: var(--text-light); cursor: pointer; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;"><i class="fa-solid fa-arrow-left"></i> Voltar ao Início</button>
-            </div>
-        </header>
-        
-        <section class="about-section" style="padding: 40px 20px; max-width: 800px; margin: 0 auto; text-align: center; line-height: 1.6;">
-            <h2 style="font-size: 2rem; margin-bottom: 20px; color: #333;">Sobre a Belinna Store 💖</h2>
-            
-            <p style="font-size: 1.1rem; margin-bottom: 15px; color: #555;">
-                A <strong>Belinna Store</strong> nasceu da vontade de mostrar que se cuidar e se maquiar não precisa ser caro nem complicado. Nós somos uma <strong>loja de produtos baratinhos</strong> focada em maquiagem e cuidados com a pele!
-            </p>
+        <!-- ==========================================
+     PÁGINA: SOBRE NÓS
+     ========================================== -->
+<div id="sobre-nos" class="tab-content">
 
-            <p style="font-size: 1.05rem; margin-bottom: 15px; color: #555;">
-                Sabemos que nem todo mundo é expert em maquiagem (e tudo bem!), por isso reunimos opções práticas, fofas e fáceis de usar no dia a dia. Nosso objetivo é que você consiga garantir suas Makes e itens de Skincare favoritos pagando um preço justo que cabe no bolso.
-            </p>
-
-            <p style="font-size: 1.05rem; margin-bottom: 20px; color: #555;">
-                Queremos que você se sinta acolhida por aqui, escolha seus produtinhos com calma e aproveite momentos simples de carinho com você mesma.
-            </p>
-
-            <p style="font-size: 1.1rem; font-weight: bold; color: #e91e63;">
-                Seja muito bem-vinda e boas compras! ✨
-            </p>
-        </section>
+    <div style="text-align: center; margin-bottom: 30px;">
+        <button onclick="switchTab('home')" style="background: none; border: none; color: var(--text-light); cursor: pointer; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase;">
+            ← Voltar ao Início
+        </button>
     </div>
+
+    <!-- TEXTO PRINCIPAL -->
+    <section style="background-color: var(--white); border-radius: 16px; padding: 40px 30px; text-align: center; box-shadow: var(--shadow); max-width: 800px; margin: 0 auto 40px auto;">
+        <h2 style="font-size: 2.2rem; font-weight: 400; color: #111; margin-bottom: 20px;">Sobre a Belinna Store 💖</h2>
+        
+        <p style="font-size: 1rem; color: var(--text-color); line-height: 1.8; margin-bottom: 20px;">
+            A <strong>Belinna Store</strong> nasceu da vontade de mostrar que se cuidar e se maquiar não precisa ser caro nem complicado. Somos uma loja focada em maquiagens, glosses e cuidados com a pele que unem beleza, tendência e preço justo.
+        </p>
+
+        <p style="font-size: 1rem; color: var(--text-light); line-height: 1.8; margin-bottom: 20px;">
+            Sabemos que nem todo mundo é expert em maquiagem (e tudo bem!), por isso reunimos opções práticas, fofas e fáceis de usar no dia a dia. Nosso objetivo é que você consiga garantir seus produtinhos favoritos pagando um valor que cabe no bolso.
+        </p>
+    </section>
+
+    <!-- SEÇÃO: QUEM FAZ ACONTECER (FUNDADORES) -->
+    <section style="max-width: 800px; margin: 0 auto;">
+        <h3 style="text-align: center; font-size: 1.4rem; font-weight: 400; letter-spacing: 2px; text-transform: uppercase; color: #111; margin-bottom: 30px;">
+            Quem Faz Acontecer ✨
+        </h3>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
+            
+            <!-- CARD ESPOSA -->
+            <div style="background: var(--white); padding: 30px 20px; border-radius: 12px; text-align: center; box-shadow: var(--shadow); border: 1px solid rgba(229, 179, 157, 0.3);">
+                <div style="width: 70px; height: 70px; background-color: var(--bg-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px auto; color: var(--primary-color); font-size: 1.8rem;">
+                    <i class="fa-solid fa-crown"></i>
+                </div>
+                <!-- COLOQUE O NOME DELA AQUI -->
+                <h4 style="font-size: 1.2rem; font-weight: 500; color: #111; margin-bottom: 5px;">Carolina Costa</h4>
+                <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--primary-color); font-weight: 600; display: block; margin-bottom: 12px;">Fundadora & Curadora de Produtos</span>
+                <p style="font-size: 0.85rem; color: var(--text-light); line-height: 1.5; margin: 0;">
+                    Responsável pela escolha de cada produtinho, garantindo as últimas tendências de beleza para você.
+                </p>
+            </div>
+
+            <!-- CARD SEU -->
+            <div style="background: var(--white); padding: 30px 20px; border-radius: 12px; text-align: center; box-shadow: var(--shadow); border: 1px solid rgba(229, 179, 157, 0.3);">
+                <div style="width: 70px; height: 70px; background-color: var(--bg-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px auto; color: var(--primary-color); font-size: 1.8rem;">
+                    <i class="fa-solid fa-laptop-code"></i>
+                </div>
+                <!-- COLOQUE SEU NOME AQUI -->
+                <h4 style="font-size: 1.2rem; font-weight: 500; color: #111; margin-bottom: 5px;">Brenda Fantozzi</h4>
+                <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--primary-color); font-weight: 600; display: block; margin-bottom: 12px;">Criação & Administração Web</span>
+                <p style="font-size: 0.85rem; color: var(--text-light); line-height: 1.5; margin: 0;">
+                    Cuida do desenvolvimento do site, da organização das vendas e de toda a tecnologia para garantir uma compra segura e fluida.
+                </p>
+            </div>
+
+        </div>
+
+        <p style="text-align: center; color: var(--primary-color); font-weight: 600; margin-top: 40px; font-size: 1.1rem;">
+            Seja muito bem-vinda e boas compras! ✨
+        </p>
+    </section>
+
+</div>
+  
     
     <!-- ==========================================
          PÁGINA 3: CLIENTES
