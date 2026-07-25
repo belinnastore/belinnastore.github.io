@@ -81,7 +81,15 @@ body {
 }
 
 .tab-content.active {
-    display: block;
+    display: block !important; /* Força a exibição quando a classe .active for inserida */
+}
+
+/* Layout interno para o conteúdo dos produtos */
+.tab-content main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
 }
 
 /* Header das Seções */
