@@ -2,6 +2,11 @@
 // FUNÇÃO PARA NAVEGAR ENTRE AS ABAS / SEÇÕES
 // ========================================================
 function switchTab(tabId) {
+    if (!tabId) return;
+
+    // Normaliza o ID recebido (tudo em minúsculas e sem espaços extras)
+    const normalizedId = String(tabId).trim().toLowerCase();
+
     // 1. Oculta todas as seções/abas
     const tabs = document.querySelectorAll('.tab-content');
     tabs.forEach(tab => {
@@ -13,8 +18,16 @@ function switchTab(tabId) {
     const navButtons = document.querySelectorAll('.tab-btn');
     navButtons.forEach(btn => btn.classList.remove('active'));
 
-    // 3. Procura a aba de destino pelo ID
-    const targetTab = document.getElementById(tabId);
+    // 3. Procura a aba de destino pelo ID exato ou com fallback (com/sem hífen)
+    let targetTab = document.getElementById(normalizedId);
+
+    // Fallback: tenta encontrar variações comuns (ex: bemestar vs bem-estar)
+    if (!targetTab) {
+        const altId = normalizedId.includes('-') 
+            ? normalizedId.replace(/-/g, '') 
+            : normalizedId.replace('bemestar', 'bem-estar');
+        targetTab = document.getElementById(altId);
+    }
     
     if (targetTab) {
         // Exibe a aba encontrada
@@ -24,7 +37,7 @@ function switchTab(tabId) {
         // Destaca o botão correspondente no menu superior
         navButtons.forEach(btn => {
             const onClickAttr = btn.getAttribute('onclick');
-            if (onClickAttr && onClickAttr.includes(`'${tabId}'`)) {
+            if (onClickAttr && onClickAttr.toLowerCase().includes(`'${normalizedId}'`)) {
                 btn.classList.add('active');
             }
         });
@@ -32,10 +45,10 @@ function switchTab(tabId) {
         // Rola a tela suavemente para o topo
         window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-        console.error("Aba não encontrada com o ID:", tabId);
+        console.error("Aba não encontrada no HTML para o ID:", tabId);
     }
 
-    // Garante que o botão do carrinho continue visível ao alternar abas
+    // Garante que o botão flutuante do carrinho continue visível
     const cartBtn = document.getElementById('cart-floating-btn');
     if (cartBtn) {
         cartBtn.style.display = 'flex';
@@ -43,12 +56,12 @@ function switchTab(tabId) {
 }
 
 // ========================================================
-// LÓGICA DO CARRINHO E INTERAÇÕES
+// LÓGICA DO CARRINHO E INTERAÇÕES (DOM LOADED)
 // ========================================================
 document.addEventListener("DOMContentLoaded", () => {
     let cart = [];
 
-    // Mover os elementos flutuantes para a raiz do BODY (evita sobreposição por abas)
+    // Mover os elementos flutuantes para a raiz do BODY (evita sobreposição/quebra por abas)
     const cartFloatingBtn = document.getElementById("cart-floating-btn");
     const cartSidebar = document.getElementById("cart-sidebar");
     const modal = document.getElementById("janela-modal");
@@ -69,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const botaoFechar = document.querySelector(".fechar-modal");
 
     // ========================================================
-    // DELEGAÇÃO GLOBAL DE CLIQUE (Funciona em todas as abas!)
+    // DELEGAÇÃO GLOBAL DE CLIQUE (Funciona em todas as abas)
     // ========================================================
     document.addEventListener("click", (e) => {
 
@@ -127,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // 4. AMPLIAÇÃO DA FOTO (Apenas foto principal, ignora as miniaturas)
+        // 4. AMPLIAÇÃO DA FOTO (Apenas foto principal, ignora miniaturas)
         if (e.target.tagName === "IMG" && e.target.closest(".product-card")) {
             if (e.target.classList.contains("thumb")) return;
 
@@ -209,7 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (cartTotalValue) cartTotalValue.textContent = `R$ ${total.toFixed(2).replace(".", ",")}`;
         if (cartBadge) cartBadge.textContent = totalItems;
 
-        // BOTOES DENTRO DO CARRINHO
+        // BOTOES DENTRO DO CARRINHO (-)
         document.querySelectorAll(".btn-cart-minus").forEach(button => {
             button.addEventListener("click", () => {
                 const id = button.getAttribute("data-id");
@@ -225,6 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
 
+        // BOTOES DENTRO DO CARRINHO (+)
         document.querySelectorAll(".btn-cart-plus").forEach(button => {
             button.addEventListener("click", () => {
                 const id = button.getAttribute("data-id");
@@ -236,6 +250,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
 
+        // REMOVER ITEM DO CARRINHO
         document.querySelectorAll(".btn-remove-item").forEach(button => {
             button.addEventListener("click", (e) => {
                 const btn = e.target.closest(".btn-remove-item");
@@ -277,16 +292,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// Função para trocar a imagem principal ao clicar na miniatura
+// ========================================================
+// TROCAR IMAGEM PRINCIPAL PELAS MINIATURAS
+// ========================================================
 function changeProductImage(thumbElement) {
     const container = thumbElement.closest('.product-image-container');
+    if (!container) return;
+    
     const mainImg = container.querySelector('.main-product-img');
     const allThumbs = container.querySelectorAll('.thumb');
 
-    // Troca o caminho da imagem principal
-    mainImg.src = thumbElement.src;
+    if (mainImg) {
+        mainImg.src = thumbElement.src;
+    }
 
-    // Atualiza a borda de destaque da miniatura ativa
     allThumbs.forEach(thumb => thumb.classList.remove('active'));
     thumbElement.classList.add('active');
 }
