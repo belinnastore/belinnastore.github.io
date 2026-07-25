@@ -127,8 +127,10 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // 4. AMPLIAÇÃO DA FOTO (Abrangente para todas as abas)
+        // 4. AMPLIAÇÃO DA FOTO (Apenas foto principal, ignora as miniaturas)
         if (e.target.tagName === "IMG" && e.target.closest(".product-card")) {
+            if (e.target.classList.contains("thumb")) return;
+
             if (modal && imgAmpliada) {
                 modal.style.display = "flex";
                 imgAmpliada.src = e.target.src;
