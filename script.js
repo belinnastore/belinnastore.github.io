@@ -40,10 +40,9 @@ function switchTab(tabId) {
 // LÓGICA DO CARRINHO E INTERAÇÕES (Após carregar o DOM)
 // ========================================================
 document.addEventListener("DOMContentLoaded", () => {
-    // Array que vai guardar os itens que o usuário adicionar no carrinho
     let cart = [];
 
-    // Elementos do Carrinho Lateral (Sidebar)
+    // Elementos do Carrinho Lateral
     const cartSidebar = document.getElementById("cart-sidebar");
     const cartFloatingBtn = document.getElementById("cart-floating-btn");
     const closeCartBtn = document.getElementById("close-cart-btn");
@@ -52,26 +51,68 @@ document.addEventListener("DOMContentLoaded", () => {
     const cartBadge = document.getElementById("cart-badge");
     const btnCheckoutWhatsapp = document.getElementById("btn-checkout-whatsapp");
 
-    // ========================================================
-    // CONTROLE DE QUANTIDADE nos cards de produtos (+ e -)
-    // ========================================================
-    document.querySelectorAll(".quantity-selector").forEach(selector => {
-        const minusBtn = selector.querySelector(".minus");
-        const plusBtn = selector.querySelector(".plus");
-        const qtyInput = selector.querySelector(".qty-input");
+    // Elementos do Modal de Imagem
+    const modal = document.getElementById("janela-modal");
+    const imgAmpliada = document.getElementById("imagem-ampliada");
+    const botaoFechar = document.querySelector(".fechar-modal");
 
-        if (minusBtn && plusBtn && qtyInput) {
-            minusBtn.addEventListener("click", () => {
+    // ========================================================
+    // DELEGAÇÃO DE EVENTOS GLOBAL (Funciona em TODAS as Abas!)
+    // ========================================================
+    document.addEventListener("click", (e) => {
+        
+        // 1. CONTROLE DE QUANTIDADE: Botão Menos (-)
+        if (e.target.classList.contains("minus")) {
+            const qtyInput = e.target.parentElement.querySelector(".qty-input");
+            if (qtyInput) {
                 let currentValue = parseInt(qtyInput.value) || 1;
-                if (currentValue > 1) {
-                    qtyInput.value = currentValue - 1;
-                }
-            });
+                if (currentValue > 1) qtyInput.value = currentValue - 1;
+            }
+        }
 
-            plusBtn.addEventListener("click", () => {
+        // 2. CONTROLE DE QUANTIDADE: Botão Mais (+)
+        if (e.target.classList.contains("plus")) {
+            const qtyInput = e.target.parentElement.querySelector(".qty-input");
+            if (qtyInput) {
                 let currentValue = parseInt(qtyInput.value) || 1;
                 qtyInput.value = currentValue + 1;
-            });
+            }
+        }
+
+        // 3. ADICIONAR AO CARRINHO (Funciona para qualquer aba)
+        const btnAdd = e.target.closest(".btn-add-to-cart");
+        if (btnAdd) {
+            if (btnAdd.hasAttribute("disabled")) return;
+
+            const productCard = btnAdd.closest(".product-card");
+            if (!productCard) return;
+
+            const id = productCard.getAttribute("data-id");
+            const name = productCard.getAttribute("data-name");
+            const price = parseFloat(productCard.getAttribute("data-price"));
+            
+            const qtyInput = productCard.querySelector(".qty-input");
+            const quantity = qtyInput ? (parseInt(qtyInput.value) || 1) : 1;
+
+            const existingProduct = cart.find(item => item.id === id);
+
+            if (existingProduct) {
+                existingProduct.quantity += quantity;
+            } else {
+                cart.push({ id, name, price, quantity });
+            }
+
+            if (qtyInput) qtyInput.value = 1;
+
+            updateCart();
+            if (cartSidebar) cartSidebar.classList.add("open");
+        }
+
+        // 4. AMPLIAÇÃO DA FOTO NO MODAL (Captura a foto exata clicada)
+        const imgClicada = e.target.closest(".product-image-container img, .product-card img, .card-produto img");
+        if (imgClicada && modal && imgAmpliada) {
+            modal.style.display = "flex";
+            imgAmpliada.src = imgClicada.src;
         }
     });
 
@@ -90,39 +131,19 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // ========================================================
-    // ADICIONAR AO CARRINHO (Protegido contra Esgotados)
-    // ========================================================
-    document.querySelectorAll(".btn-add-to-cart").forEach(button => {
-        button.addEventListener("click", (e) => {
-            // Ignora o clique se o botão estiver desativado (Esgotado)
-            if (button.hasAttribute("disabled")) return;
-
-            const productCard = e.target.closest(".product-card");
-            if (!productCard) return;
-
-            const id = productCard.getAttribute("data-id");
-            const name = productCard.getAttribute("data-name");
-            const price = parseFloat(productCard.getAttribute("data-price"));
-            
-            // Pega a quantidade se o seletor existir, senão define como 1
-            const qtyInput = productCard.querySelector(".qty-input");
-            const quantity = qtyInput ? (parseInt(qtyInput.value) || 1) : 1;
-
-            const existingProduct = cart.find(item => item.id === id);
-
-            if (existingProduct) {
-                existingProduct.quantity += quantity;
-            } else {
-                cart.push({ id, name, price, quantity });
+    // FECHAR MODAL DE IMAGEM
+    if (modal) {
+        if (botaoFechar) {
+            botaoFechar.addEventListener("click", () => {
+                modal.style.display = "none";
+            });
+        }
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                modal.style.display = "none";
             }
-
-            if (qtyInput) qtyInput.value = 1;
-
-            updateCart();
-            if (cartSidebar) cartSidebar.classList.add("open");
         });
-    });
+    }
 
     // ========================================================
     // ATUALIZAR INTERFACE DO CARRINHO
@@ -165,12 +186,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (cartTotalValue) cartTotalValue.textContent = `R$ ${total.toFixed(2).replace(".", ",")}`;
         if (cartBadge) cartBadge.textContent = totalItems;
 
-        // EVENTOS DOS BOTÕES DENTRO DO CARRINHO
+        // EVENTOS INTERNOS DO CARRINHO (Aumentar/Diminuir/Remover)
         document.querySelectorAll(".btn-cart-minus").forEach(button => {
             button.addEventListener("click", () => {
                 const id = button.getAttribute("data-id");
                 const product = cart.find(item => item.id === id);
-                
                 if (product) {
                     if (product.quantity > 1) {
                         product.quantity -= 1;
@@ -186,7 +206,6 @@ document.addEventListener("DOMContentLoaded", () => {
             button.addEventListener("click", () => {
                 const id = button.getAttribute("data-id");
                 const product = cart.find(item => item.id === id);
-                
                 if (product) {
                     product.quantity += 1;
                     updateCart();
@@ -231,37 +250,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const whatsappNumber = "5511993610210"; 
 
             window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, "_blank");
-        });
-    }
-
-    // ========================================================
-    // LÓGICA DO MODAL (Com travas de segurança if)
-    // ========================================================
-    const modal = document.getElementById("janela-modal");
-    const imgAmpliada = document.getElementById("imagem-ampliada");
-    const botaoFechar = document.querySelector(".fechar-modal");
-
-    // Aceita imagens tanto do .product-card quanto do .card-produto
-    const fotosProdutos = document.querySelectorAll(".product-card img, .card-produto img"); 
-
-    if (modal && imgAmpliada) {
-        fotosProdutos.forEach(img => {
-            img.addEventListener("click", () => {
-                modal.style.display = "flex";
-                imgAmpliada.src = img.src;
-            });
-        });
-
-        if (botaoFechar) {
-            botaoFechar.addEventListener("click", () => {
-                modal.style.display = "none";
-            });
-        }
-
-        modal.addEventListener("click", (e) => {
-            if (e.target === modal) {
-                modal.style.display = "none";
-            }
         });
     }
 });
