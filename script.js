@@ -34,6 +34,12 @@ function switchTab(tabId) {
     } else {
         console.error("Aba não encontrada com o ID:", tabId);
     }
+
+    // Garante que o botão do carrinho continue visível ao alternar abas
+    const cartBtn = document.getElementById('cart-floating-btn');
+    if (cartBtn) {
+        cartBtn.style.display = 'flex';
+    }
 }
 
 // ========================================================
@@ -42,9 +48,16 @@ function switchTab(tabId) {
 document.addEventListener("DOMContentLoaded", () => {
     let cart = [];
 
-    // Elementos do Carrinho Lateral
-    const cartSidebar = document.getElementById("cart-sidebar");
+    // Mover os elementos flutuantes para a raiz do BODY (evita sobreposição por abas)
     const cartFloatingBtn = document.getElementById("cart-floating-btn");
+    const cartSidebar = document.getElementById("cart-sidebar");
+    const modal = document.getElementById("janela-modal");
+
+    if (cartFloatingBtn) document.body.appendChild(cartFloatingBtn);
+    if (cartSidebar) document.body.appendChild(cartSidebar);
+    if (modal) document.body.appendChild(modal);
+
+    // Elementos do Carrinho Lateral
     const closeCartBtn = document.getElementById("close-cart-btn");
     const cartItemsContainer = document.getElementById("cart-items-container");
     const cartTotalValue = document.getElementById("cart-total-value");
@@ -52,7 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnCheckoutWhatsapp = document.getElementById("btn-checkout-whatsapp");
 
     // Elementos do Modal de Imagem
-    const modal = document.getElementById("janela-modal");
     const imgAmpliada = document.getElementById("imagem-ampliada");
     const botaoFechar = document.querySelector(".fechar-modal");
 
@@ -115,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // 4. AMPLIAÇÃO DA FOTO (NOVA REGRA MAIS ABRANGENTE)
+        // 4. AMPLIAÇÃO DA FOTO (Abrangente para todas as abas)
         if (e.target.tagName === "IMG" && e.target.closest(".product-card")) {
             if (modal && imgAmpliada) {
                 modal.style.display = "flex";
@@ -260,20 +272,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
             window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, "_blank");
         });
-    }
-});
-
-
-// Garante que o botão do carrinho fique no <body> do site, fora de qualquer aba
-document.addEventListener('DOMContentLoaded', () => {
-    const cartBtn = document.getElementById('cart-floating-btn');
-    const cartSidebar = document.getElementById('cart-sidebar');
-    
-    if (cartBtn) {
-        document.body.appendChild(cartBtn); // Move o botão para a raiz da página
-        cartBtn.style.display = 'flex';
-    }
-    if (cartSidebar) {
-        document.body.appendChild(cartSidebar); // Move a gaveta do carrinho para a raiz
     }
 });
