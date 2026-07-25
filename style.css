@@ -275,48 +275,59 @@ body {
     cursor: not-allowed !important;
 }
 
-/* ========================================================
-   5. MODAL DE AMPLIAÇÃO DA IMAGEM
-   ======================================================== */
-.image-modal {
-    display: none;
+/* --- ESTILIZAÇÃO DO MODAL DE AMPLIAR IMAGEM --- */
+.modal {
+    display: none; /* Escondido por padrão */
     position: fixed;
-    top: 0;
+    z-index: 9999999; /* Fica acima de tudo */
     left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.85);
-    z-index: 1000;
-    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.85); /* Fundo escuro semitransparente */
+    backdrop-filter: blur(5px); /* Efeito focado e elegante */
     align-items: center;
+    justify-content: center;
 }
 
-.image-modal.active {
-    display: flex;
+/* Exibe o modal quando ativo */
+.modal.active,
+.modal[style*="display: block"] {
+    display: flex !important;
 }
 
-.modal-content {
-    max-width: 90%;
-    max-height: 90vh;
-    border-radius: 12px;
+/* Imagem ampliada centralizada e ajustada */
+.conteudo-modal {
+    max-width: 85vw;
+    max-height: 85vh;
     object-fit: contain;
+    border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    animation: zoomIn 0.25s ease-out;
 }
 
-.close-modal {
+/* Botão de Fechar (X) */
+.fechar-modal {
     position: absolute;
     top: 20px;
     right: 30px;
-    color: var(--white);
-    font-size: 2.5rem;
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: bold;
     cursor: pointer;
-    transition: var(--transition);
+    z-index: 10000000;
+    transition: transform 0.2s;
 }
 
-.close-modal:hover {
-    color: var(--primary-color);
+.fechar-modal:hover {
+    transform: scale(1.2);
+    color: var(--primary-color, #f4a2af);
 }
 
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
 /* ========================================================
    6. RESPONSIVIDADE (DISPOSITIVOS MÓVEIS)
    ======================================================== */
