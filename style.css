@@ -521,3 +521,27 @@ body {
 .cart-overlay.open {
     display: block;
 }
+
+/* 1. Libera o transbordamento das abas para o botão flutuante não ser cortado */
+.tab-content, 
+.tab-content.active {
+    overflow: visible !important;
+}
+
+/* 2. Força o botão do carrinho a ficar por cima de ABSOLUTAMENTE TUDO */
+#cart-floating-btn,
+.cart-floating-btn {
+    display: flex !important;
+    position: fixed !important;
+    bottom: 30px !important;
+    right: 30px !important;
+    z-index: 9999999 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* 3. Garante que o painel lateral do carrinho também fique no topo máximo */
+#cart-sidebar,
+.cart-sidebar {
+    z-index: 99999999 !important;
+}
