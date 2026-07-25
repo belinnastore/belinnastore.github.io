@@ -37,7 +37,7 @@ function switchTab(tabId) {
 }
 
 // ========================================================
-// LÓGICA DO CARRINHO E INTERAÇÕES (Após carregar o DOM)
+// LÓGICA DO CARRINHO E INTERAÇÕES
 // ========================================================
 document.addEventListener("DOMContentLoaded", () => {
     let cart = [];
@@ -57,39 +57,45 @@ document.addEventListener("DOMContentLoaded", () => {
     const botaoFechar = document.querySelector(".fechar-modal");
 
     // ========================================================
-    // DELEGAÇÃO DE EVENTOS GLOBAL (Funciona em TODAS as Abas!)
+    // DELEGAÇÃO GLOBAL DE CLIQUE (Funciona em todas as abas!)
     // ========================================================
     document.addEventListener("click", (e) => {
-        
-        // 1. CONTROLE DE QUANTIDADE: Botão Menos (-)
-        if (e.target.classList.contains("minus")) {
-            const qtyInput = e.target.parentElement.querySelector(".qty-input");
+
+        // 1. DIMINUIR QUANTIDADE (-)
+        if (e.target.matches(".minus") || e.target.closest(".minus")) {
+            const btn = e.target.matches(".minus") ? e.target : e.target.closest(".minus");
+            if (btn.hasAttribute("disabled")) return;
+            const qtyInput = btn.parentElement.querySelector(".qty-input");
             if (qtyInput) {
                 let currentValue = parseInt(qtyInput.value) || 1;
                 if (currentValue > 1) qtyInput.value = currentValue - 1;
             }
+            return;
         }
 
-        // 2. CONTROLE DE QUANTIDADE: Botão Mais (+)
-        if (e.target.classList.contains("plus")) {
-            const qtyInput = e.target.parentElement.querySelector(".qty-input");
+        // 2. AUMENTAR QUANTIDADE (+)
+        if (e.target.matches(".plus") || e.target.closest(".plus")) {
+            const btn = e.target.matches(".plus") ? e.target : e.target.closest(".plus");
+            if (btn.hasAttribute("disabled")) return;
+            const qtyInput = btn.parentElement.querySelector(".qty-input");
             if (qtyInput) {
                 let currentValue = parseInt(qtyInput.value) || 1;
                 qtyInput.value = currentValue + 1;
             }
+            return;
         }
 
-        // 3. ADICIONAR AO CARRINHO (Funciona para qualquer aba)
+        // 3. ADICIONAR AO CARRINHO
         const btnAdd = e.target.closest(".btn-add-to-cart");
         if (btnAdd) {
-            if (btnAdd.hasAttribute("disabled")) return;
+            if (btnAdd.hasAttribute("disabled") || btnAdd.classList.contains("btn-disabled")) return;
 
             const productCard = btnAdd.closest(".product-card");
             if (!productCard) return;
 
             const id = productCard.getAttribute("data-id");
             const name = productCard.getAttribute("data-name");
-            const price = parseFloat(productCard.getAttribute("data-price"));
+            const price = parseFloat(productCard.getAttribute("data-price")) || 0;
             
             const qtyInput = productCard.querySelector(".qty-input");
             const quantity = qtyInput ? (parseInt(qtyInput.value) || 1) : 1;
@@ -106,13 +112,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
             updateCart();
             if (cartSidebar) cartSidebar.classList.add("open");
+            return;
         }
 
-        // 4. AMPLIAÇÃO DA FOTO NO MODAL (Captura a foto exata clicada)
-        const imgClicada = e.target.closest(".product-image-container img, .product-card img, .card-produto img");
-        if (imgClicada && modal && imgAmpliada) {
+        // 4. AMPLIAÇÃO DA FOTO (CLIQUE EM QUALQUER IMAGEM DE PRODUTO)
+        const imgTarget = e.target.closest(".product-image-container img, .product-card img, .card-produto img");
+        if (imgTarget && modal && imgAmpliada) {
             modal.style.display = "flex";
-            imgAmpliada.src = imgClicada.src;
+            imgAmpliada.src = imgTarget.getAttribute("src");
+            return;
         }
     });
 
@@ -186,7 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (cartTotalValue) cartTotalValue.textContent = `R$ ${total.toFixed(2).replace(".", ",")}`;
         if (cartBadge) cartBadge.textContent = totalItems;
 
-        // EVENTOS INTERNOS DO CARRINHO (Aumentar/Diminuir/Remover)
+        // BOTOES DENTRO DO CARRINHO (Aumentar / Diminuir / Remover)
         document.querySelectorAll(".btn-cart-minus").forEach(button => {
             button.addEventListener("click", () => {
                 const id = button.getAttribute("data-id");
