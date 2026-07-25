@@ -725,6 +725,15 @@
         </main>
     </div>
 
+<!-- RODAPÉ GLOBAL COM REDES SOCIAIS CONFIGURADAS -->
+    <footer>
+        <div class="footer-socials">
+            <a href="https://instagram.com/belinna.store" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://tiktok.com/@belinnastore" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+        <p>&copy; 2026 Belinna Store. Todos os direitos reservados.</p>
+    </footer>
+
     <!-- MODAL / SEÇÃO DO CARRINHO LATERAL -->
     <div id="cart-sidebar" class="cart-sidebar">
         <div class="cart-header">
@@ -751,16 +760,13 @@
         <span id="cart-badge" class="cart-badge">0</span>
     </button>
 
-    <!-- RODAPÉ GLOBAL COM REDES SOCIAIS CONFIGURADAS -->
-    <footer>
-        <div class="footer-socials">
-            <a href="https://instagram.com/belinna.store" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://tiktok.com/@belinnastore" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-        </div>
-        <p>&copy; 2026 Belinna Store. Todos os direitos reservados.</p>
-    </footer>
+    <!-- MODAL PARA AMPLIAR A IMAGEM -->
+    <div id="janela-modal" class="modal">
+        <span class="fechar-modal">&times;</span>
+        <img class="conteudo-modal" id="imagem-ampliada">
+    </div>
 
-    <!-- Script de Automação das Abas -->
+    <!-- SCRIPT DE NAVEGAÇÃO DAS ABAS -->
     <script>
         function switchTab(tabId) {
             // Esconde todas as seções de abas
@@ -775,13 +781,8 @@
             }
         }
     </script>
+    
+    <!-- SCRIPT PRINCIPAL DA LOJA -->
     <script src="./script.js"></script>
-
-<!-- Modal para Ampliar a Imagem -->
-<div id="janela-modal" class="modal">
-  <span class="fechar-modal">&times;</span>
-  <img class="conteudo-modal" id="imagem-ampliada">
-</div>
-        
 </body>
 </html>
