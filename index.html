@@ -766,21 +766,29 @@
         <img class="conteudo-modal" id="imagem-ampliada">
     </div>
 
-    <!-- SCRIPT DE NAVEGAÇÃO DAS ABAS -->
-    <script>
-        function switchTab(tabId) {
-            // Esconde todas as seções de abas
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            // Mostra apenas a aba clicada
-            const targetTab = document.getElementById(tabId);
-            if(targetTab) {
-                targetTab.classList.add('active');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
+  <script>
+    function switchTab(tabId) {
+        // 1. Esconde todas as seções de abas
+        document.querySelectorAll('.tab-content').forEach(tab => {
+            tab.classList.remove('active');
+        });
+
+        // 2. Mostra apenas a aba clicada
+        const targetTab = document.getElementById(tabId);
+        if(targetTab) {
+            targetTab.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-    </script>
+
+        // 3. GARANTIA ABSOLUTA: Força o botão do carrinho a ficar visível
+        const cartBtn = document.getElementById('cart-floating-btn');
+        if (cartBtn) {
+            cartBtn.style.display = 'flex';
+            cartBtn.style.visibility = 'visible';
+            cartBtn.style.opacity = '1';
+        }
+    }
+</script>
     
     <!-- SCRIPT PRINCIPAL DA LOJA -->
     <script src="./script.js"></script>
