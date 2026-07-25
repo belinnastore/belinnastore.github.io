@@ -91,10 +91,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ========================================================
-    // ADICIONAR AO CARRINHO
+    // ADICIONAR AO CARRINHO (Protegido contra Esgotados)
     // ========================================================
     document.querySelectorAll(".btn-add-to-cart").forEach(button => {
         button.addEventListener("click", (e) => {
+            // Ignora o clique se o botão estiver desativado (Esgotado)
+            if (button.hasAttribute("disabled")) return;
+
             const productCard = e.target.closest(".product-card");
             if (!productCard) return;
 
@@ -102,8 +105,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const name = productCard.getAttribute("data-name");
             const price = parseFloat(productCard.getAttribute("data-price"));
             
+            // Pega a quantidade se o seletor existir, senão define como 1
             const qtyInput = productCard.querySelector(".qty-input");
-            const quantity = parseInt(qtyInput.value) || 1;
+            const quantity = qtyInput ? (parseInt(qtyInput.value) || 1) : 1;
 
             const existingProduct = cart.find(item => item.id === id);
 
@@ -229,33 +233,35 @@ document.addEventListener("DOMContentLoaded", () => {
             window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, "_blank");
         });
     }
-});
 
+    // ========================================================
+    // LÓGICA DO MODAL (Com travas de segurança if)
+    // ========================================================
+    const modal = document.getElementById("janela-modal");
+    const imgAmpliada = document.getElementById("imagem-ampliada");
+    const botaoFechar = document.querySelector(".fechar-modal");
 
-// Seleciona os elementos do modal
-const modal = document.getElementById("janela-modal");
-const imgAmpliada = document.getElementById("imagem-ampliada");
-const botaoFechar = document.querySelector(".fechar-modal");
+    // Aceita imagens tanto do .product-card quanto do .card-produto
+    const fotosProdutos = document.querySelectorAll(".product-card img, .card-produto img"); 
 
-// Seleciona todas as imagens dos produtos (ajuste a classe se necessário)
-const fotosProdutos = document.querySelectorAll(".card-produto img"); 
+    if (modal && imgAmpliada) {
+        fotosProdutos.forEach(img => {
+            img.addEventListener("click", () => {
+                modal.style.display = "flex";
+                imgAmpliada.src = img.src;
+            });
+        });
 
-// Adiciona o evento de clique em cada foto
-fotosProdutos.forEach(img => {
-  img.addEventListener("click", () => {
-    modal.style.display = "flex";
-    imgAmpliada.src = img.src; // Pega o caminho da foto clicada
-  });
-});
+        if (botaoFechar) {
+            botaoFechar.addEventListener("click", () => {
+                modal.style.display = "none";
+            });
+        }
 
-// Fechar o modal ao clicar no 'X'
-botaoFechar.addEventListener("click", () => {
-  modal.style.display = "none";
-});
-
-// Fechar o modal ao clicar fora da imagem
-modal.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    modal.style.display = "none";
-  }
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    }
 });
