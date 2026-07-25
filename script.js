@@ -115,11 +115,12 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // 4. AMPLIAÇÃO DA FOTO (CLIQUE EM QUALQUER IMAGEM DE PRODUTO)
-        const imgTarget = e.target.closest(".product-image-container img, .product-card img, .card-produto img");
-        if (imgTarget && modal && imgAmpliada) {
-            modal.style.display = "flex";
-            imgAmpliada.src = imgTarget.getAttribute("src");
+        // 4. AMPLIAÇÃO DA FOTO (NOVA REGRA MAIS ABRANGENTE)
+        if (e.target.tagName === "IMG" && e.target.closest(".product-card")) {
+            if (modal && imgAmpliada) {
+                modal.style.display = "flex";
+                imgAmpliada.src = e.target.src;
+            }
             return;
         }
     });
@@ -194,7 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (cartTotalValue) cartTotalValue.textContent = `R$ ${total.toFixed(2).replace(".", ",")}`;
         if (cartBadge) cartBadge.textContent = totalItems;
 
-        // BOTOES DENTRO DO CARRINHO (Aumentar / Diminuir / Remover)
+        // BOTOES DENTRO DO CARRINHO
         document.querySelectorAll(".btn-cart-minus").forEach(button => {
             button.addEventListener("click", () => {
                 const id = button.getAttribute("data-id");
