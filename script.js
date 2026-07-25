@@ -274,3 +274,17 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+// Função para trocar a imagem principal ao clicar na miniatura
+function changeProductImage(thumbElement) {
+    const container = thumbElement.closest('.product-image-container');
+    const mainImg = container.querySelector('.main-product-img');
+    const allThumbs = container.querySelectorAll('.thumb');
+
+    // Troca o caminho da imagem principal
+    mainImg.src = thumbElement.src;
+
+    // Atualiza a borda de destaque da miniatura ativa
+    allThumbs.forEach(thumb => thumb.classList.remove('active'));
+    thumbElement.classList.add('active');
+}
