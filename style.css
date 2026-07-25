@@ -77,6 +77,7 @@ body {
     max-width: 1200px;
     margin: 30px auto;
     padding: 0 20px;
+    overflow: visible !important;
 }
 
 .tab-content.active {
@@ -275,23 +276,26 @@ body {
     cursor: not-allowed !important;
 }
 
-/* --- ESTILIZAÇÃO DO MODAL DE AMPLIAR IMAGEM --- */
+/* ========================================================
+   5. ESTILIZAÇÃO DO MODAL DE AMPLIAR IMAGEM
+   ======================================================== */
 .modal {
-    display: none; /* Escondido por padrão */
+    display: none;
     position: fixed;
-    z-index: 9999999; /* Fica acima de tudo */
+    z-index: 99999999 !important; /* Camada máxima absoluta */
     left: 0;
     top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.85); /* Fundo escuro semitransparente */
-    backdrop-filter: blur(5px); /* Efeito focado e elegante */
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
     align-items: center;
     justify-content: center;
 }
 
 /* Exibe o modal quando ativo */
 .modal.active,
+.modal[style*="display: flex"],
 .modal[style*="display: block"] {
     display: flex !important;
 }
@@ -315,19 +319,20 @@ body {
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
-    z-index: 10000000;
+    z-index: 100000000;
     transition: transform 0.2s;
 }
 
 .fechar-modal:hover {
     transform: scale(1.2);
-    color: var(--primary-color, #f4a2af);
+    color: var(--primary-color);
 }
 
 @keyframes zoomIn {
     from { transform: scale(0.8); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
 }
+
 /* ========================================================
    6. RESPONSIVIDADE (DISPOSITIVOS MÓVEIS)
    ======================================================== */
@@ -359,10 +364,12 @@ body {
 /* ========================================================
    7. ESTILOS DO CARRINHO FLUTUANTE E SIDEBAR
    ======================================================== */
+#cart-floating-btn,
 .cart-floating-btn {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
+    display: flex !important;
+    position: fixed !important;
+    bottom: 30px !important;
+    right: 30px !important;
     background-color: var(--primary-color);
     color: var(--white);
     border: none;
@@ -372,8 +379,9 @@ body {
     font-size: 1.4rem;
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    z-index: 999;
-    display: flex;
+    z-index: 9999999 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
     align-items: center;
     justify-content: center;
     transition: var(--transition);
@@ -401,8 +409,9 @@ body {
 }
 
 /* Painel Lateral (Sidebar) */
+#cart-sidebar,
 .cart-sidebar {
-    position: fixed;
+    position: fixed !important;
     top: 0;
     right: -400px;
     width: 100%;
@@ -410,14 +419,14 @@ body {
     height: 100%;
     background-color: var(--white);
     box-shadow: -5px 0 25px rgba(0,0,0,0.15);
-    z-index: 1001;
+    z-index: 99999999 !important;
     transition: right 0.3s ease;
     display: flex;
     flex-direction: column;
 }
 
 .cart-sidebar.open {
-    right: 0;
+    right: 0 !important;
 }
 
 .cart-header {
@@ -462,22 +471,37 @@ body {
     border-bottom: 1px solid var(--border-color);
 }
 
-.cart-item-info h4 {
+.cart-item-details h4 {
     font-size: 0.9rem;
     font-weight: 500;
+    margin-bottom: 5px;
 }
 
-.cart-item-info p {
-    font-size: 0.8rem;
-    color: var(--text-light);
+.cart-item-qty-selector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
 }
 
-.remove-item-btn {
+.btn-cart-minus,
+.btn-cart-plus {
+    background: var(--bg-light);
+    border: 1px solid var(--border-color);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-remove-item {
     background: none;
     border: none;
     color: #e74c3c;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    padding: 5px;
 }
 
 .cart-footer {
@@ -496,7 +520,7 @@ body {
 
 .btn-checkout-whatsapp {
     width: 100%;
-    background-color: #25d366; /* Cor do WhatsApp */
+    background-color: #25d366;
     color: var(--white);
     border: none;
     padding: 12px;
@@ -517,7 +541,6 @@ body {
     background-color: #1eb857;
 }
 
-/* Fundo escuro ao abrir o carrinho */
 .cart-overlay {
     display: none;
     position: fixed;
@@ -526,33 +549,9 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.4);
-    z-index: 1000;
+    z-index: 9999998;
 }
 
 .cart-overlay.open {
     display: block;
-}
-
-/* 1. Libera o transbordamento das abas para o botão flutuante não ser cortado */
-.tab-content, 
-.tab-content.active {
-    overflow: visible !important;
-}
-
-/* 2. Força o botão do carrinho a ficar por cima de ABSOLUTAMENTE TUDO */
-#cart-floating-btn,
-.cart-floating-btn {
-    display: flex !important;
-    position: fixed !important;
-    bottom: 30px !important;
-    right: 30px !important;
-    z-index: 9999999 !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-}
-
-/* 3. Garante que o painel lateral do carrinho também fique no topo máximo */
-#cart-sidebar,
-.cart-sidebar {
-    z-index: 99999999 !important;
 }
