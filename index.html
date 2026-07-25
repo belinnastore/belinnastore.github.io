@@ -1733,34 +1733,6 @@
         <span class="fechar-modal">&times;</span>
         <img class="conteudo-modal" id="imagem-ampliada">
     </div>
-
-    <!-- SCRIPT DE TROCA DE ABAS -->
-    <script>
-        function switchTab(tabId) {
-            // Esconde todas as abas
-            const allTabs = document.querySelectorAll('.tab-content');
-            allTabs.forEach(tab => {
-                tab.classList.remove('active');
-            });
-
-            // Exibe a aba solicitada
-            const targetTab = document.getElementById(tabId);
-            if (targetTab) {
-                targetTab.classList.add('active');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            } else {
-                console.warn('Aba não encontrada:', tabId);
-            }
-
-            // Mantém o botão do carrinho visível
-            const cartBtn = document.getElementById('cart-floating-btn');
-            if (cartBtn) {
-                cartBtn.style.display = 'flex';
-                cartBtn.style.visibility = 'visible';
-                cartBtn.style.opacity = '1';
-            }
-        }
-    </script>
     
     <!-- SCRIPT PRINCIPAL DA LOJA -->
     <script src="./script.js"></script>
