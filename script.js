@@ -2,7 +2,33 @@
 // FUNÇÃO PARA NAVEGAR ENTRE AS ABAS / SEÇÕES (COM TRATAMENTO DE ACENTOS)
 // ========================================================
 function switchTab(tabId) {
-    if (!tabId) return;
+    // 1. Normaliza o ID recebido (remove espaços extras e deixa minúsculo)
+    const cleanId = tabId.toString().trim().toLowerCase();
+
+    // 2. Esconde TODAS as abas removendo a classe 'active' e forçando 'display: none'
+    const allTabs = document.querySelectorAll('.tab-content');
+    allTabs.forEach(tab => {
+        tab.classList.remove('active');
+        tab.style.setProperty('display', 'none', 'important');
+    });
+
+    // 3. Remove o estado ativo de todos os botões do menu
+    const allButtons = document.querySelectorAll('.tab-btn');
+    allButtons.forEach(btn => btn.classList.remove('active'));
+
+    // 4. Procura o elemento pelo ID correto
+    const targetTab = document.getElementById(cleanId);
+
+    if (targetTab) {
+        // Exibe a aba encontrada
+        targetTab.classList.add('active');
+        targetTab.style.setProperty('display', 'block', 'important');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+        console.error('Aba não encontrada! ID procurado:', cleanId);
+    }
+}
+
 
     // Remove acentos e converte para minúsculas (ex: "LÁBIOS" vira "labios")
     const cleanId = String(tabId)
