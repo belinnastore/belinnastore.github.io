@@ -1,68 +1,45 @@
 // ========================================================
-// FUNÇÃO PARA NAVEGAR ENTRE AS ABAS / SEÇÕES (COM TRATAMENTO DE ACENTOS)
+// FUNÇÃO PARA NAVEGAR ENTRE AS ABAS / SEÇÕES (UNIFICADA)
 // ========================================================
 function switchTab(tabId) {
-    // 1. Normaliza o ID recebido (remove espaços extras e deixa minúsculo)
-    const cleanId = tabId.toString().trim().toLowerCase();
+    if (!tabId) return;
 
-    // 2. Esconde TODAS as abas removendo a classe 'active' e forçando 'display: none'
-    const allTabs = document.querySelectorAll('.tab-content');
-    allTabs.forEach(tab => {
-        tab.classList.remove('active');
-        tab.style.setProperty('display', 'none', 'important');
-    });
-
-    // 3. Remove o estado ativo de todos os botões do menu
-    const allButtons = document.querySelectorAll('.tab-btn');
-    allButtons.forEach(btn => btn.classList.remove('active'));
-
-    // 4. Procura o elemento pelo ID correto
-    const targetTab = document.getElementById(cleanId);
-
-    if (targetTab) {
-        // Exibe a aba encontrada
-        targetTab.classList.add('active');
-        targetTab.style.setProperty('display', 'block', 'important');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-        console.error('Aba não encontrada! ID procurado:', cleanId);
-    }
-}
-
-
-    // Remove acentos e converte para minúsculas (ex: "LÁBIOS" vira "labios")
+    // 1. Tratamento e limpeza do ID (Remove acentos, espaços e deixa minúsculo)
     const cleanId = String(tabId)
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "")
         .toLowerCase()
         .trim();
 
-    // 1. Oculta todas as seções/abas
+    // 2. Oculta TODAS as seções/abas do site
     const tabs = document.querySelectorAll('.tab-content');
     tabs.forEach(tab => {
-        tab.style.display = 'none';
         tab.classList.remove('active');
+        tab.style.setProperty('display', 'none', 'important');
     });
 
-    // 2. Remove destaque de todos os botões do menu
+    // 3. Remove o destaque de todos os botões do menu
     const navButtons = document.querySelectorAll('.tab-btn');
     navButtons.forEach(btn => btn.classList.remove('active'));
 
-    // 3. Procura a aba pelo ID limpo
+    // 4. Procura a aba pelo ID limpo
     let targetTab = document.getElementById(cleanId);
 
-    // Se não achar por ID direto, busca por classes ou variações com/sem hífen
+    // Mapeamento de segurança para nomes com hífens ou nomes compostos
     if (!targetTab) {
-        const altId = cleanId.includes('-') ? cleanId.replace(/-/g, '') : cleanId.replace('bemestar', 'bem-estar');
-        targetTab = document.getElementById(altId);
+        if (cleanId.includes('bemestar') || cleanId.includes('intimidade')) {
+            targetTab = document.getElementById('bem-estar') || document.getElementById('intimidade');
+        } else if (cleanId.includes('-')) {
+            targetTab = document.getElementById(cleanId.replace(/-/g, ''));
+        }
     }
 
+    // 5. Exibe a aba encontrada
     if (targetTab) {
-        // Exibe a aba encontrada
-        targetTab.style.display = 'block';
         targetTab.classList.add('active');
+        targetTab.style.setProperty('display', 'block', 'important');
 
-        // Destaca o botão correspondente no menu
+        // Destaca o botão ativado no menu
         navButtons.forEach(btn => {
             const onClickAttr = btn.getAttribute('onclick') || '';
             const btnCleanAttr = onClickAttr
@@ -70,23 +47,23 @@ function switchTab(tabId) {
                 .replace(/[\u0300-\u036f]/g, "")
                 .toLowerCase();
 
-            if (btnCleanAttr.includes(`'${cleanId}'`)) {
+            if (btnCleanAttr.includes(`'${cleanId}'`) || btnCleanAttr.includes(`"${cleanId}"`)) {
                 btn.classList.add('active');
             }
         });
 
         window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-        console.error("Aba não encontrada com o ID:", cleanId);
+        console.error("Aba não encontrada no HTML com o ID:", cleanId);
     }
 
-    // Garante que o botão do carrinho continue visível
+    // Garante que o botão flutuante do carrinho continue visível
     const cartBtn = document.getElementById('cart-floating-btn');
     if (cartBtn) cartBtn.style.display = 'flex';
 }
 
 // ========================================================
-// LÓGICA DO CARRINHO E INTERAÇÕES
+// LÓGICA DO CARRINHO E INTERAÇÕES (DOM LOADED)
 // ========================================================
 document.addEventListener("DOMContentLoaded", () => {
     let cart = [];
@@ -108,6 +85,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const imgAmpliada = document.getElementById("imagem-ampliada");
     const botaoFechar = document.querySelector(".fechar-modal");
 
+    // Exibe a aba Home por padrão ao carregar a página
+    switchTab('home');
+
+    // Delegador de Eventos de Clique
     document.addEventListener("click", (e) => {
         // Quantidade (-)
         if (e.target.matches(".minus") || e.target.closest(".minus")) {
@@ -192,6 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Função interna para atualizar dados do carrinho
     function updateCart() {
         if (!cartItemsContainer) return;
         cartItemsContainer.innerHTML = "";
@@ -265,6 +247,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Checkout para o WhatsApp
     if (btnCheckoutWhatsapp) {
         btnCheckoutWhatsapp.addEventListener("click", () => {
             if (cart.length === 0) {
@@ -293,6 +276,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+// Troca de imagem miniatura (Thumb)
 function changeProductImage(thumbElement) {
     const container = thumbElement.closest('.product-image-container');
     if (!container) return;
