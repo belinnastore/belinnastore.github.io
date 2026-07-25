@@ -230,3 +230,32 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+
+// Seleciona os elementos do modal
+const modal = document.getElementById("janela-modal");
+const imgAmpliada = document.getElementById("imagem-ampliada");
+const botaoFechar = document.querySelector(".fechar-modal");
+
+// Seleciona todas as imagens dos produtos (ajuste a classe se necessário)
+const fotosProdutos = document.querySelectorAll(".card-produto img"); 
+
+// Adiciona o evento de clique em cada foto
+fotosProdutos.forEach(img => {
+  img.addEventListener("click", () => {
+    modal.style.display = "flex";
+    imgAmpliada.src = img.src; // Pega o caminho da foto clicada
+  });
+});
+
+// Fechar o modal ao clicar no 'X'
+botaoFechar.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+// Fechar o modal ao clicar fora da imagem
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+});
