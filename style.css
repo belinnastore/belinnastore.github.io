@@ -563,3 +563,36 @@ footer p {
     font-size: 0.8rem;
     letter-spacing: 1px;
 }
+
+/* Estilo do Fundo Escuro do Modal */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1000; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85); /* Fundo escuro semitransparente */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Imagem Ampliada */
+.conteudo-modal {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+/* Botão de Fechar (X) */
+.fechar-modal {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  color: #fff;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+}
