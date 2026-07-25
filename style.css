@@ -596,3 +596,17 @@ footer p {
   font-weight: bold;
   cursor: pointer;
 }
+
+/* ========================================================
+   CORREÇÃO DE CLIQUE E AMPLIAÇÃO DA IMAGEM
+   ======================================================== */
+.product-image-container img,
+.product-card img {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.product-image-container img:hover,
+.product-card img:hover {
+    transform: scale(1.03); /* Efeito suave de zoom ao passar o mouse */
+}
