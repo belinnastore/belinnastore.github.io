@@ -10,23 +10,22 @@
 </head>
 <body>
 
-    <!-- BARRA DE AVISO TOPO -->
-    <div class="top-bar" style="background-color: var(--primary-color); color: var(--white); text-align: center; padding: 8px; font-size: 0.85rem; letter-spacing: 1px;">
-        <p>Atendimento Exclusivo via WhatsApp | Enviamos para todo o Brasil</p>
-    </div>
+ <!-- ========================================================
+     BARRA SUPERIOR E NAVEGAÇÃO POR ABAS (TABS)
+======================================================== -->
+<div class="top-bar">
+    Atendimento Exclusivo via WhatsApp | Enviamos para todo o Brasil
+</div>
 
-    <!-- ==========================================
-         BARRA DE NAVEGAÇÃO SUPERIOR (MENU FIXO)
-         ========================================== -->
-    <nav class="nav-tabs">
-        <button class="tab-btn active" onclick="switchTab('home')">Home</button>
-        <button class="tab-btn" onclick="switchTab('glosses')">Labios</button>
-        <button class="tab-btn" onclick="switchTab('maquiagem')">Maquiagem</button>
-        <button class="tab-btn" onclick="switchTab('skincare')">Skincare</button>
-        <button class="tab-btn" onclick="switchTab('intimidade')">Bem-Estar</button>
-        <button class="tab-btn" onclick="switchTab('clientes')">Clientes</button>
-        <button class="tab-btn" onclick="switchTab('sobre-nos')">Sobre Nós</button>
-    </nav>
+<nav class="nav-tabs">
+    <button class="tab-btn active" onclick="switchTab('home')">HOME</button>
+    <button class="tab-btn" onclick="switchTab('labios')">LÁBIOS</button>
+    <button class="tab-btn" onclick="switchTab('maquiagem')">MAQUIAGEM</button>
+    <button class="tab-btn" onclick="switchTab('skincare')">SKINCARE</button>
+    <button class="tab-btn" onclick="switchTab('bem-estar')">BEM-ESTAR</button>
+    <button class="tab-btn" onclick="switchTab('clientes')">CLIENTES</button>
+    <button class="tab-btn" onclick="switchTab('sobre-nos')">SOBRE NÓS</button>
+</nav>
 
    <!-- ==========================================
          PÁGINA 1: INÍCIO (HOME) - APRESENTAÇÃO
@@ -1347,16 +1346,16 @@
 </main>
     
   <!-- ==========================================
-     PÁGINA 5: SKINCARE
+     PÁGINA 5: BEM-ESTAR
      ========================================== -->
-<div id="skincare" class="tab-content">
+<div id="bem-estar" class="tab-content">
     <header>
         <div style="max-width: 900px; margin: 0 auto; text-align: left; padding: 0 20px;">
             <button onclick="switchTab('home')" style="background: none; border: none; color: var(--text-light); cursor: pointer; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">
                 <i class="fa-solid fa-arrow-left"></i> Voltar ao Início
             </button>
         </div>
-        <h1 style="margin-top: 20px;">SKINCARE</h1>
+        <h1 style="margin-top: 20px;">BEM-ESTAR</h1>
         <p>ROTINA DE AUTOCUIDADO</p>
     </header>
 
