@@ -262,3 +262,18 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+
+// Garante que o botão do carrinho fique no <body> do site, fora de qualquer aba
+document.addEventListener('DOMContentLoaded', () => {
+    const cartBtn = document.getElementById('cart-floating-btn');
+    const cartSidebar = document.getElementById('cart-sidebar');
+    
+    if (cartBtn) {
+        document.body.appendChild(cartBtn); // Move o botão para a raiz da página
+        cartBtn.style.display = 'flex';
+    }
+    if (cartSidebar) {
+        document.body.appendChild(cartSidebar); // Move a gaveta do carrinho para a raiz
+    }
+});
