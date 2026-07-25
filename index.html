@@ -1598,12 +1598,14 @@
 </div> <!-- FIM DA TAB SKINCARE -->
 
     <!-- ==========================================
-         PÁGINA 6: BEM-ESTAR & INTIMIDADE
-         ========================================= -->
+       PÁGINA 6: BEM-ESTAR & INTIMIDADE
+       ========================================= -->
     <div id="intimidade" class="tab-content">
         <header>
             <div style="max-width: 900px; margin: 0 auto; text-align: left; padding: 0 20px;">
-                <button onclick="switchTab('home')" style="background: none; border: none; color: var(--text-light); cursor: pointer; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;"><i class="fa-solid fa-arrow-left"></i> Voltar ao Início</button>
+                <button onclick="switchTab('home')" style="background: none; border: none; color: var(--text-light, #666); cursor: pointer; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">
+                    <i class="fa-solid fa-arrow-left"></i> Voltar ao Início
+                </button>
             </div>
             <h1 style="margin-top: 20px;">BEM-ESTAR & INTIMIDADE</h1>
             <p>CUIDADO INTENSO E SENSUAL</p>
@@ -1693,7 +1695,7 @@
         </main>
     </div>
 
-<!-- RODAPÉ GLOBAL COM REDES SOCIAIS CONFIGURADAS -->
+    <!-- RODAPÉ GLOBAL -->
     <footer>
         <div class="footer-socials">
             <a href="https://instagram.com/belinna.store" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
@@ -1702,7 +1704,7 @@
         <p>&copy; 2026 Belinna Store. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- MODAL / SEÇÃO DO CARRINHO LATERAL -->
+    <!-- CARRINHO LATERAL -->
     <div id="cart-sidebar" class="cart-sidebar">
         <div class="cart-header">
             <h3>Seu Carrinho</h3>
@@ -1734,29 +1736,33 @@
         <img class="conteudo-modal" id="imagem-ampliada">
     </div>
 
-  <script>
-    function switchTab(tabId) {
-        // 1. Esconde todas as seções de abas
-        document.querySelectorAll('.tab-content').forEach(tab => {
-            tab.classList.remove('active');
-        });
+    <!-- SCRIPT DE TROCA DE ABAS -->
+    <script>
+        function switchTab(tabId) {
+            // Esconde todas as abas
+            const allTabs = document.querySelectorAll('.tab-content');
+            allTabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
 
-        // 2. Mostra apenas a aba clicada
-        const targetTab = document.getElementById(tabId);
-        if(targetTab) {
-            targetTab.classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+            // Exibe a aba solicitada
+            const targetTab = document.getElementById(tabId);
+            if (targetTab) {
+                targetTab.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                console.warn('Aba não encontrada:', tabId);
+            }
 
-        // 3. GARANTIA ABSOLUTA: Força o botão do carrinho a ficar visível
-        const cartBtn = document.getElementById('cart-floating-btn');
-        if (cartBtn) {
-            cartBtn.style.display = 'flex';
-            cartBtn.style.visibility = 'visible';
-            cartBtn.style.opacity = '1';
+            // Mantém o botão do carrinho visível
+            const cartBtn = document.getElementById('cart-floating-btn');
+            if (cartBtn) {
+                cartBtn.style.display = 'flex';
+                cartBtn.style.visibility = 'visible';
+                cartBtn.style.opacity = '1';
+            }
         }
-    }
-</script>
+    </script>
     
     <!-- SCRIPT PRINCIPAL DA LOJA -->
     <script src="./script.js"></script>
