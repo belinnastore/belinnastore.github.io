@@ -1,11 +1,15 @@
 // ========================================================
-// FUNÇÃO PARA NAVEGAR ENTRE AS ABAS / SEÇÕES
+// FUNÇÃO PARA NAVEGAR ENTRE AS ABAS / SEÇÕES (COM TRATAMENTO DE ACENTOS)
 // ========================================================
 function switchTab(tabId) {
     if (!tabId) return;
 
-    // Normaliza o ID recebido (tudo em minúsculas e sem espaços extras)
-    const normalizedId = String(tabId).trim().toLowerCase();
+    // Remove acentos e converte para minúsculas (ex: "LÁBIOS" vira "labios")
+    const cleanId = String(tabId)
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .trim();
 
     // 1. Oculta todas as seções/abas
     const tabs = document.querySelectorAll('.tab-content');
@@ -14,54 +18,53 @@ function switchTab(tabId) {
         tab.classList.remove('active');
     });
 
-    // 2. Remove o destaque ativo de todos os botões do menu superior
+    // 2. Remove destaque de todos os botões do menu
     const navButtons = document.querySelectorAll('.tab-btn');
     navButtons.forEach(btn => btn.classList.remove('active'));
 
-    // 3. Procura a aba de destino pelo ID exato ou com fallback (com/sem hífen)
-    let targetTab = document.getElementById(normalizedId);
+    // 3. Procura a aba pelo ID limpo
+    let targetTab = document.getElementById(cleanId);
 
-    // Fallback: tenta encontrar variações comuns (ex: bemestar vs bem-estar)
+    // Se não achar por ID direto, busca por classes ou variações com/sem hífen
     if (!targetTab) {
-        const altId = normalizedId.includes('-') 
-            ? normalizedId.replace(/-/g, '') 
-            : normalizedId.replace('bemestar', 'bem-estar');
+        const altId = cleanId.includes('-') ? cleanId.replace(/-/g, '') : cleanId.replace('bemestar', 'bem-estar');
         targetTab = document.getElementById(altId);
     }
-    
+
     if (targetTab) {
         // Exibe a aba encontrada
         targetTab.style.display = 'block';
         targetTab.classList.add('active');
-        
-        // Destaca o botão correspondente no menu superior
+
+        // Destaca o botão correspondente no menu
         navButtons.forEach(btn => {
-            const onClickAttr = btn.getAttribute('onclick');
-            if (onClickAttr && onClickAttr.toLowerCase().includes(`'${normalizedId}'`)) {
+            const onClickAttr = btn.getAttribute('onclick') || '';
+            const btnCleanAttr = onClickAttr
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .toLowerCase();
+
+            if (btnCleanAttr.includes(`'${cleanId}'`)) {
                 btn.classList.add('active');
             }
         });
 
-        // Rola a tela suavemente para o topo
         window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-        console.error("Aba não encontrada no HTML para o ID:", tabId);
+        console.error("Aba não encontrada com o ID:", cleanId);
     }
 
-    // Garante que o botão flutuante do carrinho continue visível
+    // Garante que o botão do carrinho continue visível
     const cartBtn = document.getElementById('cart-floating-btn');
-    if (cartBtn) {
-        cartBtn.style.display = 'flex';
-    }
+    if (cartBtn) cartBtn.style.display = 'flex';
 }
 
 // ========================================================
-// LÓGICA DO CARRINHO E INTERAÇÕES (DOM LOADED)
+// LÓGICA DO CARRINHO E INTERAÇÕES
 // ========================================================
 document.addEventListener("DOMContentLoaded", () => {
     let cart = [];
 
-    // Mover os elementos flutuantes para a raiz do BODY (evita sobreposição/quebra por abas)
     const cartFloatingBtn = document.getElementById("cart-floating-btn");
     const cartSidebar = document.getElementById("cart-sidebar");
     const modal = document.getElementById("janela-modal");
@@ -70,23 +73,17 @@ document.addEventListener("DOMContentLoaded", () => {
     if (cartSidebar) document.body.appendChild(cartSidebar);
     if (modal) document.body.appendChild(modal);
 
-    // Elementos do Carrinho Lateral
     const closeCartBtn = document.getElementById("close-cart-btn");
     const cartItemsContainer = document.getElementById("cart-items-container");
     const cartTotalValue = document.getElementById("cart-total-value");
     const cartBadge = document.getElementById("cart-badge");
     const btnCheckoutWhatsapp = document.getElementById("btn-checkout-whatsapp");
 
-    // Elementos do Modal de Imagem
     const imgAmpliada = document.getElementById("imagem-ampliada");
     const botaoFechar = document.querySelector(".fechar-modal");
 
-    // ========================================================
-    // DELEGAÇÃO GLOBAL DE CLIQUE (Funciona em todas as abas)
-    // ========================================================
     document.addEventListener("click", (e) => {
-
-        // 1. DIMINUIR QUANTIDADE (-)
+        // Quantidade (-)
         if (e.target.matches(".minus") || e.target.closest(".minus")) {
             const btn = e.target.matches(".minus") ? e.target : e.target.closest(".minus");
             if (btn.hasAttribute("disabled")) return;
@@ -98,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // 2. AUMENTAR QUANTIDADE (+)
+        // Quantidade (+)
         if (e.target.matches(".plus") || e.target.closest(".plus")) {
             const btn = e.target.matches(".plus") ? e.target : e.target.closest(".plus");
             if (btn.hasAttribute("disabled")) return;
@@ -110,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // 3. ADICIONAR AO CARRINHO
+        // Adicionar ao Carrinho
         const btnAdd = e.target.closest(".btn-add-to-cart");
         if (btnAdd) {
             if (btnAdd.hasAttribute("disabled") || btnAdd.classList.contains("btn-disabled")) return;
@@ -121,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const id = productCard.getAttribute("data-id");
             const name = productCard.getAttribute("data-name");
             const price = parseFloat(productCard.getAttribute("data-price")) || 0;
-            
+
             const qtyInput = productCard.querySelector(".qty-input");
             const quantity = qtyInput ? (parseInt(qtyInput.value) || 1) : 1;
 
@@ -140,7 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // 4. AMPLIAÇÃO DA FOTO (Apenas foto principal, ignora miniaturas)
+        // Zoom Imagem
         if (e.target.tagName === "IMG" && e.target.closest(".product-card")) {
             if (e.target.classList.contains("thumb")) return;
 
@@ -152,41 +149,25 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // ========================================================
-    // ABRIR E FECHAR O CARRINHO
-    // ========================================================
     if (cartFloatingBtn && cartSidebar) {
-        cartFloatingBtn.addEventListener("click", () => {
-            cartSidebar.classList.add("open");
-        });
+        cartFloatingBtn.addEventListener("click", () => cartSidebar.classList.add("open"));
     }
 
     if (closeCartBtn && cartSidebar) {
-        closeCartBtn.addEventListener("click", () => {
-            cartSidebar.classList.remove("open");
-        });
+        closeCartBtn.addEventListener("click", () => cartSidebar.classList.remove("open"));
     }
 
-    // FECHAR MODAL DE IMAGEM
     if (modal) {
         if (botaoFechar) {
-            botaoFechar.addEventListener("click", () => {
-                modal.style.display = "none";
-            });
+            botaoFechar.addEventListener("click", () => modal.style.display = "none");
         }
         modal.addEventListener("click", (e) => {
-            if (e.target === modal) {
-                modal.style.display = "none";
-            }
+            if (e.target === modal) modal.style.display = "none";
         });
     }
 
-    // ========================================================
-    // ATUALIZAR INTERFACE DO CARRINHO
-    // ========================================================
     function updateCart() {
         if (!cartItemsContainer) return;
-        
         cartItemsContainer.innerHTML = "";
         let total = 0;
         let totalItems = 0;
@@ -222,7 +203,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (cartTotalValue) cartTotalValue.textContent = `R$ ${total.toFixed(2).replace(".", ",")}`;
         if (cartBadge) cartBadge.textContent = totalItems;
 
-        // BOTOES DENTRO DO CARRINHO (-)
         document.querySelectorAll(".btn-cart-minus").forEach(button => {
             button.addEventListener("click", () => {
                 const id = button.getAttribute("data-id");
@@ -238,7 +218,6 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
 
-        // BOTOES DENTRO DO CARRINHO (+)
         document.querySelectorAll(".btn-cart-plus").forEach(button => {
             button.addEventListener("click", () => {
                 const id = button.getAttribute("data-id");
@@ -250,7 +229,6 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
 
-        // REMOVER ITEM DO CARRINHO
         document.querySelectorAll(".btn-remove-item").forEach(button => {
             button.addEventListener("click", (e) => {
                 const btn = e.target.closest(".btn-remove-item");
@@ -261,13 +239,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // ========================================================
-    // ENVIAR PEDIDO PARA O WHATSAPP
-    // ========================================================
     if (btnCheckoutWhatsapp) {
         btnCheckoutWhatsapp.addEventListener("click", () => {
             if (cart.length === 0) {
-                alert("Seu carrinho está vazio! Adicione produtos antes de enviar.");
+                alert("Seu carrinho está vazio!");
                 return;
             }
 
@@ -285,27 +260,20 @@ document.addEventListener("DOMContentLoaded", () => {
             message += `Gostaria de prosseguir com o pagamento e combinar a entrega! ✨`;
 
             const encodedMessage = encodeURIComponent(message);
-            const whatsappNumber = "5511993610210"; 
+            const whatsappNumber = "5511993610210";
 
             window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, "_blank");
         });
     }
 });
 
-// ========================================================
-// TROCAR IMAGEM PRINCIPAL PELAS MINIATURAS
-// ========================================================
 function changeProductImage(thumbElement) {
     const container = thumbElement.closest('.product-image-container');
     if (!container) return;
-    
     const mainImg = container.querySelector('.main-product-img');
     const allThumbs = container.querySelectorAll('.thumb');
 
-    if (mainImg) {
-        mainImg.src = thumbElement.src;
-    }
-
+    if (mainImg) mainImg.src = thumbElement.src;
     allThumbs.forEach(thumb => thumb.classList.remove('active'));
     thumbElement.classList.add('active');
 }
