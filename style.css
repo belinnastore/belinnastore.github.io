@@ -81,7 +81,7 @@ body {
 }
 
 .tab-content.active {
-    display: block !important; /* Força a exibição quando a classe .active for inserida */
+    display: block !important;
 }
 
 /* Layout interno para o conteúdo dos produtos */
