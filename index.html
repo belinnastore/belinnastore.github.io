@@ -3,1518 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Belinna Store - Beauty&Makeup</title>
-    <!-- Ícones Globais -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Belinna Store | Sua beleza já existe</title>
+    <!-- CSS Principal -->
     <link rel="stylesheet" href="style.css">
+    <!-- Ícones (Font Awesome para sacola, fechar, setas, etc.) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
- <!-- ========================================================
-     BARRA SUPERIOR E NAVEGAÇÃO POR ABAS (TABS)
-======================================================== -->
-<div class="top-bar">
-    Atendimento Exclusivo via WhatsApp | Enviamos para todo o Brasil
-</div>
-
-<nav class="nav-tabs">
-    <button class="tab-btn active" onclick="switchTab('home')">HOME</button>
-    <button class="tab-btn" onclick="switchTab('labios')">LÁBIOS</button>
-    <button class="tab-btn" onclick="switchTab('maquiagem')">MAQUIAGEM</button>
-    <button class="tab-btn" onclick="switchTab('skincare')">SKINCARE</button>
-    <button class="tab-btn" onclick="switchTab('intimidade')">BEM-ESTAR & INTIMIDADE</button>
-    <button class="tab-btn" onclick="switchTab('sobre-nos')">SOBRE NÓS</button>
-</nav>
-
-   <!-- ==========================================
-         PÁGINA 1: INÍCIO (HOME) - APRESENTAÇÃO
-         ========================================== -->
-    <div id="home" class="tab-content active">
-        
-        <!-- BANNER DE BOAS-VINDAS (HERO SECTION) -->
-        <section style="background-color: var(--white); border-radius: 16px; padding: 60px 30px; text-align: center; box-shadow: var(--shadow); margin-bottom: 40px; border: 1px solid rgba(229, 179, 157, 0.2);">
-            <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; color: var(--primary-color); font-weight: 600; display: block; margin-bottom: 10px;">Bem-vinda à Belinna Store</span>
-            <h1 style="font-size: 2.8rem; font-weight: 400; letter-spacing: 6px; color: #111; margin-bottom: 15px; text-transform: uppercase;">Sua beleza já existe. Nós apenas á realçamos!</h1>
-            <p style="font-size: 1rem; color: var(--text-light); max-width: 600px; margin: 0 auto 30px auto; line-height: 1.6;">
-                Encontre os melhores glosses, makes e produtos de autocuidado baratinho e selecionados com todo carinho para destacar a sua melhor versão.
-            </p>
-            <button onclick="switchTab('glosses')" style="background-color: var(--primary-color); color: var(--white); border: none; padding: 14px 32px; border-radius: 30px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; cursor: pointer; transition: var(--transition);">
-                Explorar Coleção ✨
-            </button>
-        </section>
-
-        <!-- DESTAQUES DA LOJA / DIFERENCIAIS -->
-        <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; text-align: center; margin-top: 30px;">
-            
-            <div style="background: var(--white); padding: 25px; border-radius: 12px; box-shadow: var(--shadow);">
-                <i class="fa-solid fa-truck-fast" style="font-size: 1.8rem; color: var(--primary-color); margin-bottom: 12px; display: block;"></i>
-                <h4 style="font-weight: 500; letter-spacing: 1px; margin-bottom: 8px; color: var(--text-color);">Envio para Todo Brasil</h4>
-                <p style="font-size: 0.85rem; color: var(--text-light); margin: 0;">Sua encomenda entregue com rapidez e carinho.</p>
-            </div>
-
-            <div style="background: var(--white); padding: 25px; border-radius: 12px; box-shadow: var(--shadow);">
-                <i class="fa-solid fa-sparkles" style="font-size: 1.8rem; color: var(--primary-color); margin-bottom: 12px; display: block;"></i>
-                <h4 style="font-weight: 500; letter-spacing: 1px; margin-bottom: 8px; color: var(--text-color);">Produtos Baratinhos</h4>
-                <p style="font-size: 0.85rem; color: var(--text-light); margin: 0;">Produtos com preços que cabe no bolso e com acabamentos incríveis para o dia a dia.</p>
-            </div>
-
-            <div style="background: var(--white); padding: 25px; border-radius: 12px; box-shadow: var(--shadow);">
-                <i class="fa-solid fa-comments" style="font-size: 1.8rem; color: var(--primary-color); margin-bottom: 12px; display: block;"></i>
-                <h4 style="font-weight: 500; letter-spacing: 1px; margin-bottom: 8px; color: var(--text-color);">Atendimento Exclusivo</h4>
-                <p style="font-size: 0.85rem; color: var(--text-light); margin: 0;">Tire suas dúvidas direto pelo nosso WhatsApp.</p>
-            </div>
-
-        </section>
-
-    </div>
-
- <!-- ==========================================
-         PÁGINA 4: LÁBIOS
-         ========================================== -->
-    <div id="labios" class="tab-content">
-        <header>
-            <div style="max-width: 900px; margin: 0 auto; text-align: left; padding: 0 20px;">
-                <button onclick="switchTab('home')" style="background: none; border: none; color: var(--text-light); cursor: pointer; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;"><i class="fa-solid fa-arrow-left"></i> Voltar ao Início</button>
-            </div>
-            <h1 style="margin-top: 20px;">Queridinhos para os Lábios</h1>
-            <p>BRILHO, VOLUME E HIDRATAÇÃO</p>
-        </header>
-
-        <main style="max-width: 1200px; margin: 40px auto; padding: 0 20px;">
-            <!-- Insira os product-card exclusivos de Glosses aqui -->
-            
-          <!-- GLOSS BOBBI RARA COELHINHO COM POMPOM (ESGOTADO) -->
-<div class="product-card out-of-stock" data-id="m12" data-name="Gloss Labial Bobbi Rara Coelhinha Chaveiro" data-price="23.99">
-    <div class="product-image-container">
-        <span class="badge-out-of-stock">Esgotado</span>
-        <img src="catalogo/labubu.jpg" alt="Gloss Labial Bobbi Rara LABUBU Chaveiro" class="main-product-img">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">Bobbi Rara</span>
-        <h3 class="product-title">Gloss Labial Bobbi Rara Chaveiro LABUBU com Pompom</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Gloss brilhante com chaveiro fofo de Labubu e pompom peludinho.</p>
-            <p><strong>O que faz:</strong> Proporciona brilho radiante com partículas reluzentes e mantém os lábios bonitos o dia todo.</p>
-            <p><strong>Como usar:</strong> Aplique diretamente nos lábios com o aplicador e prenda o chaveiro na bolsa para retocar quando quiser.</p>
-        </div>
-        <div class="product-price">R$ 23,99</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus" disabled>-</button>
-                <input type="number" value="1" min="1" class="qty-input" disabled>
-                <button type="button" class="plus" disabled>+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart" disabled>Esgotado</button>
-        </div>
-    </div>
-</div>
-
-<!-- Gloss Labial Chaveiro Mel e Goiaba (ESGOTADO) -->
-<div class="product-card out-of-stock" data-id="gloss-chaveiro-goiaba" data-name="Gloss Labial Chaveiro Goiaba" data-price="23.99">
-    <div class="product-image-container">
-        <span class="badge-out-of-stock">Esgotado</span>
-        <img src="catalogo/goiaba.jpg" alt="Gloss Labial Chaveiro Mel Goiaba" class="main-product-img">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">Honey</span>
-        <h3 class="product-title">Gloss Labial Chaveiro (Goiaba)</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Gloss labial em embalagem de favo de mel com chaveiro e pingente divertido de goiaba.</p>
-            <p><strong>O que faz:</strong> Confere brilho espelhado, hidratação e um aroma frutal delicioso aos lábios.</p>
-            <p><strong>Como usar:</strong> Aplique diretamente sobre os lábios usando o aplicador integrado.</p>
-        </div>
-        <div class="product-price">R$ 23,99</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus" disabled>-</button>
-                <input type="number" value="1" min="1" class="qty-input" disabled>
-                <button type="button" class="plus" disabled>+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart" disabled>Esgotado</button>
-        </div>
-    </div>
-</div>            
-
-            <!-- GLOSS MOONALLURE MORANGO COM CHAVEIRO DAISY E LAÇO -->
-            <div class="product-card" data-id="m13" data-name="Gloss Labial Moonallure Morango Chaveiro" data-price="23.99">
-                <div class="product-image-container">
-                    <img src="catalogo/morango.jpg" alt="Gloss Labial Moonallure Morango Chaveiro" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
-                </div>
-                <div class="product-info">
-                    <span class="brand-badge">Moonallure</span>
-                    <h3 class="product-title">Lip Gloss Morango com Chaveiro e Pingente</h3>
-                    <div class="product-details">
-                        <p><strong>O que é:</strong> Gloss tom avermelhado com brilho fino e tampa temática de morango em alto-relevo.</p>
-                        <p><strong>O que faz:</strong> Dá uma corzinha saudável e brilhante aos lábios, acompanhado de um chaveiro delicado com pingentes de margarida, morango e laço.</p>
-                        <p><strong>Como usar:</strong> Aplique diretamente nos lábios com o aplicador e prenda o chaveiro na bolsa para retocar quando quiser.</p>
-                    </div>
-                    <div class="product-price">R$ 23,99</div>
-                    <div class="purchase-actions">
-                        <div class="quantity-selector">
-                            <button class="minus">-</button>
-                            <input type="number" value="1" min="1" class="qty-input">
-                            <button class="plus">+</button>
-                        </div>
-                        <button class="btn-add-to-cart">Adicionar ao Carrinho</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- GLOSS MEL COM CHAVEIRO GIRASSOL E ABELHINHA -->
-            <div class="product-card" data-id="m14" data-name="Gloss Labial Honey Mel Girassol e Abelha" data-price="23.99">
-                <div class="product-image-container">
-                    <img src="catalogo/mel.jpg" alt="Gloss Labial Honey Mel Girassol e Abelha" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
-                </div>
-                <div class="product-info">
-                    <span class="brand-badge">Honey Beauty</span>
-                    <h3 class="product-title">Gloss Labial Honey Mel & Girassol</h3>
-                    <div class="product-details">
-                        <p><strong>O que é:</strong> Gloss translúcido dourado com aroma suave e embalagem temática de colmeia.</p>
-                        <p><strong>O que faz:</strong> Hidrata e dá um acabamento espelhado aos lábios. Acompanhado de um chaveiro dourado de abelhinha e girassol.</p>
-                        <p><strong>Como usar:</strong> Use sozinho para um efeito aquoso natural ou por cima do seu batom favorito.</p>
-                    </div>
-                    <div class="product-price">R$ 23,99</div>
-                    <div class="purchase-actions">
-                        <div class="quantity-selector">
-                            <button class="minus">-</button>
-                            <input type="number" value="1" min="1" class="qty-input">
-                            <button class="plus">+</button>
-                        </div>
-                        <button class="btn-add-to-cart">Adicionar ao Carrinho</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- GLOSS OREO / CHOCOLATE COM CHAVEIRO BISCOITO -->
-            <div class="product-card" data-id="m15" data-name="Gloss Labial Honey Oreo Cookie" data-price="23.99">
-                <div class="product-image-container">
-                    <img src="catalogo/oro.jpg" alt="Gloss Labial Honey Oreo Cookie" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
-                </div>
-                <div class="product-info">
-                    <span class="brand-badge">Honey Beauty</span>
-                    <h3 class="product-title">Gloss Liporeo com Chaveiro Biscoito Oreo</h3>
-                    <div class="product-details">
-                        <p><strong>O que é:</strong> Gloss de acabamento levemente leitoso e translúcido com tema do biscoito recheado OREO.</p>
-                        <p><strong>O que faz:</strong> Garante um visual moderno e lábios macios, acompanhado de um charmoso chaveiro de biscoito.</p>
-                        <p><strong>Como usar:</strong> Passe uma camada uniforme no centro dos lábios e espalhe levemente.</p>
-                    </div>
-                    <div class="product-price">R$ 23,99</div>
-                    <div class="purchase-actions">
-                        <div class="quantity-selector">
-                            <button class="minus">-</button>
-                            <input type="number" value="1" min="1" class="qty-input">
-                            <button class="plus">+</button>
-                        </div>
-                        <button class="btn-add-to-cart">Adicionar ao Carrinho</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- GLOSS UVA COM CHAVEIRO FRUTINHA -->
-            <div class="product-card" data-id="m16" data-name="Gloss Labial Honey Grape Uva e Amora" data-price="23.99">
-                <div class="product-image-container">
-                    <img src="catalogo/uva.jpg" alt="Gloss Labial Honey Grape Uva" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
-                </div>
-                <div class="product-info">
-                    <span class="brand-badge">Honey Beauty</span>
-                    <h3 class="product-title">Gloss Labial Grape Roxo com Chaveiro Uva</h3>
-                    <div class="product-details">
-                        <p><strong>O que é:</strong> Gloss roxinho com brilho vitrificado e chaveiro de frutinha.</p>
-                        <p><strong>O que faz:</strong> Destaca o tom natural dos lábios com um sutil toque arroxeado e muito brilho.</p>
-                        <p><strong>Como usar:</strong> Aplique com o pincel próprio diretamente na boca limpa ou sobre o batom.</p>
-                    </div>
-                    <div class="product-price">R$ 23,99</div>
-                    <div class="purchase-actions">
-                        <div class="quantity-selector">
-                            <button class="minus">-</button>
-                            <input type="number" value="1" min="1" class="qty-input">
-                            <button class="plus">+</button>
-                        </div>
-                        <button class="btn-add-to-cart">Adicionar ao Carrinho</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- GLOSS MELANCIA COM CHAVEIRO FRUITY -->
-            <div class="product-card" data-id="m17" data-name="Gloss Labial Watermelon Melancia Chaveiro" data-price="23,99">
-                <div class="product-image-container">
-                    <img src="catalogo/melancia.jpg" alt="Gloss Labial Watermelon Melancia Chaveiro" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
-                </div>
-                <div class="product-info">
-                    <span class="brand-badge">Honey Beauty</span>
-                    <h3 class="product-title">Gloss Labial Watermelon Melancia</h3>
-                    <div class="product-details">
-                        <p><strong>O que é:</strong> Gloss rosado translúcido com essência refrescante e pingente de fatia de melancia.</p>
-                        <p><strong>O que faz:</strong> Dá brilho intenso e cor suave de lábios saudáveis, além de vir com chaveiro fatia de malancia super divertido.</p>
-                        <p><strong>Como usar:</strong> Aplique quantidade generosa nos lábios para um visual *juicy* e vibrante.</p>
-                    </div>
-                    <div class="product-price">R$ 23,99</div>
-                    <div class="purchase-actions">
-                        <div class="quantity-selector">
-                            <button class="minus">-</button>
-                            <input type="number" value="1" min="1" class="qty-input">
-                            <button class="plus">+</button>
-                        </div>
-                        <button class="btn-add-to-cart">Adicionar ao Carrinho</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- GLOSS COCOFLEUR SHINE COM BARBICACHO E CORAÇÃO -->
-            <div class="product-card" data-id="m18" data-name="Gloss Labial CocoFleur Shine Pink Chaveiro" data-price="19.90">
-                <div class="product-image-container">
-                    <img src="catalogo/sorvete.jpg" alt="Gloss Labial CocoFleur Shine Pink Chaveiro" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
-                </div>
-                <div class="product-info">
-                    <span class="brand-badge">CocoFleur</span>
-                    <h3 class="product-title">Lip Gloss Shine Sorvetinho com Tassel Pink</h3>
-                    <div class="product-details">
-                        <p><strong>O que é:</strong> Gloss com partículas de brilho e embalagem temática de calda de sorvete dripping.</p>
-                        <p><strong>O que faz:</strong> Ilumina a boca com efeito cintilante e traz chaveiro glamouroso com franja tassel e coração rosa.</p>
-                        <p><strong>Como usar:</strong> Aplique deslizando o aplicador nos lábios superiores e inferiores.</p>
-                    </div>
-                    <div class="product-price">R$ 19,90</div>
-                    <div class="purchase-actions">
-                        <div class="quantity-selector">
-                            <button class="minus">-</button>
-                            <input type="number" value="1" min="1" class="qty-input">
-                            <button class="plus">+</button>
-                        </div>
-                        <button class="btn-add-to-cart">Adicionar ao Carrinho</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Produto: Lip Gloss Love Rain Copinho de Milkshake -->
-<div class="product-card" data-id="gloss-love-rain-copinho" data-name="Lip Gloss Love Rain Copinho com Canudo" data-price="15.99">
-    <div class="product-image-container">
-        <img src="catalogo/1000705887.jpg" alt="Lip Gloss Love Rain Copinho de Milkshake">
-    </div>
-    
-    <div class="product-info">
-        <span class="brand-badge">Love Rain</span>
-        <h3 class="product-title">Lip Gloss Love Rain Copinho com Canudo</h3>
-        
-        <div class="product-details">
-            <p><strong>O que é:</strong> Lip gloss brilhante com embalagem temática fofíssima em formato de copinho com canudo e chaveirinho de Doce/Cupcake.</p>
-            <p><strong>O que faz:</strong> Confere um brilho espelhado incrível aos lábios com micropartículas de glitter e mantém a hidratação com um cheirinho adocicado super agradável.</p>
-            <p><strong>Como usar:</strong> Desenrosque a tampa superior e aplique uniformemente sobre os lábios usando o aplicador acoplado.</p>
-        </div>
-        
-        <div class="product-price">R$ 15,99</div>
-        
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-
-              <!-- GLOSS PINK GRAPE CEREJA DOURADO -->
-            <div class="product-card" data-id="m19" data-name="Gloss Labial Pink Grape Cereja Chaveiro Dourado" data-price="23.99">
-                <div class="product-image-container">
-                    <span class="badge badge-out-of-stock">Esgotado</span>
-                    <img src="catalogo/cereja.jpg" alt="Gloss Labial Pink Grape Cereja Chaveiro Dourado" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
-                </div>
-                <div class="product-info">
-                    <span class="brand-badge">Pink Grape</span>
-                    <h3 class="product-title">Gloss Labial Red Cherry com Chaveiro de Cerejinha</h3>
-                    <div class="product-details">
-                        <p><strong>O que é:</strong> Gloss vermelho vibrante com microbrilhos e detalhes sofisticados em dourado.</p>
-                        <p><strong>O que faz:</strong> Destaca os lábios com tom avermelhado sedutor e vem com pingente duplo de cerejas em alto relevo.</p>
-                        <p><strong>Como usar:</strong> Aplique diretamente nos lábios com o aplicador e prenda o chaveiro na bolsa para retocar quando quiser</p>
-                    </div>
-                    <div class="product-price">R$ 23,99</div>
-                    <div class="purchase-actions">
-                        <!-- Mantém o seletor mas desativa tudo para o JS não dar erro -->
-                        <div class="quantity-selector" style="opacity: 0.5; pointer-events: none;">
-                            <button class="minus" disabled>-</button>
-                            <input type="number" value="1" min="1" class="qty-input" disabled>
-                            <button class="plus" disabled>+</button>
-                        </div>
-                        <button class="btn-add-to-cart btn-disabled" disabled>Esgotado</button>
-                    </div>
-                </div>
-            </div>
-
-<!-- Lápis de Boca Lip Liner - Criarbelle (Opção 1) -->
-<div class="product-card" data-id="lapis-boca-criarbelle-1" data-name="Lápis de Boca Lip Liner Criarbelle Tom 1" data-price="8.00">
-    <div class="product-image-container">
-        <img src="catalogo/1000705933.jpg" alt="Lápis de Boca Lip Liner Criarbelle Tom 1" class="main-product-img">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">Criarbelle</span>
-        <h3 class="product-title">Lápis de Boca Lip Liner (Tom Vermelho)</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Lápis contorno labial cremoso de alta definição.</p>
-            <p><strong>O que faz:</strong> Define o contorno dos lábios, evita que o batom escorra e aumenta a fixação.</p>
-            <p><strong>Como usar:</strong> Contorne a linha natural dos lábios antes de aplicar o batom ou preencha toda a boca.</p>
-        </div>
-        <div class="product-price">R$ 8,00</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-
-            <!-- Lápis de Boca Lip Liner - Criarbelle (Opção 2) -->
-<div class="product-card" data-id="lapis-boca-criarbelle-2" data-name="Lápis de Boca Lip Liner Criarbelle Tom 2" data-price="8.00">
-    <div class="product-image-container">
-        <img src="catalogo/1000705939.jpg" alt="Lápis de Boca Lip Liner Criarbelle Tom 2" class="main-product-img">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">Criarbelle</span>
-        <h3 class="product-title">Lápis de Boca Lip Liner (Tom Terracota/Rose)</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Lápis contorno labial com textura macia e excelente pigmentação.</p>
-            <p><strong>O que faz:</strong> Delimita os lábios garantindo um acabamento limpo e duradouro à maquiagem.</p>
-            <p><strong>Como usar:</strong> Aplique delineando o arco do cupido e acompanhando as bordas dos lábios.</p>
-        </div>
-        <div class="product-price">R$ 8,00</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-
-<!-- Lip Glaze Chave da Paixão - Mia Make -->
-<div class="product-card" data-id="lip-glaze-chave-da-paixao-mia-make" data-name="Lip Glaze Chave da Paixao Mia Make" data-price="12.99">
-    <div class="product-image-container">
-        <img src="catalogo/1000705898.jpg" alt="Lip Glaze Chave da Paixão Mia Make" class="main-product-img">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">Mia Make</span>
-        <h3 class="product-title">Lip Glaze Chave da Paixão</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Lip glaze labial com embalagem exclusiva em formato de cadeado.</p>
-            <p><strong>O que faz:</strong> Oferece brilho espelhado, toque de cor nos lábios e alta durabilidade com design colecionável.</p>
-            <p><strong>Como usar:</strong> Aplique diretamente sobre os lábios até atingir a cobertura e o brilho desejados.</p>
-        </div>
-        <div class="product-price">R$ 12,99</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-
-<!-- Lip Tint 3 em 1 Cor 508 - Max Love -->
-<div class="product-card" data-id="lip-tint-3em1-cor508-max-love" data-name="Lip Tint 3 em 1 Cor 508 Max Love" data-price="9.99">
-    <div class="product-image-container">
-        <img src="catalogo/liptinti508.jpg" alt="Lip Tint 3 em 1 Cor 508 Max Love" class="main-product-img">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">Max Love</span>
-        <h3 class="product-title">Lip Tint 3 em 1 Love (Cor 508)</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Lip tint pigmentado formulado com Rosa Mosqueta, Ácido Hialurônico e D-Pantenol.</p>
-            <p><strong>O que faz:</strong> Promove cor natural de longa duração enquanto hidrata e cuida da pele dos lábios.</p>
-            <p><strong>Como usar:</strong> Aplique uma camada fina nos lábios ou bochechas e dê leves batidinhas até obter a intensidade desejada.</p>
-        </div>
-        <div class="product-price">R$ 9,99</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-
-<!-- Balm Labial Melted Lips Framboesa e Açaí - Fenzza -->
-<div class="product-card" data-id="balm-melted-lips-framboesa-acai-fenzza" data-name="Balm Labial Melted Lips Framboesa e Acai Fenzza" data-price="9.99">
-    <div class="product-image-container">
-        <img src="catalogo/1000705979.jpg" alt="Balm Labial Melted Lips Framboesa e Açaí Fenzza" class="main-product-img">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">Fenzza</span>
-        <h3 class="product-title">Balm Labial Melted Lips (Framboesa e Açaí)</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Balm hidratante enriquecido com Vitamina E e manteiga de pimenta rosa.</p>
-            <p><strong>O que faz:</strong> Nutre intensamente, previne o ressecamento e deixa um leve tom avermelhado nos lábios.</p>
-            <p><strong>Como usar:</strong> Deslize o produto diretamente nos lábios sempre que sentir necessidade de hidratação.</p>
-        </div>
-        <div class="product-price">R$ 9,99</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-
-<!-- Balm Labial Melted Lips Amora e Pitanga - Fenzza -->
-<div class="product-card" data-id="balm-melted-lips-amora-pitanga-fenzza" data-name="Balm Labial Melted Lips Amora e Pitanga Fenzza" data-price="9.99">
-    <div class="product-image-container">
-        <img src="catalogo/1000705983.jpg" alt="Balm Labial Melted Lips Amora e Pitanga Fenzza" class="main-product-img">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">Fenzza</span>
-        <h3 class="product-title">Balm Labial Melted Lips (Amora e Pitanga)</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Balm labial protetor com fórmula rica em Vitamina E e manteiga de pimenta rosa.</p>
-            <p><strong>O que faz:</strong> Promove maciez prolongada, cuida da pele sensível dos lábios e adiciona cor sutil.</p>
-            <p><strong>Como usar:</strong> Aplique diretamente sobre a boca ao longo do dia para manter a hidratação.</p>
-        </div>
-        <div class="product-price">R$ 9,99</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-
-<!-- Balm Labial Melted Lips Maracujá e Kiwi - Fenzza -->
-<div class="product-card" data-id="balm-melted-lips-maracuja-kiwi-fenzza" data-name="Balm Labial Melted Lips Maracuja e Kiwi Fenzza" data-price="9.99">
-    <div class="product-image-container">
-        <img src="catalogo/1000705986.jpg" alt="Balm Labial Melted Lips Maracujá e Kiwi Fenzza" class="main-product-img">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">Fenzza</span>
-        <h3 class="product-title">Balm Labial Melted Lips (Maracujá e Kiwi)</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Balm labial nutritivo à base de Vitamina E e manteiga de pimenta rosa.</p>
-            <p><strong>O que faz:</strong> Hidrata profundamente sem deixar sensação pegajosa, conferindo brilho natural.</p>
-            <p><strong>Como usar:</strong> Passe suavemente nos lábios diariamente para prevenir o ressecamento.</p>
-        </div>
-        <div class="product-price">R$ 9,99</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-
-<!-- Gloss Labial DEB Melancia - Deborah Secco -->
-<div class="product-card" data-id="gloss-deb-melancia-deborah-secco" data-name="Gloss Labial DEB Melancia Deborah Secco" data-price="14.99">
-    <div class="product-image-container">
-        <img src="catalogo/1000706005.jpg" alt="Gloss Labial DEB Melancia Deborah Secco" class="main-product-img">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">DEB by Deborah Secco</span>
-        <h3 class="product-title">Gloss Hidratante Labial (Melancia)</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Gloss labial com brilho e tratamento, formulado com D-Pantenol, Vitamina E e Ácido Hialurônico.</p>
-            <p><strong>O que faz:</strong> Proporciona hidratação profunda, efeito volumizador sutil e aroma delicioso de melancia.</p>
-            <p><strong>Como usar:</strong> Aplique uma camada uniforme sobre os lábios limpos ou por cima do batom favorito.</p>
-        </div>
-        <div class="product-price">R$ 14,99</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-
-<!-- Gloss Labial DEB Beijinho - Deborah Secco -->
-<div class="product-card" data-id="gloss-deb-beijinho-deborah-secco" data-name="Gloss Labial DEB Beijinho Deborah Secco" data-price="14.99">
-    <div class="product-image-container">
-        <img src="catalogo/1000706008.jpg" alt="Gloss Labial DEB Beijinho Deborah Secco" class="main-product-img">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">DEB by Deborah Secco</span>
-        <h3 class="product-title">Gloss Hidratante Labial (Beijinho)</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Gloss labial ultra brilhante com D-Pantenol, Vitamina E e Ácido Hialurônico.</p>
-            <p><strong>O que faz:</strong> Retém a umidade natural dos lábios, deixando-os macios, protegidos e com brilho radiante.</p>
-            <p><strong>Como usar:</strong> Espalhe o produto nos lábios do centro para os cantos externos até cobrir bem.</p>
-        </div>
-        <div class="product-price">R$ 14,99</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>       
-</main>
- </div>
-
-    <!-- ==========================================
-         PÁGINA 5: MAQUIAGEM (ATUALIZADA)
-         ========================================== -->
-
-      <div id="maquiagem" class="tab-content">
-        <header>
-            <div style="max-width: 900px; margin: 0 auto; text-align: left; padding: 0 20px;">
-                <button onclick="switchTab('home')" style="background: none; border: none; color: var(--text-light); cursor: pointer; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;"><i class="fa-solid fa-arrow-left"></i> Voltar ao Início</button>
-            </div>
-            <h1 style="margin-top: 20px;">Maquiagens</h1>
-            <p>REALCE SUA BELEZA</p>
-        </header>
-
-        <main style="max-width: 1200px; margin: 40px auto; padding: 0 20px;">
-
-    <!-- 1. Pó Solto Translúcido Ultrafino - Kyràv -->
-<div class="product-card" data-id="po-translucido-kyrav" data-name="Pó Solto Translúcido Ultrafino Kyràv" data-price="10.00">
-    <div class="product-image-container">
-        <img src="catalogo/1000704323.jpg" alt="Pó Solto Translúcido Ultrafino Kyràv">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">Kyràv</span>
-        <h3 class="product-title">Pó Solto Translúcido Ultrafino</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Pó facial solto translúcido com textura ultrafina e acabamento leve.</p>
-            <p><strong>O que faz:</strong> Selar a maquiagem sem estourar no flash, reduzindo o brilho excessivo da pele e proporcionando efeito aveludado duradouro.</p>
-            <p><strong>Como usar:</strong> Aplique com o auxílio de um pincel macio ou esponja nas áreas desejadas para selar a base e o corretivo.</p>
-        </div>
-        <div class="product-price">R$ 10,00</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-
-<!-- 2. Pó Solto Rosa Mosqueta - Kyràv -->
-<div class="product-card" data-id="po-rosa-mosqueta-kyrav" data-name="Pó Solto Rosa Mosqueta Kyràv" data-price="10.00">
-    <div class="product-image-container">
-        <img src="catalogo/1000704327.jpg" alt="Pó Solto Rosa Mosqueta Kyràv">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">Kyràv</span>
-        <h3 class="product-title">Pó Solto Rosa Mosqueta</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Pó solto facial enriquecido com extrato/propriedades de Rosa Mosqueta.</p>
-            <p><strong>O que faz:</strong> Ajuda a matificar a pele enquanto proporciona toque aveludado e suavidade, auxiliando no cuidado da pele durante o uso da make.</p>
-            <p><strong>Como usar:</strong> Aplique levemente sobre a pele selando as regiões com tendência à oleosidade ou abaixo dos olhos.</p>
-        </div>
-        <div class="product-price">R$ 10,00</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-
-<!-- 3. Pó Translúcido Chocolate All Day - Vivai -->
-<div class="product-card" data-id="po-chocolate-vivai" data-name="Pó Translúcido Chocolate All Day Vivai" data-price="15.00">
-    <div class="product-image-container">
-        <img src="catalogo/1000704403.jpg" alt="Pó Translúcido Chocolate All Day Vivai">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">Vivai</span>
-        <h3 class="product-title">Pó Translúcido Chocolate All Day</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Pó translúcido com tom aquecido/chocolate ideal para peles morenas e negras ou para contorno leve.</p>
-            <p><strong>O que faz:</strong> Promove selagem perfeita sem acinzentar a pele, garantindo acabamento uniforme e controle de oleosidade ao longo do dia.</p>
-            <p><strong>Como usar:</strong> Com um pincel ou esponjinha, aplique sobre o rosto para fixar a make ou para dar um leve toque de cor e acabamento.</p>
-        </div>
-        <div class="product-price">R$ 15,00</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-
-<!-- 4. Pó Banana Translúcido Bananada - Mia Make (15g) -->
-<div class="product-card" data-id="po-banana-miamake" data-name="Pó Banana Translúcido Bananada Mia Make 15g" data-price="12.99">
-    <div class="product-image-container">
-        <img src="catalogo/banana-miamake.jpg" alt="Pó Banana Translúcido Bananada Mia Make">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">Mia Make</span>
-        <h3 class="product-title">Pó Banana Translúcido Bananada (Coleção Samba - 15g)</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Pó banana translúcido de textura fina da Coleção Samba da Mia Make.</p>
-            <p><strong>O que faz:</strong> Adapta-se a diversos tons de pele, fixa a maquiagem, controla o brilho e confere um acabamento natural e uniforme sem estourar no flash.</p>
-            <p><strong>Como usar:</strong> Aplique na zona T ou abaixo dos olhos com esponja para a técnica baking ou com pincel por todo o rosto.</p>
-        </div>
-        <div class="product-price">R$ 12,99</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-
-<!-- 5. Pó Banana Resistente à Água - Yvisly -->
-<div class="product-card" data-id="po-banana-yvisly" data-name="Pó Banana Resistente à Água Yvisly" data-price="12.50">
-    <div class="product-image-container">
-        <img src="catalogo/banana-yvisiy.jpg" alt="Pó Banana Resistente à Água Yvisly">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">Yvisly</span>
-        <h3 class="product-title">Pó Banana Resistente à Água Ultrafino</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Pó banana ultrafino e aveludado com fórmula resistente à água e ao suor.</p>
-            <p><strong>O que faz:</strong> Aumenta consideravelmente a durabilidade da maquiagem, sela perfeitamente a pele e impede que a oleosidade e o suor vençam a make.</p>
-            <p><strong>Como usar:</strong> Deposite o pó suavemente com pincel ou esponja nas áreas desejadas e retire o excesso após alguns instantes.</p>
-        </div>
-        <div class="product-price">R$ 12,50</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-
-
-    <!-- 1. Contorno em Bastão Iconic - Labranche -->
-<div class="product-card" data-id="contorno-bastao-labranche" data-name="Contorno em Bastão Iconic Labranche" data-price="11.99">
-    <div class="product-image-container">
-        <img src="catalogo/1000704426.jpg" alt="Contorno em Bastão Iconic Labranche">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">Labranche</span>
-        <h3 class="product-title">Contorno em Bastão Iconic</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Contorno facial cremoso em formato de bastão (stick) prático e de alta pigmentação.</p>
-            <p><strong>O que faz:</strong> Define, esculpe e esculpe os traços do rosto com facilidade. Possui textura cremosa que esfuma super bem, sem manchar a pele.</p>
-            <p><strong>Como usar:</strong> Aplique diretamente nas áreas que deseja contornar (como abaixo das maçãs do rosto, mandíbula e laterais do nariz) e esfume com pincel ou esponja.</p>
-        </div>
-        <div class="product-price">R$ 11,99</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-
-<!-- Pó Compacto Matte AXIU com Carrossel de Fotos -->
-<div class="product-card" data-id="po-compacto-matte-axiu" data-name="Pó Compacto Matte AXIU" data-price="12.50">
-    <div class="product-image-container media-carousel">
-        <!-- Imagem Principal -->
-        <img src="catalogo/1000704350.jpg" alt="Pó Compacto Matte AXIU" class="main-product-img">
-        
-        <!-- Miniaturas para Navegar / Trocar Foto -->
-        <div class="carousel-thumbs">
-            <img src="catalogo/1000704350.jpg" class="thumb active" onclick="changeProductImage(this)">
-            <img src="catalogo/1000704358.jpg" class="thumb" onclick="changeProductImage(this)">
-            <img src="catalogo/1000704365.jpg" class="thumb" onclick="changeProductImage(this)">
-            <img src="catalogo/1000704377.jpg" class="thumb" onclick="changeProductImage(this)">
-        </div>
-    </div>
-    
-    <div class="product-info">
-        <span class="brand-badge">AXIU</span>
-        <h3 class="product-title">Pó Compacto Matte (Diversos Tons)</h3>
-        
-        <div class="product-details">
-            <p><strong>O que é:</strong> Pó compacto com acabamento matte aveludado e embalagem quadrada super prática.</p>
-            <p><strong>O que faz:</strong> Cobertura uniforme que controla a oleosidade e o brilho da pele ao longo do dia com toque aveludado.</p>
-            <p><strong>Como usar:</strong> Aplique com esponja ou pincel de pó do centro do rosto para as extremidades.</p>
-        </div>
-        
-        <div class="product-price">R$ 12,50</div>
-        
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-
-<!-- 1. Pó Matificante Pure Matte - Ruby Rose -->
-<div class="product-card" data-id="po-pure-matte-ruby-rose" data-name="Pó Matificante Pure Matte Ruby Rose" data-price="16.99">
-    <div class="product-image-container">
-        <img src="catalogo/1000704389.jpg" alt="Pó Matificante Pure Matte Ruby Rose" class="main-product-img">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">Ruby Rose</span>
-        <h3 class="product-title">Pó Matificante Pure Matte</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Pó compacto matificante com textura fina e aveludada.</p>
-            <p><strong>O que faz:</strong> Sela a maquiagem, reduz o brilho excessivo e proporciona acabamento matte natural.</p>
-            <p><strong>Como usar:</strong> Aplique sobre o rosto com o auxílio de um pincel macio ou esponja, focando na zona T.</p>
-        </div>
-        <div class="product-price">R$ 16,99</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-
-<!-- 2. Pó Compacto Multi Matte 4 em 1 - Dapop -->
-<div class="product-card" data-id="po-multi-matte-dapop" data-name="Pó Compacto Multi Matte 4 em 1 Dapop" data-price="11.99">
-    <div class="product-image-container">
-        <img src="catalogo/1000704390.jpg" alt="Pó Compacto Multi Matte 4 em 1 Dapop" class="main-product-img">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">Dapop</span>
-        <h3 class="product-title">Pó Compacto Multi Matte 4 em 1</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Pó compacto multifuncional com ação matificante e textura leve.</p>
-            <p><strong>O que faz:</strong> Matifica a pele, disfarça os poros, controla a oleosidade e garante toque aveludado.</p>
-            <p><strong>Como usar:</strong> Utilize um pincel ou esponja para aplicar delicadamente por todo o rosto.</p>
-        </div>
-        <div class="product-price">R$ 11,99</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-
-<!-- 3. Blush Matte - Belle Angel -->
-<div class="product-card" data-id="blush-matte-belle-angel" data-name="Blush Matte Belle Angel" data-price="10.99">
-    <div class="product-image-container">
-        <img src="catalogo/1000704399.jpg" alt="Blush Matte Belle Angel" class="main-product-img">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">Belle Angel</span>
-        <h3 class="product-title">Blush Matte Compacto</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Blush compacto com acabamento matte e alta pigmentação.</p>
-            <p><strong>O que faz:</strong> Adiciona cor e vida às maçãs do rosto com um efeito natural e saudável.</p>
-            <p><strong>Como usar:</strong> Aplique nas maçãs do rosto com um pincel de blush, esfumando em direção às têmporas.</p>
-        </div>
-        <div class="product-price">R$ 10,99</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-
-<!-- 4. Iluminador Lunar Glow - Hello Mini -->
-<div class="product-card" data-id="iluminador-lunar-glow-hello-mini" data-name="Iluminador Lunar Glow Hello Mini" data-price="22.90">
-    <div class="product-image-container">
-        <img src="catalogo/1000704400.jpg" alt="Iluminador Lunar Glow Hello Mini" class="main-product-img">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">Hello Mini</span>
-        <h3 class="product-title">Iluminador Lunar Glow Highlighter</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Iluminador facial em domo com textura refinada e micropartículas de brilho.</p>
-            <p><strong>O que faz:</strong> Destaca os pontos altos do rosto proporcionando um brilho radiante e sofisticado.</p>
-            <p><strong>Como usar:</strong> Aplique no topo das maçãs do rosto, osso do nariz e no arco do cupido.</p>
-        </div>
-        <div class="product-price">R$ 22,90</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-
-<!-- 5. Gel Modelador para Sobrancelhas - Melu by Ruby Rose -->
-<div class="product-card" data-id="gel-sobrancelhas-melu" data-name="Gel Modelador para Sobrancelhas Melu by Ruby Rose" data-price="13.99">
-    <div class="product-image-container">
-        <img src="catalogo/1000704409.jpg" alt="Gel Modelador para Sobrancelhas Melu by Ruby Rose" class="main-product-img">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">Melu by Ruby Rose</span>
-        <h3 class="product-title">Gel Modelador para Sobrancelhas</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Gel fixador de sobrancelhas com fórmula resistente à água.</p>
-            <p><strong>O que faz:</strong> Modela, alinha e fixa os fios no lugar o dia todo, deixando as sobrancelhas cheinhas.</p>
-            <p><strong>Como usar:</strong> Aplique com uma escovinha de sobrancelhas penteando os fios no sentido desejado.</p>
-        </div>
-        <div class="product-price">R$ 13,99</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-
-<!-- 6. Iluminador Bastão Shine (Opção 1) - Toque Special -->
-<div class="product-card" data-id="iluminador-bastao-toque-special-1" data-name="Iluminador Bastão Shine Toque Special (Tom 1)" data-price="12.99">
-    <div class="product-image-container">
-        <img src="catalogo/1000704412.jpg" alt="Iluminador Bastão Shine Toque Special" class="main-product-img">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">Toque Special</span>
-        <h3 class="product-title">Iluminador Bastão Shine (Tom Claro)</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Iluminador cremoso em formato bastão de prática aplicação.</p>
-            <p><strong>O que faz:</strong> Realça os olhos, afina o rosto e proporciona um brilho imediato.</p>
-            <p><strong>Como usar:</strong> Deslize diretamente nas áreas desejadas e esfume com as pontas dos dedos.</p>
-        </div>
-        <div class="product-price">R$ 12,99</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-
-<!-- 7. Iluminador Bastão Shine (Opção 2) - Toque Special -->
-<div class="product-card" data-id="iluminador-bastao-toque-special-2" data-name="Iluminador Bastão Shine Toque Special (Tom 2)" data-price="12.99">
-    <div class="product-image-container">
-        <img src="catalogo/1000704419.jpg" alt="Iluminador Bastão Shine Toque Special" class="main-product-img">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">Toque Special</span>
-        <h3 class="product-title">Iluminador Bastão Shine (Tom Médio)</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Iluminador cremoso em formato bastão de prática aplicação.</p>
-            <p><strong>O que faz:</strong> Realça os olhos, afina o rosto e proporciona um brilho cintilante marcante.</p>
-            <p><strong>Como usar:</strong> Deslize diretamente nas áreas desejadas e esfume com as pontas dos dedos.</p>
-        </div>
-        <div class="product-price">R$ 12,99</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-
-<!-- 8. Contorno Stick - Mia Make -->
-<div class="product-card" data-id="contorno-stick-mia-make" data-name="Contorno Stick Mia Make" data-price="11.99">
-    <div class="product-image-container">
-        <img src="catalogo/1000704425.jpg" alt="Contorno Stick Mia Make" class="main-product-img">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">Mia Make</span>
-        <h3 class="product-title">Contorno Facial Stick</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Contorno facial em bastão com acabamento aveludado.</p>
-            <p><strong>O que faz:</strong> Oferece aplicação precisa e fácil de esfumar para esculpir os traços do rosto.</p>
-            <p><strong>Como usar:</strong> Desenhe nos pontos de sombra do rosto e esfume com pincel ou esponja.</p>
-        </div>
-        <div class="product-price">R$ 11,99</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-
-<!-- 9. Trio Sombra para Sobrancelhas 4 Angels - Belle Angel -->
-<div class="product-card" data-id="sombra-sobrancelha-belle-angel" data-name="Sombra para Sobrancelha 4 Angels Belle Angel" data-price="11.99">
-    <div class="product-image-container">
-        <img src="catalogo/1000704437.jpg" alt="Sombra para Sobrancelha 4 Angels Belle Angel" class="main-product-img">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">Belle Angel</span>
-        <h3 class="product-title">Trio Sombra para Sobrancelha 4 Angels</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Paleta compacta de sombras para sobrancelhas com pincel aplicador incluso.</p>
-            <p><strong>O que faz:</strong> Preenche falhas e corrige imperfeições com tons versáteis para um desenho impecável.</p>
-            <p><strong>Como usar:</strong> Aplique a sombra nos fios utilizando o pincel chanfrado acompanhando a linha natural.</p>
-        </div>
-        <div class="product-price">R$ 11,99</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-
-<!-- Delineador Preto Teddy - Vivai -->
-<div class="product-card" data-id="delineador-teddy-vivai" data-name="Delineador Preto Teddy Vivai" data-price="10.99">
-    <div class="product-image-container">
-        <img src="catalogo/1000704471.jpg" alt="Delineador Preto Teddy Vivai" class="main-product-img">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">Vivai</span>
-        <h3 class="product-title">Delineador Líquido Teddy Preto</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Delineador líquido preto com embalagem temática fofa de ursinho.</p>
-            <p><strong>O que faz:</strong> Garante traços precisos, alta pigmentação e secagem rápida para um olhar marcante.</p>
-            <p><strong>Como usar:</strong> Aplique rente à linha dos cílios do canto interno ao externo até atingir o formato desejado.</p>
-        </div>
-        <div class="product-price">R$ 10,99</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-
-<!-- Paleta Multifuncional Acrobata - Mia Make -->
-<div class="product-card" data-id="paleta-acrobata-mia-make" data-name="Paleta Multifuncional Acrobata Mia Make" data-price="19.99">
-    <div class="product-image-container">
-        <img src="catalogo/1000705860.jpg" alt="Paleta Multifuncional Acrobata Mia Make" class="main-product-img">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">Mia Make</span>
-        <h3 class="product-title">Paleta Multifuncional Acrobata (Face e Olhos)</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Paleta trio multifuncional de alta fixação para face e olhos.</p>
-            <p><strong>O que faz:</strong> Oferece tons para contornar, iluminar e dar cor à pele e pálpebras com praticidade.</p>
-            <p><strong>Como usar:</strong> Aplique com os pincéis adequados nas áreas do rosto ou olhos que deseja destacar e bronzear.</p>
-        </div>
-        <div class="product-price">R$ 19,99</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-
-<!-- Cílios Postiços Lash Premium Gold - Hinfinity Professional -->
-<div class="product-card" data-id="cilios-lash-premium-gold-hinfinity" data-name="Cílios Postiços Lash Premium Gold Hinfinity" data-price="9.99">
-    <div class="product-image-container">
-        <img src="catalogo/1000705892.jpg" alt="Cílios Postiços Lash Premium Gold Hinfinity" class="main-product-img">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">Hinfinity</span>
-        <h3 class="product-title">Cílios Postiços Lash Premium Gold (Faux Mink)</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Cílios postiços 100% artesanais com fios de seda leves.</p>
-            <p><strong>O que faz:</strong> Entrega volume com efeito natural e acabamento profissional impecável.</p>
-            <p><strong>Como usar:</strong> Aplique cola própria para cílios na base, aguarde secar um pouco e posicione rente aos cílios naturais.</p>
-        </div>
-        <div class="product-price">R$ 9,99</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-
-<!-- Cílios Postiços Extra Natural Base Transparente - Hinfinity Professional -->
-<div class="product-card" data-id="cilios-extra-natural-hinfinity" data-name="Cílios Postiços Extra Natural Hinfinity" data-price="9.99">
-    <div class="product-image-container">
-        <img src="catalogo/1000705893.jpg" alt="Cílios Postiços Extra Natural Hinfinity" class="main-product-img">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">Hinfinity</span>
-        <h3 class="product-title">Cílios Postiços Extra Natural (Base Transparente)</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Cílios postiços ultra leves com base flexível e transparente.</p>
-            <p><strong>O que faz:</strong> Mescla perfeitamente com os fios naturais para um olhar destacado de forma sutil.</p>
-            <p><strong>Como usar:</strong> Meça no olho, corte os excessos se preciso, passe a cola na haste e aplique sobre a pálpebra.</p>
-        </div>
-        <div class="product-price">R$ 9,99</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-
-<!-- Chaveiro Blush 3 em 1 Panda Pompon - YoYo Maquiamor -->
-<div class="product-card" data-id="chaveiro-blush-panda-yoyo" data-name="Chaveiro Blush 3 em 1 Panda Pompon YoYo Maquiamor" data-price="23.99">
-    <div class="product-image-container">
-        <img src="catalogo/1000705897.jpg" alt="Chaveiro Blush 3 em 1 Panda Pompon YoYo Maquiamor" class="main-product-img">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">YoYo Maquiamor</span>
-        <h3 class="product-title">Chaveiro com Blush 3 em 1 e Pompom Panda</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Chaveiro multifuncional com blush 3 em 1 versátil e pompom peludinho.</p>
-            <p><strong>O que faz:</strong> Confere cor e destaque prático para o rosto, pálpebras ou lábios, servindo também como um acessório super fofo.</p>
-            <p><strong>Como usar:</strong> Aplique suavemente nas bochechas ou áreas desejadas e espalhe com os dedos ou pincel até esfumar.</p>
-        </div>
-        <div class="product-price">R$ 23,99</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-
-<!-- Máscara de Cílios Cosmic Lash - Mia Make -->
-<div class="product-card" data-id="mascara-cosmic-lash-mia-make" data-name="Máscara de Cílios Cosmic Lash Mia Make" data-price="13.99">
-    <div class="product-image-container">
-        <img src="catalogo/1000705918.jpg" alt="Máscara de Cílios Cosmic Lash Mia Make" class="main-product-img">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">Mia Make</span>
-        <h3 class="product-title">Máscara de Cílios Cosmic Lash</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Máscara para cílios com pincel anatômico, resistente à água e ao suor.</p>
-            <p><strong>O que faz:</strong> Alonga e define cada fio sem empelotar, proporcionando longa duração.</p>
-            <p><strong>Como usar:</strong> Aplique da raiz às pontas dos cílios em movimentos de zig-zag até obter o efeito desejado.</p>
-        </div>
-        <div class="product-price">R$ 13,99</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-
-        <!-- Máscara de Cílios Lashes UP! - Rose Beauty -->
-<div class="product-card" data-id="mascara-lashes-up-rose" data-name="Mascara de Cilios Lashes UP Rose Beauty" data-price="19.99">
-    <div class="product-image-container">
-        <img src="catalogo/lashes-up.jpg" alt="Máscara de Cílios Lashes UP Rose Beauty" class="main-product-img">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">Rose Beauty</span>
-        <h3 class="product-title">Máscara de Cílios Lashes UP!</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Máscara para cílios focada em efeito curvador e de levantamento instantâneo.</p>
-            <p><strong>O que faz:</strong> Define e eleva os cílios desde a raiz sem empelotar, proporcionando olhar bem aberto.</p>
-            <p><strong>Como usar:</strong> Posicione o aplicador na base dos cílios e faça movimentos suaves até as pontas.</p>
-        </div>
-        <div class="product-price">R$ 19,99</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-
-<!-- Caneta Delineadora - YoYo Maquiamor -->
-<div class="product-card" data-id="caneta-delineadora-yoyo" data-name="Caneta Delineadora YoYo Maquiamor" data-price="9.99">
-    <div class="product-image-container">
-        <img src="catalogo/1000705929.jpg" alt="Caneta Delineadora YoYo Maquiamor" class="main-product-img">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">YoYo Maquiamor</span>
-        <h3 class="product-title">Caneta Delineadora Preta</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Caneta delineadora de ponta fina e alta precisão.</p>
-            <p><strong>O que faz:</strong> Facilita a criação do traço gatinho com pigmentação intensa e secagem rápida.</p>
-            <p><strong>Como usar:</strong> Desenhe o traço bem rente aos cílios, do canto interno até a ponta externa do olho.</p>
-        </div>
-        <div class="product-price">R$ 9,99</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-
-<!-- Lápis Preto Smooth Feeling - Febella -->
-<div class="product-card" data-id="lapis-preto-smooth-febella" data-name="Lápis Preto Smooth Feeling Febella" data-price="5.99">
-    <div class="product-image-container">
-        <img src="catalogo/1000705930.jpg" alt="Lápis Preto Smooth Feeling Febella" class="main-product-img">
-    </div>
-    <div class="product-info">
-        <span class="brand-badge">Febella</span>
-        <h3 class="product-title">Lápis de Olhos Preto Smooth Feeling</h3>
-        <div class="product-details">
-            <p><strong>O que é:</strong> Lápis de olhos preto de textura macia e fácil deslize.</p>
-            <p><strong>O que faz:</strong> Pigmenta facilmente a linha d'água e permite esfumados precisos na pálpebra.</p>
-            <p><strong>Como usar:</strong> Aplique suavemente na linha d'água ou rente aos cílios superiores/inferiores.</p>
-        </div>
-        <div class="product-price">R$ 5,99</div>
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-            
-<!-- 2. Base Líquida Matte Suave - Miss Grena com Carrossel -->
-<div class="product-card" data-id="base-liquida-miss-grena" data-name="Base Líquida Matte Suave Miss Grena" data-price="12.99">
-    <div class="product-image-container media-carousel">
-        <!-- Imagem Principal -->
-        <img src="catalogo/1000704453.jpg" alt="Base Líquida Matte Suave Miss Grena" class="main-product-img">
-        
-        <!-- Miniaturas para Navegar / Trocar Foto -->
-        <div class="carousel-thumbs">
-            <img src="catalogo/1000704453.jpg" class="thumb active" onclick="changeProductImage(this)">
-            <img src="catalogo/1000704457.jpg" class="thumb" onclick="changeProductImage(this)">
-        </div>
-    </div>
-    
-    <div class="product-info">
-        <span class="brand-badge">Miss Grena</span>
-        <h3 class="product-title">Base Líquida Matte Suave (Aparência Natural)</h3>
-        
-        <div class="product-details">
-            <p><strong>O que é:</strong> Base líquida com acabamento matte suave e efeito de aparência natural para o dia a dia.</p>
-            <p><strong>O que faz:</strong> Uniformiza o tom da pele cobrindo imperfeições sem pesar, proporcionando toque aveludado e sequinho.</p>
-            <p><strong>Como usar:</strong> Agite antes de usar. Aplique uma quantidade suficiente no rosto e espalhe uniformemente com pincel, esponja ou com as pontas dos dedos.</p>
-        </div>
-        
-        <div class="product-price">R$ 12,99</div>
-        
-        <div class="purchase-actions">
-            <div class="quantity-selector">
-                <button type="button" class="minus">-</button>
-                <input type="number" class="qty-input" value="1" min="1">
-                <button type="button" class="plus">+</button>
-            </div>
-            <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-</div>
-</main>
-
-
-<!-- ==========================================
-     PÁGINA 5: SKINCARE
-     ========================================== -->
- <div id="skincare" class="tab-content">
-        <header>
-            <div style="max-width: 900px; margin: 0 auto; text-align: left; padding: 0 20px;">
-                <button onclick="switchTab('home')" style="background: none; border: none; color: var(--text-light, 666); cursor: pointer; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">
-<i class="fa-solid fa-arrow-left"></i> Voltar ao Início</button>
-            </div>
-            <h1 style="margin-top: 20px;">Skincare</h1>
-            <p>CUIDADO COM ROSTO & COLO</p>
-        </header>
-
-        <main style="max-width: 1200px; margin: 40px auto; padding: 0 20px;">
-          <!-- Insira os product-card exclusivos de skincare aqui → -->
-                     <!-- Lenços Umedecidos Munila - Tá na Mão! -->
-            <div class="product-card" data-id="lencos-umedecidos-munila" data-name="Lencos Umedecidos Munila Ta na Mao" data-price="4.99">
-                <div class="product-image-container">
-                    <img src="catalogo/1000704470.jpg" alt="Lenços Umedecidos Munila Tá na Mão!" class="main-product-img">
-                </div>
-                <div class="product-info">
-                    <span class="brand-badge">Munila</span>
-                    <h3 class="product-title">Lenços Umedecidos Tá na Mão! (8 Unid.)</h3>
-                    <div class="product-details">
-                        <p><strong>O que é:</strong> Pacote compacto de lenços umedecidos para higiene rápida.</p>
-                        <p><strong>O que faz:</strong> Promove limpeza prática e refrescante das mãos e rosto onde você estiver.</p>
-                        <p><strong>Como usar:</strong> Retire um lenço da embalagem e passe suavemente na área desejada. Feche a etiqueta adesiva para manter a umidade.</p>
-                    </div>
-                    <div class="product-price">R$ 4,99</div>
-                    <div class="purchase-actions">
-                        <div class="quantity-selector">
-                            <button type="button" class="minus">-</button>
-                            <input type="number" class="qty-input" value="1" min="1">
-                            <button type="button" class="plus">+</button>
-                        </div>
-                        <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-                    </div>
-                </div>
-            </div>
-
-
-
-            
-            
-        </main>
-
-            
-<!-- ==========================================
-     PÁGINA 6: BEM-ESTAR & INTIMIDADE
-     ========================================== -->
-<div id="intimidade" class="tab-content">
-    <header>
-        <div style="max-width: 900px; margin: 0 auto; text-align: left; padding: 0 20px;">
-            <button onclick="switchTab('home')" style="background: none; border: none; color: var(--text-light, #666); cursor: pointer; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">
-                <i class="fa-solid fa-arrow-left"></i> Voltar ao Início
-            </button>
-        </div>
-        <h1 style="margin-top: 20px;">BEM-ESTAR & INTIMIDADE</h1>
-        <p>CUIDADO INTENSO E SENSUAL</p>
+    <!-- ========================================================
+       1. BARRA SUPERIOR E NAVEGAÇÃO POR ABAS
+       ======================================================== -->
+    <header class="top-bar">
+        <p>Frete Fixo e Entregas Rápidas em Toda a Região ✨</p>
     </header>
 
-    <main style="max-width: 1200px; margin: 40px auto; padding: 0 20px;">
-        <div class="products-grid">
+    <nav class="nav-tabs">
+        <button class="tab-btn active" onclick="openTab(event, 'home')">Home</button>
+        <button class="tab-btn" onclick="openTab(event, 'labios')">Lábios</button>
+        <button class="tab-btn" onclick="openTab(event, 'maquiagem')">Maquiagem</button>
+        <button class="tab-btn" onclick="openTab(event, 'skincare')">Skincare</button>
+        <button class="tab-btn" onclick="openTab(event, 'bem-estar')">Bem-Estar & Intimidade</button>
+        <button class="tab-btn" onclick="openTab(event, 'sobre')">Sobre Nós</button>
+    </nav>
 
-            <!-- Perfume para Calcinha Soft -->
-            <div class="product-card" data-id="i1" data-name="Perfume para Calcinha Soft" data-price="29.90">
-                <div class="product-image-container">
-                    <div class="product-image-placeholder">
-                        <i class="fa-solid fa-spray-can"></i>
-                        <span>[Perfume Íntimo]</span>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <span class="brand-badge">Belinna Secreta</span>
-                    <h3 class="product-title">Perfume para Calcinha</h3>
-                    <div class="product-details">
-                        <p><strong>O que é:</strong> Uma fragrância suave, delicada e hipoalergênica desenvolvida para tecidos íntimos.</p>
-                        <p><strong>O que faz:</strong> Deixa as peças com aroma prolongado de frescor e limpeza, promovendo bem-estar o dia todo.</p>
-                        <p><strong>Como usar:</strong> Borrife a uma distância de 20cm da peça de roupa íntima após lavada ou antes de vestir.</p>
-                    </div>
-                    <div class="product-price">R$ 29,90</div>
-                    <div class="purchase-actions">
-                        <div class="quantity-selector">
-                            <button type="button" class="minus">-</button>
-                            <input type="number" value="1" min="1" class="qty-input">
-                            <button type="button" class="plus">+</button>
-                        </div>
-                        <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-                    </div>
-                </div>
+    <!-- ========================================================
+       2. CONTEÚDO DAS ABAS
+       ======================================================== -->
+    <main>
+
+        <!-- ABA: HOME -->
+        <section id="home" class="tab-content active">
+            <header class="hero-section">
+                <h1>Belinna Store</h1>
+                <p class="slogan">"Sua beleza já existe. Nós apenas a realçamos!"</p>
+            </header>
+            <div class="welcome-text">
+                <p>Seja bem-vinda ao nosso espaço dedicado à realçar o que você já tem de mais bonito. Navegue pelas nossas abas superiores e monte sua sacola com os melhores produtos de maquiagem, skincare e autocuidado.</p>
             </div>
+        </section>
 
-            <!-- Gel Beijável Bumbum e Virilha -->
-            <div class="product-card" data-id="i2" data-name="Gel Beijável Bumbum e Virilha" data-price="34.90">
-                <div class="product-image-container">
-                    <div class="product-image-placeholder">
-                        <i class="fa-solid fa-ice-cream"></i>
-                        <span>[Gel Beijável]</span>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <span class="brand-badge">Soft Cosméticos</span>
-                    <h3 class="product-title">Gel Gourmet Beijável</h3>
-                    <div class="product-details">
-                        <p><strong>O que é:</strong> Gel aromático e corporal perfeito para momentos a dois na região do bumbum e virilha.</p>
-                        <p><strong>O que faz:</strong> Desperta sensações térmicas deliciosas na pele, além de possuir um sabor irresistível.</p>
-                        <p><strong>Como usar:</strong> Aplique a quantidade desejada na área escolhida e massageie suavemente ou sopre suavemente para ativar o calor.</p>
-                    </div>
-                    <div class="product-price">R$ 34,90</div>
-                    <div class="purchase-actions">
-                        <div class="quantity-selector">
-                            <button type="button" class="minus">-</button>
-                            <input type="number" value="1" min="1" class="qty-input">
-                            <button type="button" class="plus">+</button>
+        <!-- ABA: LÁBIOS -->
+        <section id="labios" class="tab-content">
+            <header>
+                <h1>Lábios</h1>
+                <p>Batons, Gloss, Balms e Lip Tints</p>
+            </header>
+            
+            <div class="products-grid">
+                <!-- Exemplo de Card de Produto Completo -->
+                <article class="product-card" data-id="p1">
+                    
+                    <!-- Carrossel / Miniaturas de Fotos -->
+                    <div class="product-media">
+                        <div class="main-image-container">
+                            <img src="https://via.placeholder.com/300x300?text=Batom+Principal" 
+                                 alt="Batom Hidratante Belinna" 
+                                 class="main-img" 
+                                 onclick="openModal(this.src)">
                         </div>
-                        <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Creme de Melaleuca (Antimicótico) -->
-            <div class="product-card" data-id="i3" data-name="Creme de Melaleuca (Antimicótico)" data-price="42.00">
-                <div class="product-image-container">
-                    <div class="product-image-placeholder">
-                        <i class="fa-solid fa-leaf"></i>
-                        <span>[Creme de Melaleuca]</span>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <span class="brand-badge">Cuidado Natural</span>
-                    <h3 class="product-title">Creme Reparador de Melaleuca</h3>
-                    <div class="product-details">
-                        <p><strong>O que é:</strong> Creme regenerador enriquecido com óleo essencial de Melaleuca (Tea Tree).</p>
-                        <p><strong>O que faz:</strong> Ação antisséptica e antifúngica natural potente. Auxilia no combate e prevenção de micoses e irritações cutâneas.</p>
-                        <p><strong>Como usar:</strong> Aplique uma camada fina sobre a região limpa e seca de 1 a 2 vezes ao dia, massageando até absorver.</p>
-                    </div>
-                    <div class="product-price">R$ 42,00</div>
-                    <div class="purchase-actions">
-                        <div class="quantity-selector">
-                            <button type="button" class="minus">-</button>
-                            <input type="number" value="1" min="1" class="qty-input">
-                            <button type="button" class="plus">+</button>
+                        <div class="carousel-thumbs">
+                            <img src="https://via.placeholder.com/300x300?text=Batom+Principal" class="thumb active" onclick="changeImage(this)">
+                            <img src="https://via.placeholder.com/300x300?text=Foto+Labio" class="thumb" onclick="changeImage(this)">
+                            <img src="https://via.placeholder.com/300x300?text=Swatches" class="thumb" onclick="changeImage(this)">
                         </div>
-                        <button type="button" class="btn-add-to-cart">Adicionar ao Carrinho</button>
                     </div>
-                </div>
-            </div>
 
-        </div> <!-- /products-grid -->
+                    <!-- Informações do Produto -->
+                    <div class="product-info">
+                        <span class="brand-badge">Belinna Beauty</span>
+                        <h3 class="product-title">Batom Hidratante Velvet</h3>
+                        <p class="product-price">R$ 39,90</p>
+
+                        <!-- Detalhes do Produto -->
+                        <div class="product-details">
+                            <p><strong>O que é:</strong> Batom cremoso com acabamento aveludado e alta pigmentação.</p>
+                            <p><strong>O que faz:</strong> Proporciona cor intensa na primeira aplicação enquanto hidrata os lábios profundamente.</p>
+                            <p><strong>Como usar:</strong> Aplique diretamente sobre os lábios, do centro para as bordas externas.</p>
+                        </div>
+
+                        <!-- Ações de Compra -->
+                        <div class="purchase-actions">
+                            <div class="quantity-selector">
+                                <button type="button" onclick="changeQty(this, -1)">-</button>
+                                <input type="number" value="1" min="1" readonly>
+                                <button type="button" onclick="changeQty(this, 1)">+</button>
+                            </div>
+                            <button class="btn-add-to-cart" onclick="addToCart('p1', 'Batom Hidratante Velvet', 39.90, this)">
+                                Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ABA: MAQUIAGEM -->
+        <section id="maquiagem" class="tab-content">
+            <header>
+                <h1>Maquiagem</h1>
+                <p>Bases, Pós, Blushes e Máscara de Cílios</p>
+            </header>
+            <div class="products-grid">
+                <!-- Os cards de produtos entram aqui -->
+            </div>
+        </section>
+
+        <!-- ABA: SKINCARE -->
+        <section id="skincare" class="tab-content">
+            <header>
+                <h1>Skincare</h1>
+                <p>Cuidados Especiais para a Pele do Rosto</p>
+            </header>
+            <div class="products-grid">
+                <!-- Os cards de produtos entram aqui -->
+            </div>
+        </section>
+
+        <!-- ABA: BEM-ESTAR & INTIMIDADE -->
+        <section id="bem-estar" class="tab-content">
+            <header>
+                <h1>Bem-Estar & Intimidade</h1>
+                <p>Hidratantes, Perfumes, Sabonetes Íntimos e Perfume de Calcinha</p>
+            </header>
+            <div class="products-grid">
+                <!-- Os cards de produtos entram aqui -->
+            </div>
+        </section>
+
+        <!-- ABA: SOBRE NÓS -->
+        <section id="sobre" class="tab-content">
+            <header>
+                <h1>Sobre Nós</h1>
+                <p>Conheça a História da Belinna Store</p>
+            </header>
+            <div class="about-container">
+                <p>A Belinna Store nasceu do sonho de suas criadoras em proporcionar uma experiência de beleza real, acessível e empoderadora...</p>
+            </div>
+        </section>
+
     </main>
-</div> <!-- /intimidade -->
 
-<!-- ==========================================
-     PÁGINA: SOBRE NÓS
-     ========================================== -->
-<div id="sobre-nos" class="tab-content">
-    <div style="text-align: center; margin-bottom: 30px;">
-        <button onclick="switchTab('home')" style="background: none; border: none; color: var(--text-light, #666); cursor: pointer; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase;">
-            ← Voltar ao Início
-        </button>
-    </div>
+    <!-- ========================================================
+       3. MODAL DE AMPLIAR IMAGEM (CLICK NA FOTO)
+       ======================================================== -->
+    <dialog id="image-modal" class="modal-dialog">
+        <button class="close-modal-btn" onclick="closeModal()">&times;</button>
+        <img id="modal-expanded-img" src="" alt="Imagem Ampliada">
+    </dialog>
 
-    <!-- TEXTO PRINCIPAL -->
-    <section style="background-color: var(--white, #fff); border-radius: 16px; padding: 40px 30px; text-align: center; box-shadow: var(--shadow, 0 4px 10px rgba(0,0,0,0.05)); max-width: 800px; margin: 0 auto 40px auto;">
-        <h2 style="font-size: 2.2rem; font-weight: 400; color: #111; margin-bottom: 20px;">Sobre a Belinna Store 💖</h2>
-        <p style="font-size: 1rem; color: var(--text-color, #333); line-height: 1.8; margin-bottom: 20px;">
-            A <strong>Belinna Store</strong> nasceu da vontade de mostrar que se cuidar e se maquiar não precisa ser caro nem complicado. Somos uma loja focada em maquiagens, glosses e cuidados com a pele que unem beleza, tendência e preço justo.
-        </p>
-        <p style="font-size: 1rem; color: var(--text-light, #666); line-height: 1.8; margin-bottom: 20px;">
-            Sabemos que nem todo mundo é expert em maquiagem (e tudo bem!), por isso reunimos opções práticas, fofas e fáceis de usar no dia a dia. Nosso objetivo é que você consiga garantir seus produtinhos favoritos pagando um valor que cabe no bolso.
-        </p>
-    </section>
+    <!-- ========================================================
+       4. CARRINHO FLUTUANTE E PAINEL LATERAL (SIDEBAR)
+       ======================================================== -->
+    <!-- Botão Flutuante -->
+    <button id="cart-floating-btn" onclick="toggleCart()">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span class="cart-badge" id="cart-count">0</span>
+    </button>
 
-    <!-- SEÇÃO: QUEM FAZ ACONTECER -->
-    <section style="max-width: 800px; margin: 0 auto;">
-        <h3 style="text-align: center; font-size: 1.4rem; font-weight: 400; letter-spacing: 2px; text-transform: uppercase; color: #111; margin-bottom: 30px;">
-            Quem Faz Acontecer ✨
-        </h3>
+    <!-- Overlay de Fundo Escuro ao Abrir Carrinho -->
+    <div id="cart-overlay" onclick="toggleCart()"></div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
-            <!-- CARD ESPOSA -->
-            <div style="background: var(--white, #fff); padding: 30px 20px; border-radius: 12px; text-align: center; box-shadow: var(--shadow, 0 4px 10px rgba(0,0,0,0.05)); border: 1px solid rgba(229, 179, 157, 0.3);">
-                <div style="width: 70px; height: 70px; background-color: var(--bg-light, #f9f9f9); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px auto; color: var(--primary-color, #d47a85); font-size: 1.8rem;">
-                    <i class="fa-solid fa-crown"></i>
-                </div>
-                <h4 style="font-size: 1.2rem; font-weight: 500; color: #111; margin-bottom: 5px;">Carolina Costa</h4>
-                <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--primary-color, #d47a85); font-weight: 600; display: block; margin-bottom: 12px;">Fundadora & Curadora de Produtos</span>
-                <p style="font-size: 0.85rem; color: var(--text-light, #666); line-height: 1.5; margin: 0;">
-                    Responsável pela escolha de cada produtinho, garantindo as últimas tendências de beleza para você.
-                </p>
-            </div>
-
-            <!-- CARD SEU -->
-            <div style="background: var(--white, #fff); padding: 30px 20px; border-radius: 12px; text-align: center; box-shadow: var(--shadow, 0 4px 10px rgba(0,0,0,0.05)); border: 1px solid rgba(229, 179, 157, 0.3);">
-                <div style="width: 70px; height: 70px; background-color: var(--bg-light, #f9f9f9); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px auto; color: var(--primary-color, #d47a85); font-size: 1.8rem;">
-                    <i class="fa-solid fa-laptop-code"></i>
-                </div>
-                <h4 style="font-size: 1.2rem; font-weight: 500; color: #111; margin-bottom: 5px;">Brenda Fantozzi</h4>
-                <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--primary-color, #d47a85); font-weight: 600; display: block; margin-bottom: 12px;">Criação & Administração Web</span>
-                <p style="font-size: 0.85rem; color: var(--text-light, #666); line-height: 1.5; margin: 0;">
-                    Cuida do desenvolvimento do site, da organização das vendas e de toda a tecnologia para garantir uma compra segura e fluida.
-                </p>
-            </div>
+    <!-- Painel Lateral -->
+    <aside id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Sua Sacola</h3>
+            <button class="close-cart-btn" onclick="toggleCart()">&times;</button>
         </div>
 
-        <p style="text-align: center; color: var(--primary-color, #d47a85); font-weight: 600; margin-top: 40px; font-size: 1.1rem;">
-            Seja muito bem-vinda e boas compras! ✨
-        </p>
-    </section>
-</div>
-
-<!-- RODAPÉ GLOBAL -->
-<footer>
-    <div class="footer-socials">
-        <a href="https://instagram.com/belinna.store" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://tiktok.com/@belinnastore" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-    </div>
-    <p>&copy; 2026 Belinna Store. Todos os direitos reservados.</p>
-</footer>
-
-<!-- CARRINHO LATERAL -->
-<div id="cart-sidebar" class="cart-sidebar">
-    <div class="cart-header">
-        <h3>Seu Carrinho</h3>
-        <button id="close-cart-btn" class="close-cart-btn">&times;</button>
-    </div>
-    <div id="cart-items-container" class="cart-items-container">
-        <p class="empty-cart-text">Seu carrinho está vazio.</p>
-    </div>
-    <div class="cart-footer">
-        <div class="cart-total-row">
-            <span>Total:</span>
-            <span id="cart-total-value">R$ 0,00</span>
+        <div class="cart-items-container" id="cart-items">
+            <p class="empty-cart-text">Sua sacola está vazia no momento.</p>
         </div>
-        <button id="btn-checkout-whatsapp" class="btn-checkout-whatsapp">
-            <i class="fa-brands fa-whatsapp"></i> Enviar Pedido no WhatsApp
-        </button>
-    </div>
-</div>
 
-<!-- BOTÃO FLUTUANTE DO CARRINHO -->
-<button id="cart-floating-btn" class="cart-floating-btn">
-    <i class="fa-solid fa-bag-shopping"></i>
-    <span id="cart-badge" class="cart-badge">0</span>
-</button>
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span>Total:</span>
+                <span id="cart-total-price">R$ 0,00</span>
+            </div>
+            
+            <button class="btn-checkout-whatsapp" onclick="sendToWhatsApp()">
+                <i class="fa-brands fa-whatsapp"></i> Finalizar Pedido no WhatsApp
+            </button>
+            <p class="payment-info">Pagamento via Pix ou Link (Débito/Crédito) diretamente no atendimento.</p>
+        </div>
+    </aside>
 
-<!-- MODAL PARA AMPLIAR A IMAGEM -->
-<div id="janela-modal" class="modal">
-    <span class="fechar-modal">&times;</span>
-    <img class="conteudo-modal" id="imagem-ampliada">
-</div>
-
-<!-- SCRIPT PRINCIPAL DA LOJA -->
-<script src="./script.js"></script>
-
-          
+    <!-- Script JavaScript do Projeto -->
+    <script src="script.js"></script>
 </body>
 </html>
