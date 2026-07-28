@@ -95,54 +95,209 @@
                 <p>Batons, Gloss, Balms e Lip Tints</p>
             </header>
             
-            <div class="products-grid">
-                <!-- Exemplo de Card de Produto Completo -->
-                <article class="product-card" data-id="p1">
-                    
-                    <!-- Carrossel / Miniaturas de Fotos -->
-                    <div class="product-media">
-                        <div class="main-image-container">
-                            <img src="https://via.placeholder.com/300x300?text=Batom+Principal" 
-                                 alt="Batom Hidratante Belinna" 
-                                 class="main-img" 
-                                 onclick="openModal(this.src)">
-                        </div>
-                        <div class="carousel-thumbs">
-                            <img src="https://via.placeholder.com/300x300?text=Batom+Principal" class="thumb active" onclick="changeImage(this)">
-                            <img src="https://via.placeholder.com/300x300?text=Foto+Labio" class="thumb" onclick="changeImage(this)">
-                            <img src="https://via.placeholder.com/300x300?text=Swatches" class="thumb" onclick="changeImage(this)">
-                        </div>
-                    </div>
+           <!-- PRODUTO 1: Batom Líquido Matte Max Love -->
+<article class="product-card" data-id="p1">
+    <div class="product-media">
+        <div class="main-image-container">
+            <img src="SEU_CAMINHO/1000705861.jpg" 
+                 alt="Batom Líquido Studio 48 Horas Matte - Max Love" 
+                 class="main-img" 
+                 onclick="openModal(this.src)">
+        </div>
+    </div>
+    <div class="product-info">
+        <span class="brand-badge">Max Love</span>
+        <h3 class="product-title">Batom Líquido Studio 48H Matte</h3>
+        <p class="product-price">R$ 19,90</p>
 
-                    <!-- Informações do Produto -->
-                    <div class="product-info">
-                        <span class="brand-badge">Belinna Beauty</span>
-                        <h3 class="product-title">Batom Hidratante Velvet</h3>
-                        <p class="product-price">R$ 39,90</p>
+        <div class="product-details">
+            <p><strong>O que é:</strong> Batom líquido com acabamento matte aveludado e altíssima fixação.</p>
+            <p><strong>O que faz:</strong> Promove cor intensa de longa duração, enriquecido com Manteiga de Karité, Ácido Hialurônico e Vitamina E para hidratar sem ressecar.</p>
+            <p><strong>Como usar:</strong> Aplique nos lábios limpos utilizando o aplicador do centro para as extremidades e aguarde secar.</p>
+        </div>
 
-                        <!-- Detalhes do Produto -->
-                        <div class="product-details">
-                            <p><strong>O que é:</strong> Batom cremoso com acabamento aveludado e alta pigmentação.</p>
-                            <p><strong>O que faz:</strong> Proporciona cor intensa na primeira aplicação enquanto hidrata os lábios profundamente.</p>
-                            <p><strong>Como usar:</strong> Aplique diretamente sobre os lábios, do centro para as bordas externas.</p>
-                        </div>
-
-                        <!-- Ações de Compra -->
-                        <div class="purchase-actions">
-                            <div class="quantity-selector">
-                                <button type="button" onclick="changeQty(this, -1)">-</button>
-                                <input type="number" value="1" min="1" readonly>
-                                <button type="button" onclick="changeQty(this, 1)">+</button>
-                            </div>
-                            <button class="btn-add-to-cart" onclick="addToCart('p1', 'Batom Hidratante Velvet', 39.90, this)">
-                                Adicionar
-                            </button>
-                        </div>
-                    </div>
-                </article>
+        <div class="purchase-actions">
+            <div class="quantity-selector">
+                <button type="button" onclick="changeQty(this, -1)">-</button>
+                <input type="number" value="1" min="1" readonly>
+                <button type="button" onclick="changeQty(this, 1)">+</button>
             </div>
-        </section>
+            <button class="btn-add-to-cart" onclick="addToCart('p1', 'Batom Líquido Studio 48H Matte - Max Love', 19.90, this)">
+                Adicionar
+            </button>
+        </div>
+    </div>
+</article>
 
+<!-- PRODUTO 2: Lip Gloss Chaveiro Cereja -->
+<article class="product-card" data-id="p2">
+    <div class="product-media">
+        <div class="main-image-container">
+            <img src="SEU_CAMINHO/cereja.jpg" 
+                 alt="Lip Gloss Chaveiro Pink Grape Cereja" 
+                 class="main-img" 
+                 onclick="openModal(this.src)">
+        </div>
+    </div>
+    <div class="product-info">
+        <span class="brand-badge">Pink Grape</span>
+        <h3 class="product-title">Lip Gloss Chaveiro - Cereja</h3>
+        <p class="product-price">R$ 14,90</p>
+
+        <div class="product-details">
+            <p><strong>O que é:</strong> Gloss labial com brilho e pingente divertido em formato de cerejas.</p>
+            <p><strong>O que faz:</strong> Realça os lábios com um brilho molhado espelhado incrível, perfeito para pendurar na bolsa, chave ou estojo.</p>
+            <p><strong>Como usar:</strong> Aplique uma camada diretamente sobre os lábios ou por cima do seu batom favorito.</p>
+        </div>
+
+        <div class="purchase-actions">
+            <div class="quantity-selector">
+                <button type="button" onclick="changeQty(this, -1)">-</button>
+                <input type="number" value="1" min="1" readonly>
+                <button type="button" onclick="changeQty(this, 1)">+</button>
+            </div>
+            <button class="btn-add-to-cart" onclick="addToCart('p2', 'Lip Gloss Chaveiro - Cereja', 14.90, this)">
+                Adicionar
+            </button>
+        </div>
+    </div>
+</article>
+
+<!-- PRODUTO 3: Lip Gloss Chaveiro Goiaba -->
+<article class="product-card" data-id="p3">
+    <div class="product-media">
+        <div class="main-image-container">
+            <img src="SEU_CAMINHO/goiaba.jpg" 
+                 alt="Lip Gloss Chaveiro Goiaba" 
+                 class="main-img" 
+                 onclick="openModal(this.src)">
+        </div>
+    </div>
+    <div class="product-info">
+        <span class="brand-badge">Belinna Beauty</span>
+        <h3 class="product-title">Lip Gloss Chaveiro - Goiaba</h3>
+        <p class="product-price">R$ 14,90</p>
+
+        <div class="product-details">
+            <p><strong>O que é:</strong> Gloss labial translúcido com tonalidade suave e pingente de goiaba fofo.</p>
+            <p><strong>O que faz:</strong> Deixa um toque coradinho e saudável nos lábios com brilho natural, além de acompanhar uma argola para levar para onde quiser.</p>
+            <p><strong>Como usar:</strong> Deslize o aplicador sobre os lábios sempre que desejar um retoque rápido de brilho.</p>
+        </div>
+
+        <div class="purchase-actions">
+            <div class="quantity-selector">
+                <button type="button" onclick="changeQty(this, -1)">-</button>
+                <input type="number" value="1" min="1" readonly>
+                <button type="button" onclick="changeQty(this, 1)">+</button>
+            </div>
+            <button class="btn-add-to-cart" onclick="addToCart('p3', 'Lip Gloss Chaveiro - Goiaba', 14.90, this)">
+                Adicionar
+            </button>
+        </div>
+    </div>
+</article>
+
+<!-- PRODUTO 4: Lip Gloss Bobbi Rara (Labubu) -->
+<article class="product-card" data-id="p4">
+    <div class="product-media">
+        <div class="main-image-container">
+            <img src="SEU_CAMINHO/labubu.jpg" 
+                 alt="Lip Gloss Bobbi Rara com Chaveiro Pelúcia" 
+                 class="main-img" 
+                 onclick="openModal(this.src)">
+        </div>
+    </div>
+    <div class="product-info">
+        <span class="brand-badge">Bobbi Rara</span>
+        <h3 class="product-title">Lip Gloss Magic + Chaveiro Pelúcia</h3>
+        <p class="product-price">R$ 18,90</p>
+
+        <div class="product-details">
+            <p><strong>O que é:</strong> Gloss com partículas de brilho refinado e chaveiro completo com pompom rosa de pelúcia.</p>
+            <p><strong>O que faz:</strong> Proporciona brilho cintilante e visual super charmoso, unindo maquiagem e acessório em um só item.</p>
+            <p><strong>Como usar:</strong> Espalhe uniformemente sobre os lábios para garantir aquele efeito luminoso.</p>
+        </div>
+
+        <div class="purchase-actions">
+            <div class="quantity-selector">
+                <button type="button" onclick="changeQty(this, -1)">-</button>
+                <input type="number" value="1" min="1" readonly>
+                <button type="button" onclick="changeQty(this, 1)">+</button>
+            </div>
+            <button class="btn-add-to-cart" onclick="addToCart('p4', 'Lip Gloss Magic Bobbi Rara + Chaveiro Pelúcia', 18.90, this)">
+                Adicionar
+            </button>
+        </div>
+    </div>
+</article>
+
+<!-- PRODUTO 5: Lip Gloss Honey & Mel -->
+<article class="product-card" data-id="p5">
+    <div class="product-media">
+        <div class="main-image-container">
+            <img src="SEU_CAMINHO/mel.jpg" 
+                 alt="Lip Gloss Honey Mel Girassol e Abelha" 
+                 class="main-img" 
+                 onclick="openModal(this.src)">
+        </div>
+    </div>
+    <div class="product-info">
+        <span class="brand-badge">Belinna Beauty</span>
+        <h3 class="product-title">Lip Gloss Honey - Mel & Girassol</h3>
+        <p class="product-price">R$ 14,90</p>
+
+        <div class="product-details">
+            <p><strong>O que é:</strong> Gloss hidratante inspirado em favo de mel com pingente de abelhinha e girassol.</p>
+            <p><strong>O que faz:</strong> Nutre e dá um acabamento vítreo e reluzente aos lábios sem ficar pegajoso.</p>
+            <p><strong>Como usar:</strong> Aplique uma camada generosa nos lábios para um efeito de preenchimento e brilho Intenso.</p>
+        </div>
+
+        <div class="purchase-actions">
+            <div class="quantity-selector">
+                <button type="button" onclick="changeQty(this, -1)">-</button>
+                <input type="number" value="1" min="1" readonly>
+                <button type="button" onclick="changeQty(this, 1)">+</button>
+            </div>
+            <button class="btn-add-to-cart" onclick="addToCart('p5', 'Lip Gloss Honey - Mel & Girassol', 14.90, this)">
+                Adicionar
+            </button>
+        </div>
+    </div>
+</article>
+
+<!-- PRODUTO 6: Lip Gloss Chaveiro Melancia -->
+<article class="product-card" data-id="p6">
+    <div class="product-media">
+        <div class="main-image-container">
+            <img src="SEU_CAMINHO/melancia.jpg" 
+                 alt="Lip Gloss Chaveiro Melancia" 
+                 class="main-img" 
+                 onclick="openModal(this.src)">
+        </div>
+    </div>
+    <div class="product-info">
+        <span class="brand-badge">Belinna Beauty</span>
+        <h3 class="product-title">Lip Gloss Chaveiro - Melancia</h3>
+        <p class="product-price">R$ 14,90</p>
+
+        <div class="product-details">
+            <p><strong>O que é:</strong> Gloss labial refrescante com tom rosado e pingente fofo de fatia de melancia.</p>
+            <p><strong>O que faz:</strong> Garante lábios hidratados com aspecto saudável, viço natural e um leve toque de cor.</p>
+            <p><strong>Como usar:</strong> Aplique diretamente no centro dos lábios e espalhe levemente.</p>
+        </div>
+
+        <div class="purchase-actions">
+            <div class="quantity-selector">
+                <button type="button" onclick="changeQty(this, -1)">-</button>
+                <input type="number" value="1" min="1" readonly>
+                <button type="button" onclick="changeQty(this, 1)">+</button>
+            </div>
+            <button class="btn-add-to-cart" onclick="addToCart('p6', 'Lip Gloss Chaveiro - Melancia', 14.90, this)">
+                Adicionar
+            </button>
+        </div>
+    </div>
+</article>
         <!-- ABA: MAQUIAGEM -->
         <section id="maquiagem" class="tab-content">
             <header>
