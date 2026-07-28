@@ -1,1 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belinna Store | Catálogo</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Ícones para Sacola/WhatsApp -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
 
+    <!-- CABEÇALHO & NAVEGAÇÃO -->
+    <header class="header">
+        <div class="logo">
+            <h1>BELINNA STORE</h1>
+        </div>
+        
+        <nav class="main-nav">
+            <button class="nav-btn active" onclick="switchPage('home')">Início</button>
+            <button class="nav-btn" onclick="switchPage('catalogo')">Catálogo</button>
+            <button class="nav-btn" onclick="switchPage('sobre')">Sobre Nós</button>
+        </nav>
+
+        <!-- Botão Sacola / Carrinho -->
+        <button class="cart-btn" onclick="toggleCart()">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span id="cart-count">0</span>
+        </button>
+    </header>
+
+    <main class="content">
+
+        <!-- ================= PÁGINA 1: INÍCIO (HOME) ================= -->
+        <section id="page-home" class="page active">
+            <div class="hero">
+                <h2>Sua beleza já existe. Nós apenas a realçamos!</h2>
+                <p>Seja bem-vinda ao nosso espaço de autocuidado. Explore nosso catálogo e monte seu pedido!</p>
+                <button class="btn-primary" onclick="switchPage('catalogo')">Ver Todos os Produtos</button>
+            </div>
+
+            <div class="benefits">
+                <div class="card-benefit">
+                    <i class="fa-solid fa-truck"></i>
+                    <h3>Entrega Rápida</h3>
+                    <p>Enviamos com todo o carinho até você.</p>
+                </div>
+                <div class="card-benefit">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <h3>Atendimento VIP</h3>
+                    <p>Finalize tudo direto pelo WhatsApp.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PÁGINA 2: CATÁLOGO ================= -->
+        <section id="page-catalogo" class="page">
+            
+            <!-- Menu interno de Atalhos/Filtro por Categoria -->
+            <div class="category-shortcuts">
+                <a href="#cat-labios">Lábios</a>
+                <a href="#cat-maquiagem">Maquiagem</a>
+                <a href="#cat-skincare">Skincare</a>
+                <a href="#cat-bem-estar">Bem-Estar & Intimidade</a>
+                <a href="#cat-acessorios">Acessórios</a>
+            </div>
+
+            <!-- Categoria: Lábios -->
+            <section id="cat-labios" class="category-group">
+                <h2 class="category-title">Lábios</h2>
+                <div class="products-grid">
+                    
+                    <div class="product-card">
+                        <img src="https://via.placeholder.com/200" alt="Lip Gloss">
+                        <span class="brand">Pink Grape</span>
+                        <h3>Lip Gloss Chaveiro - Cereja</h3>
+                        <p class="price">R$ 14,90</p>
+                        <button class="btn-add" onclick="addToCart('Lip Gloss Chaveiro - Cereja', 14.90)">
+                            Adicionar à Sacola
+                        </button>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Categoria: Maquiagem -->
+            <section id="cat-maquiagem" class="category-group">
+                <h2 class="category-title">Maquiagem</h2>
+                <div class="products-grid">
+                    <!-- Cards de Maquiagem entrarão aqui -->
+                </div>
+            </section>
+
+            <!-- Categoria: Skincare -->
+            <section id="cat-skincare" class="category-group">
+                <h2 class="category-title">Skincare</h2>
+                <div class="products-grid">
+                    
+                    <div class="product-card">
+                        <img src="https://via.placeholder.com/200" alt="Sérum">
+                        <span class="brand">Max Love</span>
+                        <h3>Sérum Facial Vitamina C (30ml)</h3>
+                        <p class="price">R$ 19,90</p>
+                        <button class="btn-add" onclick="addToCart('Sérum Facial Vitamina C (30ml)', 19.90)">
+                            Adicionar à Sacola
+                        </button>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Categoria: Bem-Estar & Intimidade -->
+            <section id="cat-bem-estar" class="category-group">
+                <h2 class="category-title">Bem-Estar & Intimidade</h2>
+                <div class="products-grid">
+                    <!-- Cards de Bem-Estar entrarão aqui -->
+                </div>
+            </section>
+
+            <!-- Categoria: Acessórios -->
+            <section id="cat-acessorios" class="category-group">
+                <h2 class="category-title">Acessórios</h2>
+                <div class="products-grid">
+                    <!-- Cards de Acessórios entrarão aqui -->
+                </div>
+            </section>
+
+        </section>
+
+        <!-- ================= PÁGINA 3: SOBRE NÓS ================= -->
+        <section id="page-sobre" class="page">
+            <div class="about-container">
+                <h2>Nossa História</h2>
+                <p>A Belinna Store nasceu do sonho de duas criadoras apaixonadas por autocuidado e beleza de forma leve e acessível.</p>
+                <p>Nosso objetivo é proporcionar a você os melhores produtos, combinando praticidade com um atendimento humano e de carinho do início ao fim.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- SACOLA DE COMPRAS (MODAL LATERAL) -->
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-header">
+            <h3>Sua Sacola</h3>
+            <button class="close-btn" onclick="toggleCart()">&times;</button>
+        </div>
+        
+        <div id="cart-items" class="cart-items">
+            <!-- Os itens adicionados via JS vão aparecer aqui -->
+        </div>
+
+        <div class="cart-footer">
+            <div class="total-box">
+                <span>Total:</span>
+                <strong id="cart-total">R$ 0,00</strong>
+            </div>
+            <button class="btn-whatsapp" onclick="sendToWhatsApp()">
+                <i class="fa-brands fa-whatsapp"></i> Finalizar no WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- SCRIPT DA LÓGICA -->
+    <script src="script.js"></script>
+</body>
+</html>
