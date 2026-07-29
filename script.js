@@ -122,3 +122,18 @@ function sendToWhatsApp() {
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodedMessage}`, '_blank');
 }
+
+// Função para abrir o zoom da imagem
+function abrirZoom(srcImagem) {
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    
+    modalImg.src = srcImagem;
+    modal.classList.add('active');
+}
+
+// Função para fechar o zoom da imagem
+function fecharZoom() {
+    const modal = document.getElementById('imageModal');
+    modal.classList.remove('active');
+}
