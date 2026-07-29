@@ -277,12 +277,13 @@ body {
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
 }
 
+/* Garante que todas as imagens dos cards tenham um tamanho padrão e não estiquem */
 .product-card img {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 12px;
-    margin-bottom: 15px;
+    height: 220px; /* Ajuste essa altura se preferir os cards mais altos ou baixos */
+    object-fit: cover; /* Mantém a proporção da foto sem distorcer */
+    border-radius: 8px;
+    cursor: zoom-in;
 }
 
 .product-card .brand {
