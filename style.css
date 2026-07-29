@@ -1,15 +1,16 @@
 /* ==========================================================================
-   1. CONFIGURAÇÕES GERAIS E VARIÁVEIS DE COR
+   1. CONFIGURAÇÕES GERAIS E VARIÁVEIS DE COR (PREMIUM)
    ========================================================================== */
 :root {
-    --primary-color: #d86b85;       /* Rosa principal sofisticado */
-    --primary-hover: #b84f67;       /* Tom de rosa para hover/cliques */
-    --bg-light: #fbf8f8;            /* Fundo suave da página */
-    --text-dark: #2c2c2c;           /* Cor do texto principal */
-    --text-muted: #666666;          /* Cor de textos secundários */
-    --card-bg: #ffffff;             /* Fundo dos cards e caixas */
-    --border-color: #eee0e3;        /* Bordas delicadas */
-    --font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --primary-color: #c97086;        /* Rosa rosé mais elegante e fechado */
+    --primary-hover: #b05970;        /* Tom mais escuro para hover */
+    --bg-light: #fcf9f9;             /* Fundo off-white extremamente suave */
+    --text-dark: #222222;            /* Preto carvão para melhor leitura */
+    --text-muted: #777777;           /* Cinza refinado para textos secundários */
+    --card-bg: #ffffff;              /* Branco puro para blocos */
+    --border-color: #f1e4e7;         /* Bordas em tom rosé claro e delicado */
+    --font-family: 'Playfair Display', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --font-sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
 }
 
 * {
@@ -23,10 +24,10 @@ html {
 }
 
 body {
-    font-family: var(--font-family);
+    font-family: var(--font-sans);
     background-color: var(--bg-light);
     color: var(--text-dark);
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 /* ==========================================================================
@@ -39,38 +40,42 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 5%;
-    background-color: var(--card-bg);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 20px 6%;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px); /* Efeito vidro fosco moderno */
+    border-bottom: 1px solid var(--border-color);
 }
 
 .logo h1 {
-    font-size: 1.4rem;
-    letter-spacing: 2px;
+    font-family: var(--font-family);
+    font-size: 1.5rem;
+    letter-spacing: 3px;
     color: var(--primary-color);
+    font-weight: 600;
 }
 
 .main-nav {
     display: flex;
-    gap: 10px;
+    gap: 8px;
 }
 
 .nav-btn {
     background: transparent;
     border: none;
-    padding: 8px 16px;
-    font-size: 0.95rem;
+    padding: 8px 18px;
+    font-size: 0.9rem;
     font-weight: 500;
     color: var(--text-dark);
     cursor: pointer;
-    border-radius: 20px;
+    border-radius: 30px;
     transition: all 0.3s ease;
 }
 
-.nav-btn.active, 
+.nav-btn.active,  
 .nav-btn:hover {
     background-color: var(--primary-color);
     color: #ffffff;
+    box-shadow: 0 4px 12px rgba(201, 112, 134, 0.25);
 }
 
 /* Botão da Sacola */
@@ -78,19 +83,24 @@ body {
     position: relative;
     background: transparent;
     border: none;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     color: var(--primary-color);
     cursor: pointer;
     padding: 5px;
+    transition: transform 0.2s;
+}
+
+.cart-btn:hover {
+    transform: scale(1.05);
 }
 
 #cart-count {
     position: absolute;
-    top: -5px;
-    right: -8px;
+    top: -3px;
+    right: -6px;
     background-color: var(--primary-hover);
     color: white;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: bold;
     width: 18px;
     height: 18px;
@@ -101,22 +111,22 @@ body {
 }
 
 /* ==========================================================================
-   3. CONTROLE DAS PÁGINAS (HOME, CATÁLOGO, SOBRE NÓS)
+   3. CONTROLE DAS PÁGINAS
    ========================================================================== */
 .page {
-    display: none; /* Esconde todas as páginas por padrão */
-    padding: 30px 5%;
-    max-width: 1200px;
+    display: none; 
+    padding: 40px 6%;
+    max-width: 1280px;
     margin: 0 auto;
 }
 
 .page.active {
-    display: block; /* Exibe apenas a página ativa */
-    animation: fadeIn 0.4s ease-in-out;
+    display: block; 
+    animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
+    from { opacity: 0; transform: translateY(8px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
@@ -125,56 +135,73 @@ body {
    ========================================================================== */
 .hero {
     text-align: center;
-    padding: 60px 20px;
-    background: linear-gradient(135deg, #fff0f3 0%, #fbe8ec 100%);
-    border-radius: 16px;
-    margin-bottom: 40px;
+    padding: 80px 30px;
+    /* Gradiente mais suave e sofisticado com toque champanhe/rosé */
+    background: linear-gradient(135deg, #f9f0f2 0%, #f4e4e8 100%);
+    border-radius: 20px;
+    margin-bottom: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
 }
 
 .hero h2 {
-    font-size: 2rem;
+    font-family: var(--font-family);
+    font-size: 2.3rem;
     color: var(--primary-color);
     margin-bottom: 15px;
+    font-weight: 600;
 }
 
 .hero p {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: var(--text-muted);
-    margin-bottom: 25px;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .btn-primary {
     background-color: var(--primary-color);
     color: white;
     border: none;
-    padding: 12px 28px;
-    font-size: 1rem;
+    padding: 14px 32px;
+    font-size: 0.95rem;
     font-weight: 600;
-    border-radius: 25px;
+    border-radius: 30px;
     cursor: pointer;
-    transition: background 0.3s;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(201, 112, 134, 0.3);
 }
 
 .btn-primary:hover {
     background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(201, 112, 134, 0.4);
 }
 
 .benefits {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
 }
 
 .card-benefit {
     background: var(--card-bg);
-    padding: 25px;
-    border-radius: 12px;
+    padding: 35px 25px;
+    border-radius: 16px;
     text-align: center;
     border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-benefit:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
 }
 
 .card-benefit i {
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: var(--primary-color);
     margin-bottom: 15px;
 }
@@ -187,7 +214,12 @@ body {
     gap: 12px;
     overflow-x: auto;
     padding-bottom: 15px;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
+    scrollbar-width: none; /* Esconde barra de rolagem no Firefox */
+}
+
+.category-shortcuts::-webkit-scrollbar {
+    display: none; /* Esconde barra de rolagem no Chrome/Safari */
 }
 
 .category-shortcuts a {
@@ -196,89 +228,94 @@ body {
     color: var(--primary-color);
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
-    padding: 8px 18px;
-    border-radius: 20px;
+    padding: 10px 22px;
+    border-radius: 25px;
     font-size: 0.9rem;
     font-weight: 500;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
 }
 
 .category-shortcuts a:hover {
     background-color: var(--primary-color);
     color: white;
+    border-color: var(--primary-color);
 }
 
 .category-group {
-    margin-bottom: 50px;
+    margin-bottom: 60px;
 }
 
 .category-title {
-    font-size: 1.5rem;
+    font-family: var(--font-family);
+    font-size: 1.6rem;
     color: var(--text-dark);
-    margin-bottom: 20px;
-    border-bottom: 2px solid var(--border-color);
-    padding-bottom: 8px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+    font-weight: 600;
 }
 
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 25px;
 }
 
 .product-card {
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 15px;
+    border-radius: 16px;
+    padding: 18px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .product-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
 }
 
 .product-card img {
     width: 100%;
-    height: 180px;
+    height: 200px;
     object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 12px;
+    border-radius: 12px;
+    margin-bottom: 15px;
 }
 
 .product-card .brand {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     text-transform: uppercase;
     color: var(--text-muted);
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
+    font-weight: 600;
 }
 
 .product-card h3 {
     font-size: 1rem;
-    margin: 5px 0 10px 0;
+    margin: 6px 0 12px 0;
     color: var(--text-dark);
+    font-weight: 600;
 }
 
 .product-card .price {
-    font-size: 1.1rem;
-    font-weight: bold;
+    font-size: 1.15rem;
+    font-weight: 700;
     color: var(--primary-color);
-    margin-bottom: 15px;
+    margin-bottom: 18px;
 }
 
 .btn-add {
-    background-color: var(--bg-light);
+    background-color: #faf5f6;
     color: var(--primary-color);
     border: 1px solid var(--primary-color);
-    padding: 10px;
-    border-radius: 8px;
+    padding: 11px;
+    border-radius: 10px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.25s ease;
 }
 
 .btn-add:hover {
@@ -291,22 +328,25 @@ body {
    ========================================================================== */
 .about-container {
     background-color: var(--card-bg);
-    padding: 40px;
-    border-radius: 16px;
+    padding: 50px;
+    border-radius: 20px;
     border: 1px solid var(--border-color);
-    max-width: 800px;
+    max-width: 850px;
     margin: 0 auto;
     text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
 }
 
 .about-container h2 {
+    font-family: var(--font-family);
     color: var(--primary-color);
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    font-size: 2rem;
 }
 
 .about-container p {
     color: var(--text-muted);
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     font-size: 1.05rem;
 }
 
@@ -316,24 +356,24 @@ body {
 .cart-modal {
     position: fixed;
     top: 0;
-    right: -100%; /* Escondido fora da tela */
+    right: -100%; 
     width: 100%;
-    max-width: 380px;
+    max-width: 400px;
     height: 100vh;
     background-color: var(--card-bg);
-    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
     z-index: 200;
     display: flex;
     flex-direction: column;
-    transition: right 0.3s ease-in-out;
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .cart-modal.open {
-    right: 0; /* Aparece deslizando */
+    right: 0; 
 }
 
 .cart-header {
-    padding: 20px;
+    padding: 25px;
     border-bottom: 1px solid var(--border-color);
     display: flex;
     justify-content: space-between;
@@ -341,29 +381,36 @@ body {
 }
 
 .cart-header h3 {
+    font-family: var(--font-family);
     color: var(--primary-color);
+    font-size: 1.3rem;
 }
 
 .close-btn {
     background: none;
     border: none;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     cursor: pointer;
     color: var(--text-muted);
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: var(--text-dark);
 }
 
 .cart-items {
     flex: 1;
     overflow-y: auto;
-    padding: 20px;
+    padding: 25px;
 }
 
 .cart-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 12px;
-    margin-bottom: 12px;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -380,19 +427,24 @@ body {
 .cart-item button {
     background: none;
     border: none;
-    color: #e74c3c;
-    font-size: 1.2rem;
+    color: #d9534f;
+    font-size: 1.1rem;
     cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.cart-item button:hover {
+    transform: scale(1.1);
 }
 
 .empty-cart {
     text-align: center;
     color: var(--text-muted);
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
 .cart-footer {
-    padding: 20px;
+    padding: 25px;
     border-top: 1px solid var(--border-color);
     background-color: var(--bg-light);
 }
@@ -400,8 +452,9 @@ body {
 .total-box {
     display: flex;
     justify-content: space-between;
-    font-size: 1.1rem;
-    margin-bottom: 15px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 20px;
 }
 
 .btn-whatsapp {
@@ -409,20 +462,22 @@ body {
     background-color: #25d366;
     color: white;
     border: none;
-    padding: 12px;
-    border-radius: 8px;
+    padding: 14px;
+    border-radius: 12px;
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    transition: background 0.3s;
+    gap: 10px;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
 }
 
 .btn-whatsapp:hover {
-    background-color: #1eb956;
+    background-color: #1ebd5a;
+    transform: translateY(-2px);
 }
 
 /* ==========================================================================
@@ -431,8 +486,8 @@ body {
 @media (max-width: 600px) {
     .header {
         flex-direction: column;
-        gap: 10px;
-        padding: 12px;
+        gap: 12px;
+        padding: 15px;
     }
 
     .main-nav {
@@ -447,20 +502,32 @@ body {
 
     .cart-btn {
         position: absolute;
-        top: 12px;
-        right: 15px;
+        top: 15px;
+        right: 18px;
+    }
+
+    .hero {
+        padding: 50px 20px;
+    }
+
+    .hero h2 {
+        font-size: 1.8rem;
     }
 
     .products-grid {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        gap: 12px;
+        gap: 15px;
     }
 
     .product-card {
-        padding: 10px;
+        padding: 12px;
     }
 
     .product-card img {
-        height: 130px;
+        height: 140px;
+    }
+    
+    .about-container {
+        padding: 30px 20px;
     }
 }
