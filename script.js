@@ -123,7 +123,7 @@ function sendToWhatsApp() {
     window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodedMessage}`, '_blank');
 }
 
-// Função para abrir o zoom da imagem
+// 9. Funções de Zoom da Imagem do Produto
 function abrirZoom(srcImagem) {
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImage');
@@ -132,7 +132,6 @@ function abrirZoom(srcImagem) {
     modal.classList.add('active');
 }
 
-// Função para fechar o zoom da imagem
 function fecharZoom() {
     const modal = document.getElementById('imageModal');
     modal.classList.remove('active');
