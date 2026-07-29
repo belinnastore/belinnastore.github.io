@@ -621,3 +621,31 @@ body {
     cursor: zoom-in;
     transition: transform 0.3s ease;
 }
+
+/* Estilo para o card e o selo de produto esgotado */
+.product-card.out-of-stock {
+    opacity: 0.6;
+}
+
+.product-card.out-of-stock img {
+    filter: grayscale(100%);
+    cursor: default !important; /* Remove a mãozinha do zoom se estiver esgotado */
+}
+
+.out-of-stock-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #d9534f;
+    color: white;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.product-card .btn-add:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
