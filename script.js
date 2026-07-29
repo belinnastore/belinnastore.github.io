@@ -33,13 +33,35 @@ function addToCart(name, price) {
     toggleCart(); // Abre a sacola para confirmação
 }
 
-// 4. Remover ou decrementar item
-function removeFromCart(name) {
+// 4. Aumentar quantidade de um item específico
+function increaseQuantity(name) {
+    const item = cart.find(item => item.name === name);
+    if (item) {
+        item.quantity += 1;
+        updateCartUI();
+    }
+}
+
+// 5. Diminuir quantidade (se chegar a 0, remove o item)
+function decreaseQuantity(name) {
+    const item = cart.find(item => item.name === name);
+    if (item) {
+        item.quantity -= 1;
+        if (item.quantity <= 0) {
+            removeFromCartCompletely(name);
+        } else {
+            updateCartUI();
+        }
+    }
+}
+
+// 6. Remover item completamente da sacola
+function removeFromCartCompletely(name) {
     cart = cart.filter(item => item.name !== name);
     updateCartUI();
 }
 
-// 5. Atualizar a visualização da Sacola
+// 7. Atualizar a visualização da Sacola com os controles interativos
 function updateCartUI() {
     const cartContainer = document.getElementById('cart-items');
     const cartCount = document.getElementById('cart-count');
@@ -61,9 +83,14 @@ function updateCartUI() {
             itemElement.innerHTML = `
                 <div>
                     <strong>${item.name}</strong>
-                    <p>Qty: ${item.quantity} x R$ ${item.price.toFixed(2).replace('.', ',')}</p>
+                    <p>R$ ${item.price.toFixed(2).replace('.', ',')}</p>
+                    <div class="cart-item-controls">
+                        <button onclick="decreaseQuantity('${item.name}')">-</button>
+                        <span>${item.quantity}</span>
+                        <button onclick="increaseQuantity('${item.name}')">+</button>
+                    </div>
                 </div>
-                <button onclick="removeFromCart('${item.name}')">&times;</button>
+                <button onclick="removeFromCartCompletely('${item.name}')" title="Excluir item" style="background:none; border:none; cursor:pointer; font-size: 1.1rem; color: #d9534f;">🗑️</button>
             `;
             cartContainer.appendChild(itemElement);
         });
@@ -73,7 +100,7 @@ function updateCartUI() {
     cartTotal.innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
 }
 
-// 6. Enviar Pedido via WhatsApp
+// 8. Enviar Pedido via WhatsApp
 function sendToWhatsApp() {
     if (cart.length === 0) {
         alert("Sua sacola está vazia!");
