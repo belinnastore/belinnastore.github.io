@@ -19,8 +19,13 @@ function toggleCart() {
     document.getElementById('cart-modal').classList.toggle('open');
 }
 
-// 3. Adicionar produto à Sacola
-function addToCart(name, price) {
+// 3. Adicionar produto à Sacola (com validação de estoque)
+function addToCart(name, price, isOutOfStock = false) {
+    if (isOutOfStock) {
+        alert("Este produto está esgotado no momento!");
+        return;
+    }
+
     const existingItem = cart.find(item => item.name === name);
     
     if (existingItem) {
