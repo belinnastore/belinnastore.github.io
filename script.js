@@ -1,6 +1,6 @@
- // NUMERO DO SEU WHATSAPP (Coloque o DDI + DDD + Número. Ex: 5511999999999)
+ // NUMERO DO WHATSAPP (Coloque o DDI + DDD + Número)
 
-const PHONE_NUMBER = "5511999999999";
+const PHONE_NUMBER = "5511993610210";
 
 
 
