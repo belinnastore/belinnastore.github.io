@@ -9,8 +9,6 @@ function switchPage(pageId) {
     document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
 
     document.getElementById(`page-${pageId}`).classList.add('active');
-    
-    // Rola para o topo ao trocar de página
     window.scrollTo(0, 0);
 }
 
@@ -21,25 +19,17 @@ function toggleCart() {
 
 // 3. Adicionar produto à Sacola com controle de estoque seguro
 function addToCart(buttonElement, name, price) {
-    // Pega o card correspondente ao botão clicado
     const card = buttonElement.closest('.product-card');
-    
-    // Lê o limite do estoque direto do HTML (data-stock)
     const maxStock = parseInt(card.getAttribute('data-stock')) || 0;
 
-    // Procura se o produto já está na sacola
     const existingItem = cart.find(item => item.name === name);
-    
-    // Vê quantos já foram adicionados na sacola até agora
     const currentQuantityInCart = existingItem ? existingItem.quantity : 0;
 
-    // TRAVA DE ESTOQUE: Se a quantidade na sacola atingir ou passar o limite do HTML
     if (currentQuantityInCart >= maxStock) {
         alert(`Ops! Não temos mais unidades suficientes de "${name}" em estoque. (Limite: ${maxStock})`);
-        return; // Interrompe e não deixa adicionar mais
+        return;
     }
 
-    // Se estiver liberado, adiciona ou incrementa
     if (existingItem) {
         existingItem.quantity += 1;
     } else {
@@ -47,29 +37,27 @@ function addToCart(buttonElement, name, price) {
     }
 
     updateCartUI();
-    toggleCart(); // Abre a sacola para confirmação
+    toggleCart();
 }
 
 // 4. Aumentar quantidade de um item específico com trava de estoque
-function increaseQuantity(name) {
+function increaseQuantity(buttonElement, name) {
     const item = cart.find(item => item.name === name);
     if (!item) return;
 
-    // Encontra o card do produto no HTML procurando pelo texto do título
     const productCards = document.querySelectorAll('.product-card');
-    let maxStock = 999; // Valor alto de segurança caso não ache
+    let maxStock = 0;
 
-    productCards.forEach(card => {
-        const titleElement = card.querySelector('h3');
+    productCards.forEach(prodCard => {
+        const titleElement = prodCard.querySelector('h3');
         if (titleElement && titleElement.innerText.trim() === name.trim()) {
-            maxStock = parseInt(card.getAttribute('data-stock')) || 0;
+            maxStock = parseInt(prodCard.getAttribute('data-stock')) || 0;
         }
     });
 
-    // TRAVA DE ESTOQUE NO CARRINHO: Verifica se tentar aumentar vai passar do limite do HTML
     if (item.quantity >= maxStock) {
         alert(`Ops! Não temos mais unidades suficientes de "${name}" em estoque. (Limite: ${maxStock})`);
-        return; // Para aqui e não deixa subir a quantidade
+        return;
     }
 
     item.quantity += 1;
@@ -121,7 +109,7 @@ function updateCartUI() {
                     <div class="cart-item-controls">
                         <button onclick="decreaseQuantity('${item.name}')">-</button>
                         <span>${item.quantity}</span>
-                        <button onclick="increaseQuantity('${item.name}')">+</button>
+                        <button onclick="increaseQuantity(this, '${item.name}')">+</button>
                     </div>
                 </div>
                 <button onclick="removeFromCartCompletely('${item.name}')" title="Excluir item" style="background:none; border:none; cursor:pointer; font-size: 1.1rem; color: #d9534f;">🗑️</button>
@@ -161,7 +149,6 @@ function sendToWhatsApp() {
 function abrirZoom(srcImagem) {
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImage');
-    
     modalImg.src = srcImagem;
     modal.classList.add('active');
 }
