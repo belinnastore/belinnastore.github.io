@@ -40,32 +40,27 @@ function toggleCart() {
 
 
 
-// 3. Adicionar produto à Sacola
-
-// Objeto para controlar o estoque localmente baseado no que já foi adicionado
-let stockControl = {};
-
-// 3. Adicionar produto à Sacola com controle de estoque
+// 3. Adicionar produto à Sacola com controle de estoque seguro
 function addToCart(buttonElement, name, price) {
-    // Pega o card do produto correspondente através do botão
+    // Pega o card correspondente ao botão clicado
     const card = buttonElement.closest('.product-card');
     
     // Lê o limite do estoque direto do HTML (data-stock)
-    const maxStock = parseInt(card.getAttribute('data-stock'));
+    const maxStock = parseInt(card.getAttribute('data-stock')) || 0;
 
-    // Verifica se o produto já existe no carrinho principal
+    // Procura se o produto já está na sacola
     const existingItem = cart.find(item => item.name === name);
     
-    // Calcula a quantidade que já está no carrinho deste produto
+    // Vê quantos já foram adicionados na sacola até agora
     const currentQuantityInCart = existingItem ? existingItem.quantity : 0;
 
-    // Compara se tentar adicionar mais um vai ultrapassar o limite do estoque
+    // TRAVA DE ESTOQUE: Se a quantidade na sacola atingir ou passar o limite do HTML
     if (currentQuantityInCart >= maxStock) {
-        alert(`Ops! Não temos mais unidades suficientes de "${name}" em estoque.`);
-        return; // Para a execução aqui e não deixa adicionar
+        alert(`Ops! Não temos mais unidades suficientes de "${name}" em estoque. (Limite: ${maxStock})`);
+        return; // Interrompe e não deixa adicionar mais
     }
 
-    // Se estiver dentro do limite, adiciona ou incrementa no carrinho
+    // Se estiver liberado, adiciona ou incrementa
     if (existingItem) {
         existingItem.quantity += 1;
     } else {
