@@ -86,18 +86,15 @@
         </div>
 
         <!-- 2. Cereja -->
-        <div class="product-card" data-stock="1">
+        <div class="product-card" data-stock="0">
             <img src="catalogo/cereja.jpg" alt="Lip Gloss Cereja Pink Grape" onclick="abrirZoom(this.src)">
             <span class="brand">Pink Grape</span>
-            <h3>Lip Gloss Chaveiro - Cereja</h3>
+            <h3>Lip Gloss Chaveiro - Cereja <strong style="color: #d9534f;">(ESGOTADO)</strong></h3>
             <p class="price">R$ 23,99</p>
-
-            <!-- Aviso visual de estoque -->
-            <p class="stock-alert" style="color: #d97706; font-size: 0.85rem; font-weight: bold;">Apenas 1 unidades em estoque!</p>
             
-            <button class="btn-add" onclick="addToCart(this, 'Lip Gloss Chaveiro - Cereja', 23,99)">
-                Adicionar à Sacola
-            </button>
+            <button class="btn-add" disabled>
+        Esgotado
+    </button>
         </div>
 
         <!-- 3. Goiaba -->
