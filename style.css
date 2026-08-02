@@ -302,9 +302,12 @@ body {
     margin-bottom: 4px;
 }
 
+/* ==========================================================================
+   CORREÇÃO DO TÍTULO E ESPAÇAMENTO NO CELULAR
+   ========================================================================== */
 .product-card h3 {
     font-size: 0.9rem;
-    margin: 0 0 8px 0;
+    margin: 0 0 6px 0;
     color: var(--text-dark);
     font-weight: 400;
     letter-spacing: 0.5px;
@@ -312,9 +315,32 @@ body {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    height: 2.8em;
+    line-height: 1.3;
+    height: 2.6em; /* Altura controlada para caber perfeitamente */
 }
 
+@media (max-width: 600px) {
+    .product-card {
+        gap: 4px;
+    }
+    
+    .product-card h3 {
+        font-size: 0.85rem;
+        height: 2.6em;
+        margin-bottom: 4px;
+    }
+
+    .product-card .price {
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+    }
+
+    .btn-add {
+        padding: 9px 5px;
+        font-size: 0.6rem;
+        letter-spacing: 1px;
+    }
+}
 .product-card .price {
     font-size: 0.95rem;
     font-weight: 600;
