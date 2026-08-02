@@ -548,3 +548,13 @@ body {
     color: #b5adaa;
     cursor: not-allowed;
 }
+
+/* ==========================================================================
+   ESPAÇAMENTO E SEPARAÇÃO ENTRE CATEGORIAS
+   ========================================================================== */
+.category-section, 
+section:has(.category-title) {
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border-color);
+}
