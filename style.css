@@ -1,11 +1,14 @@
 /* ==========================================================================
-   NOVO DESIGN: ULTRA-MINIMALISTA / HIGH-END BEAUTY
+   BELINNA STORE - ROSE GOLD ELITE (EXCLUSIVO & SOFISTICADO)
    ========================================================================== */
 :root {
-    --bg-light: #fdfcfb;             /* Fundo off-white com toque de linho */
-    --text-dark: #111111;            /* Preto absoluto */
-    --text-muted: #666666;           /* Cinza neutro */
-    --accent-color: #b86279;         /* Rosé de destaque sutil */
+    --primary-color: #b86279;        /* Rose Gold sofisticado */
+    --primary-hover: #9e4f64;        
+    --bg-light: #fbf9f8;             /* Off-white luxuoso e quente */
+    --text-dark: #1f1c1d;            /* Carvão escuro profundo */
+    --text-muted: #8c8284;           /* Cinza rosado neutro */
+    --card-bg: #fbf9f8;              /* Sem blocos brancos pesados */
+    --border-color: #f1eae7;         /* Linhas ultrafinas e delicadas */
     --font-family: 'Playfair Display', serif;
     --font-sans: 'Segoe UI', system-ui, sans-serif;
 }
@@ -24,11 +27,11 @@ body {
     font-family: var(--font-sans);
     background-color: var(--bg-light);
     color: var(--text-dark);
-    line-height: 1.6;
+    line-height: 1.8;
     -webkit-font-smoothing: antialiased;
 }
 
-/* Header Limpo e Sem Linhas Pesadas */
+/* Header com Linha Divisória Sofisticada */
 .header {
     position: sticky;
     top: 0;
@@ -36,41 +39,46 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 25px 8%;
-    background-color: rgba(253, 252, 251, 0.9);
-    backdrop-filter: blur(10px);
+    padding: 25px 7%;
+    background-color: rgba(251, 249, 248, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .logo h1 {
     font-family: var(--font-family);
-    font-size: 1.2rem;
-    letter-spacing: 5px;
+    font-size: 1.1rem;
+    letter-spacing: 6px;
     color: var(--text-dark);
     font-weight: 400;
     text-transform: uppercase;
 }
 
+.logo h1 span {
+    color: var(--primary-color);
+}
+
 .main-nav {
     display: flex;
-    gap: 20px;
+    gap: 25px;
 }
 
 .nav-btn {
     background: transparent;
     border: none;
     padding: 0;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 500;
     color: var(--text-muted);
     cursor: pointer;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     transition: color 0.3s;
 }
 
 .nav-btn.active,  
 .nav-btn:hover {
-    color: var(--text-dark);
+    color: var(--primary-color);
 }
 
 .cart-btn {
@@ -79,17 +87,23 @@ body {
     font-size: 1.1rem;
     color: var(--text-dark);
     cursor: pointer;
+    transition: color 0.3s;
+}
+
+.cart-btn:hover {
+    color: var(--primary-color);
 }
 
 #cart-count {
     position: absolute;
     top: -4px;
     right: -6px;
-    background-color: var(--accent-color);
+    background-color: var(--primary-color);
     color: white;
-    font-size: 0.6rem;
-    width: 14px;
-    height: 14px;
+    font-size: 0.55rem;
+    font-weight: 600;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -99,7 +113,7 @@ body {
 /* Páginas */
 .page {
     display: none; 
-    padding: 40px 8%;
+    padding: 60px 7%;
     max-width: 1400px;
     margin: 0 auto;
 }
@@ -110,82 +124,86 @@ body {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* Hero Editorial (Sem caixa rosa pesada) */
+/* Hero Estilo Editorial (Sem Caixa Pesada) */
 .hero {
-    text-align: left;
-    padding: 60px 0;
+    text-align: center;
+    padding: 80px 20px;
     background: transparent;
     border-radius: 0;
-    margin-bottom: 50px;
-    border-bottom: 1px solid #eae5e0;
+    margin-bottom: 60px;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .hero h2 {
     font-family: var(--font-family);
-    font-size: 3rem;
+    font-size: 2.8rem;
     color: var(--text-dark);
     margin-bottom: 20px;
     font-weight: 400;
-    letter-spacing: -0.5px;
-    max-width: 700px;
+    letter-spacing: 2px;
 }
 
 .hero p {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--text-muted);
-    margin-bottom: 30px;
+    margin-bottom: 35px;
     max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    letter-spacing: 0.5px;
 }
 
 .btn-primary {
     background-color: var(--text-dark);
     color: white;
     border: none;
-    padding: 16px 36px;
-    font-size: 0.75rem;
+    padding: 15px 35px;
+    font-size: 0.7rem;
     font-weight: 600;
     border-radius: 0;
     cursor: pointer;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    transition: background 0.3s;
+    transition: all 0.3s;
 }
 
 .btn-primary:hover {
-    background-color: var(--accent-color);
+    background-color: var(--primary-color);
 }
 
+/* Benefícios Minimalistas */
 .benefits {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 40px;
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
 .card-benefit {
     background: transparent;
     padding: 0;
-    text-align: left;
+    text-align: center;
     border: none;
 }
 
 .card-benefit i {
-    font-size: 1.5rem;
-    color: var(--text-dark);
+    font-size: 1.6rem;
+    color: var(--primary-color);
     margin-bottom: 15px;
 }
 
-/* Catálogo & Produtos Sem Caixas (Estilo Vitrine Livre) */
+/* Atalhos de Categoria em Linha */
 .category-shortcuts {
     display: flex;
-    gap: 15px;
+    justify-content: center;
+    gap: 25px;
     overflow-x: auto;
     padding-bottom: 15px;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     scrollbar-width: none;
 }
 
@@ -200,9 +218,9 @@ body {
     background: transparent;
     border: none;
     padding: 0;
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 1px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 2px;
     text-transform: uppercase;
     transition: color 0.3s;
     position: relative;
@@ -210,35 +228,37 @@ body {
 
 .category-shortcuts a.active,
 .category-shortcuts a:hover {
-    color: var(--text-dark);
+    color: var(--primary-color);
 }
 
 .category-shortcuts a.active::after {
     content: '';
     position: absolute;
-    bottom: -5px;
+    bottom: -6px;
     left: 0;
     width: 100%;
     height: 1px;
-    background-color: var(--text-dark);
+    background-color: var(--primary-color);
 }
 
 .category-title {
     font-family: var(--font-family);
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: var(--text-dark);
-    margin-bottom: 30px;
+    margin-bottom: 35px;
     font-weight: 400;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
 }
 
+/* Grade de Produtos Exclusiva (Sem Caixas Brancas) */
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 40px 30px;
+    gap: 50px 30px;
 }
 
-/* Card de Produto Sem Fundo e Sem Borda */
 .product-card {
     position: relative;
     background-color: transparent;
@@ -251,18 +271,25 @@ body {
 
 .product-card img {
     width: 100%;
-    height: 300px;
+    height: 320px;
     object-fit: cover;
     border-radius: 0;
-    background-color: #f4f0ec;
+    background-color: #f1eae7;
     margin-bottom: 15px;
+    cursor: zoom-in;
+    transition: opacity 0.3s;
+}
+
+.product-card img:hover {
+    opacity: 0.9;
 }
 
 .product-card .brand {
-    font-size: 0.6rem;
+    font-size: 0.55rem;
     text-transform: uppercase;
     color: var(--text-muted);
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    font-weight: 600;
     margin-bottom: 4px;
 }
 
@@ -271,6 +298,7 @@ body {
     margin: 0 0 8px 0;
     color: var(--text-dark);
     font-weight: 400;
+    letter-spacing: 0.5px;
 }
 
 .product-card .price {
@@ -278,52 +306,56 @@ body {
     font-weight: 600;
     color: var(--text-dark);
     margin-bottom: 15px;
+    letter-spacing: 1px;
 }
 
 .btn-add {
     background-color: transparent;
     color: var(--text-dark);
     border: 1px solid var(--text-dark);
-    padding: 12px;
+    padding: 11px;
     border-radius: 0;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 600;
     cursor: pointer;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     transition: all 0.3s;
 }
 
 .btn-add:hover {
-    background-color: var(--text-dark);
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
     color: white;
 }
 
-/* Sobre Nós */
+/* Seção Sobre Nós Elegante */
 .about-container {
     background: transparent;
     padding: 0;
     border: none;
-    max-width: 700px;
+    max-width: 650px;
     margin: 0 auto;
-    text-align: left;
+    text-align: center;
 }
 
 .about-container h2 {
     font-family: var(--font-family);
     color: var(--text-dark);
-    margin-bottom: 25px;
-    font-size: 2.2rem;
+    margin-bottom: 30px;
+    font-size: 2rem;
     font-weight: 400;
+    letter-spacing: 2px;
 }
 
 .about-container p {
     color: var(--text-muted);
     margin-bottom: 20px;
-    font-size: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.9;
 }
 
-/* Carrinho Lateral */
+/* Gaveta Lateral (Carrinho) Sofisticada */
 .cart-modal {
     position: fixed;
     top: 0;
@@ -332,7 +364,7 @@ body {
     max-width: 420px;
     height: 100vh;
     background-color: var(--bg-light);
-    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.05);
+    box-shadow: -15px 0 50px rgba(0, 0, 0, 0.05);
     z-index: 200;
     display: flex;
     flex-direction: column;
@@ -345,7 +377,7 @@ body {
 
 .cart-header {
     padding: 30px;
-    border-bottom: 1px solid #eae5e0;
+    border-bottom: 1px solid var(--border-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -354,8 +386,9 @@ body {
 .cart-header h3 {
     font-family: var(--font-family);
     color: var(--text-dark);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 400;
+    letter-spacing: 2px;
 }
 
 .close-btn {
@@ -378,44 +411,45 @@ body {
     align-items: center;
     padding-bottom: 20px;
     margin-bottom: 20px;
-    border-bottom: 1px solid #eae5e0;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .cart-footer {
     padding: 30px;
-    border-top: 1px solid #eae5e0;
-    background-color: #f7f4f0;
+    border-top: 1px solid var(--border-color);
+    background-color: #f5eeec;
 }
 
 .total-box {
     display: flex;
     justify-content: space-between;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 600;
     margin-bottom: 20px;
+    letter-spacing: 1px;
 }
 
 .btn-whatsapp {
     width: 100%;
-    background-color: #111111;
+    background-color: var(--text-dark);
     color: white;
     border: none;
-    padding: 16px;
+    padding: 15px;
     border-radius: 0;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 600;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     transition: background 0.3s;
 }
 
 .btn-whatsapp:hover {
-    background-color: var(--accent-color);
+    background-color: var(--primary-color);
 }
 
 /* Responsivo */
@@ -424,14 +458,14 @@ body {
         padding: 20px 5%;
     }
     .hero h2 {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
     .products-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px 15px;
+        gap: 30px 15px;
     }
     .product-card img {
-        height: 200px;
+        height: 220px;
     }
 }
 
@@ -444,7 +478,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(17, 17, 17, 0.95);
+    background-color: rgba(31, 28, 29, 0.95);
     justify-content: center;
     align-items: center;
     padding: 20px;
@@ -486,15 +520,15 @@ body {
     background-color: var(--text-dark);
     color: white;
     padding: 4px 8px;
-    font-size: 0.55rem;
+    font-size: 0.5rem;
     font-weight: 600;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     text-transform: uppercase;
 }
 
 .product-card .btn-add:disabled {
     background-color: transparent;
-    border-color: #ddd;
-    color: #aaa;
+    border-color: #e5dedb;
+    color: #b5adaa;
     cursor: not-allowed;
 }
