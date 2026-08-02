@@ -666,8 +666,9 @@ body {
 }
 
 .product-card .btn-add:disabled {
-    background-color: #e5e5e5;
-    border-color: #e5e5e5;
+    background-color: #f7f7f7;
+    border-color: #f7f7f7;
     color: var(--text-muted);
     cursor: not-allowed;
+    letter-spacing: 1px;
 }
