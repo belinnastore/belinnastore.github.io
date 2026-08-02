@@ -2,13 +2,13 @@
    1. CONFIGURAÇÕES GERAIS E VARIÁVEIS DE COR (PREMIUM)
    ========================================================================== */
 :root {
-    --primary-color: #c97086;        /* Rosa rosé mais elegante e fechado */
-    --primary-hover: #b05970;        /* Tom mais escuro para hover */
-    --bg-light: #fcf9f9;             /* Fundo off-white extremamente suave */
-    --text-dark: #222222;            /* Preto carvão para melhor leitura */
-    --text-muted: #777777;           /* Cinza refinado para textos secundários */
+    --primary-color: #b86279;        /* Tom de rosé mais fechado e sofisticado */
+    --primary-hover: #9e4f64;        /* Tom mais escuro para hover */
+    --bg-light: #faf8f7;             /* Fundo off-white extremamente suave e quente */
+    --text-dark: #1a1a1a;            /* Preto carvão profundo para melhor leitura */
+    --text-muted: #737373;           /* Cinza refinado para textos secundários */
     --card-bg: #ffffff;              /* Branco puro para blocos */
-    --border-color: #f1e4e7;         /* Bordas em tom rosé claro e delicado */
+    --border-color: #f0e6e8;         /* Bordas em tom rosé claro e delicado */
     --font-family: 'Playfair Display', 'Segoe UI', system-ui, -apple-system, sans-serif;
     --font-sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
 }
@@ -28,6 +28,7 @@ body {
     background-color: var(--bg-light);
     color: var(--text-dark);
     line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
 }
 
 /* ==========================================================================
@@ -40,42 +41,47 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 6%;
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px); /* Efeito vidro fosco moderno */
+    padding: 22px 6%;
+    background-color: rgba(250, 248, 247, 0.9);
+    backdrop-filter: blur(12px); /* Efeito vidro fosco refinado */
     border-bottom: 1px solid var(--border-color);
 }
 
 .logo h1 {
     font-family: var(--font-family);
-    font-size: 1.5rem;
-    letter-spacing: 3px;
+    font-size: 1.4rem;
+    letter-spacing: 4px;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.logo h1 span {
     color: var(--primary-color);
-    font-weight: 600;
 }
 
 .main-nav {
     display: flex;
-    gap: 8px;
+    gap: 6px;
 }
 
 .nav-btn {
     background: transparent;
     border: none;
     padding: 8px 18px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 500;
-    color: var(--text-dark);
+    color: var(--text-muted);
     cursor: pointer;
-    border-radius: 30px;
+    border-radius: 4px;
     transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
 .nav-btn.active,  
 .nav-btn:hover {
-    background-color: var(--primary-color);
-    color: #ffffff;
-    box-shadow: 0 4px 12px rgba(201, 112, 134, 0.25);
+    color: var(--primary-color);
+    background-color: rgba(184, 98, 121, 0.08);
 }
 
 /* Botão da Sacola */
@@ -83,27 +89,27 @@ body {
     position: relative;
     background: transparent;
     border: none;
-    font-size: 1.3rem;
-    color: var(--primary-color);
+    font-size: 1.2rem;
+    color: var(--text-dark);
     cursor: pointer;
     padding: 5px;
-    transition: transform 0.2s;
+    transition: color 0.2s;
 }
 
 .cart-btn:hover {
-    transform: scale(1.05);
+    color: var(--primary-color);
 }
 
 #cart-count {
     position: absolute;
-    top: -3px;
+    top: -2px;
     right: -6px;
-    background-color: var(--primary-hover);
+    background-color: var(--primary-color);
     color: white;
-    font-size: 0.7rem;
-    font-weight: bold;
-    width: 18px;
-    height: 18px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -115,18 +121,18 @@ body {
    ========================================================================== */
 .page {
     display: none; 
-    padding: 40px 6%;
-    max-width: 1280px;
+    padding: 50px 6%;
+    max-width: 1300px;
     margin: 0 auto;
 }
 
 .page.active {
     display: block; 
-    animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
+    from { opacity: 0; transform: translateY(6px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
@@ -135,73 +141,71 @@ body {
    ========================================================================== */
 .hero {
     text-align: center;
-    padding: 80px 30px;
-    /* Gradiente mais suave e sofisticado com toque champanhe/rosé */
-    background: linear-gradient(135deg, #f9f0f2 0%, #f4e4e8 100%);
-    border-radius: 20px;
-    margin-bottom: 50px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    padding: 90px 30px;
+    background: linear-gradient(135deg, #f4ecee 0%, #efe2e5 100%);
+    border-radius: 8px;
+    margin-bottom: 60px;
 }
 
 .hero h2 {
     font-family: var(--font-family);
-    font-size: 2.3rem;
-    color: var(--primary-color);
+    font-size: 2.2rem;
+    color: var(--text-dark);
     margin-bottom: 15px;
-    font-weight: 600;
+    font-weight: 500;
+    letter-spacing: 1px;
 }
 
 .hero p {
-    font-size: 1.05rem;
+    font-size: 1rem;
     color: var(--text-muted);
     margin-bottom: 30px;
-    max-width: 600px;
+    max-width: 550px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .btn-primary {
-    background-color: var(--primary-color);
+    background-color: var(--text-dark);
     color: white;
     border: none;
     padding: 14px 32px;
-    font-size: 0.95rem;
+    font-size: 0.8rem;
     font-weight: 600;
-    border-radius: 30px;
+    border-radius: 4px;
     cursor: pointer;
-    letter-spacing: 0.5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     transition: all 0.3s ease;
-    box-shadow: 0 6px 20px rgba(201, 112, 134, 0.3);
 }
 
 .btn-primary:hover {
-    background-color: var(--primary-hover);
+    background-color: var(--primary-color);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(201, 112, 134, 0.4);
 }
 
 .benefits {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+    gap: 30px;
 }
 
 .card-benefit {
     background: var(--card-bg);
-    padding: 35px 25px;
-    border-radius: 16px;
+    padding: 40px 30px;
+    border-radius: 6px;
     text-align: center;
     border: 1px solid var(--border-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-benefit:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
 }
 
 .card-benefit i {
-    font-size: 2.2rem;
+    font-size: 2rem;
     color: var(--primary-color);
     margin-bottom: 15px;
 }
@@ -211,34 +215,36 @@ body {
    ========================================================================== */
 .category-shortcuts {
     display: flex;
-    gap: 12px;
+    gap: 10px;
     overflow-x: auto;
     padding-bottom: 15px;
-    margin-bottom: 35px;
-    scrollbar-width: none; /* Esconde barra de rolagem no Firefox */
+    margin-bottom: 40px;
+    scrollbar-width: none;
 }
 
 .category-shortcuts::-webkit-scrollbar {
-    display: none; /* Esconde barra de rolagem no Chrome/Safari */
+    display: none;
 }
 
 .category-shortcuts a {
     white-space: nowrap;
     text-decoration: none;
-    color: var(--primary-color);
+    color: var(--text-muted);
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
-    padding: 10px 22px;
-    border-radius: 25px;
-    font-size: 0.9rem;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 0.85rem;
     font-weight: 500;
     transition: all 0.3s ease;
+    letter-spacing: 0.5px;
 }
 
-.category-shortcuts a:hover {
-    background-color: var(--primary-color);
+.category-shortcuts a:hover,
+.category-shortcuts a.active {
+    background-color: var(--text-dark);
     color: white;
-    border-color: var(--primary-color);
+    border-color: var(--text-dark);
 }
 
 .category-group {
@@ -247,25 +253,27 @@ body {
 
 .category-title {
     font-family: var(--font-family);
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     color: var(--text-dark);
     margin-bottom: 25px;
     border-bottom: 1px solid var(--border-color);
-    padding-bottom: 10px;
-    font-weight: 600;
+    padding-bottom: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
 }
 
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
 }
 
 .product-card {
+    position: relative;
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
-    border-radius: 16px;
-    padding: 18px;
+    border-radius: 6px;
+    padding: 16px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -273,54 +281,62 @@ body {
 }
 
 .product-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
 }
 
-/* Garante que todas as imagens dos cards tenham um tamanho padrão e não estiquem */
 .product-card img {
     width: 100%;
-    height: 220px; /* Ajuste essa altura se preferir os cards mais altos ou baixos */
-    object-fit: cover; /* Mantém a proporção da foto sem distorcer */
-    border-radius: 8px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 4px;
     cursor: zoom-in;
+    transition: transform 0.5s ease;
+}
+
+.product-card img:hover {
+    transform: scale(1.03);
 }
 
 .product-card .brand {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     text-transform: uppercase;
     color: var(--text-muted);
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     font-weight: 600;
+    margin-top: 12px;
 }
 
 .product-card h3 {
-    font-size: 1rem;
-    margin: 6px 0 12px 0;
+    font-size: 0.95rem;
+    margin: 6px 0 10px 0;
     color: var(--text-dark);
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .product-card .price {
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin-bottom: 18px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 16px;
 }
 
 .btn-add {
-    background-color: #faf5f6;
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-    padding: 11px;
-    border-radius: 10px;
+    background-color: transparent;
+    color: var(--text-dark);
+    border: 1px solid var(--text-dark);
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.25s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .btn-add:hover {
-    background-color: var(--primary-color);
+    background-color: var(--text-dark);
     color: white;
 }
 
@@ -329,26 +345,27 @@ body {
    ========================================================================== */
 .about-container {
     background-color: var(--card-bg);
-    padding: 50px;
-    border-radius: 20px;
+    padding: 60px 40px;
+    border-radius: 6px;
     border: 1px solid var(--border-color);
-    max-width: 850px;
+    max-width: 800px;
     margin: 0 auto;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
 }
 
 .about-container h2 {
     font-family: var(--font-family);
-    color: var(--primary-color);
+    color: var(--text-dark);
     margin-bottom: 25px;
-    font-size: 2rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: 1px;
 }
 
 .about-container p {
     color: var(--text-muted);
     margin-bottom: 20px;
-    font-size: 1.05rem;
+    font-size: 1rem;
 }
 
 /* ==========================================================================
@@ -362,7 +379,7 @@ body {
     max-width: 400px;
     height: 100vh;
     background-color: var(--card-bg);
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.08);
     z-index: 200;
     display: flex;
     flex-direction: column;
@@ -383,14 +400,16 @@ body {
 
 .cart-header h3 {
     font-family: var(--font-family);
-    color: var(--primary-color);
-    font-size: 1.3rem;
+    color: var(--text-dark);
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 1px;
 }
 
 .close-btn {
     background: none;
     border: none;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     cursor: pointer;
     color: var(--text-muted);
     transition: color 0.2s;
@@ -417,31 +436,33 @@ body {
 
 .cart-item strong {
     display: block;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    font-weight: 500;
 }
 
 .cart-item p {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--text-muted);
 }
 
 .cart-item button {
     background: none;
     border: none;
-    color: #d9534f;
-    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-size: 1rem;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: color 0.2s;
 }
 
 .cart-item button:hover {
-    transform: scale(1.1);
+    color: #d9534f;
 }
 
 .empty-cart {
     text-align: center;
     color: var(--text-muted);
     margin-top: 50px;
+    font-size: 0.95rem;
 }
 
 .cart-footer {
@@ -453,32 +474,33 @@ body {
 .total-box {
     display: flex;
     justify-content: space-between;
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     font-weight: 600;
     margin-bottom: 20px;
+    color: var(--text-dark);
 }
 
 .btn-whatsapp {
     width: 100%;
-    background-color: #25d366;
+    background-color: #1a1a1a;
     color: white;
     border: none;
     padding: 14px;
-    border-radius: 12px;
-    font-size: 1rem;
-    font-weight: bold;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
     transition: background 0.3s, transform 0.2s;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
 }
 
 .btn-whatsapp:hover {
-    background-color: #1ebd5a;
-    transform: translateY(-2px);
+    background-color: var(--primary-color);
 }
 
 /* ==========================================================================
@@ -492,12 +514,12 @@ body {
 }
 
 .cart-item-controls button {
-    background: #f1e4e7;
+    background: #f0e6e8;
     border: none;
-    color: var(--primary-color);
-    width: 22px;
-    height: 22px;
-    border-radius: 4px;
+    color: var(--text-dark);
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
     font-weight: bold;
     cursor: pointer;
     display: flex;
@@ -507,12 +529,12 @@ body {
 }
 
 .cart-item-controls button:hover {
-    background: var(--primary-color);
+    background: var(--text-dark);
     color: #fff;
 }
 
 .cart-item-controls span {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 600;
     min-width: 15px;
     text-align: center;
@@ -534,8 +556,8 @@ body {
     }
 
     .nav-btn {
-        padding: 6px 12px;
-        font-size: 0.85rem;
+        padding: 6px 10px;
+        font-size: 0.75rem;
     }
 
     .cart-btn {
@@ -549,7 +571,7 @@ body {
     }
 
     .hero h2 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
 
     .products-grid {
@@ -562,7 +584,7 @@ body {
     }
 
     .product-card img {
-        height: 140px;
+        height: 150px;
     }
     
     .about-container {
@@ -581,7 +603,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: rgba(26, 26, 26, 0.9);
     justify-content: center;
     align-items: center;
     padding: 20px;
@@ -596,8 +618,8 @@ body {
     max-width: 90%;
     max-height: 90vh;
     object-fit: contain;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .image-modal-close {
@@ -605,48 +627,47 @@ body {
     top: 20px;
     right: 30px;
     color: #fff;
-    font-size: 2.5rem;
-    font-weight: bold;
+    font-size: 2rem;
+    font-weight: 300;
     cursor: pointer;
     background: none;
     border: none;
-    transition: transform 0.2s;
+    transition: opacity 0.2s;
 }
 
 .image-modal-close:hover {
-    transform: scale(1.1);
+    opacity: 0.7;
 }
 
-/* Deixa o cursor com formato de "zoom" ao passar por cima da foto do produto */
-.product-card img {
-    cursor: zoom-in;
-    transition: transform 0.3s ease;
-}
-
-/* Estilo para o card e o selo de produto esgotado */
+/* ==========================================================================
+   ESTADOS DE PRODUTOS (ESGOTADO)
+   ========================================================================== */
 .product-card.out-of-stock {
-    opacity: 0.6;
+    opacity: 0.5;
 }
 
 .product-card.out-of-stock img {
     filter: grayscale(100%);
-    cursor: default !important; /* Remove a mãozinha do zoom se estiver esgotado */
+    cursor: default !important;
 }
 
 .out-of-stock-badge {
     position: absolute;
     top: 10px;
     right: 10px;
-    background-color: #d9534f;
+    background-color: var(--text-dark);
     color: white;
-    padding: 5px 10px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    border-radius: 2px;
     text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .product-card .btn-add:disabled {
-    background-color: #cccccc;
+    background-color: #e5e5e5;
+    border-color: #e5e5e5;
+    color: var(--text-muted);
     cursor: not-allowed;
 }
