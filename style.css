@@ -1,271 +1,6 @@
 /* ==========================================================================
-   BELINNA STORE - ROSE GOLD ELITE (SUAVIZADO & CORRIGIDO)
+   CORREÇÃO DO ALINHAMENTO DOS CARDS E BOTÕES
    ========================================================================== */
-:root {
-    --primary-color: #b86279;        /* Rose Gold sofisticado */
-    --primary-hover: #9e4f64;        
-    --bg-light: #fbf9f8;             /* Off-white luxuoso e quente */
-    --text-dark: #2d2627;            /* Carvão suave/quente (substituiu o preto pesado) */
-    --text-muted: #8c8284;           /* Cinza rosado neutro */
-    --card-bg: #fbf9f8;              
-    --border-color: #f1eae7;         /* Linhas ultrafinas e delicadas */
-    --font-family: 'Playfair Display', serif;
-    --font-sans: 'Segoe UI', system-ui, sans-serif;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: var(--font-sans);
-    background-color: var(--bg-light);
-    color: var(--text-dark);
-    line-height: 1.8;
-    -webkit-font-smoothing: antialiased;
-}
-
-/* Header com Linha Divisória Sofisticada */
-.header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 25px 7%;
-    background-color: rgba(251, 249, 248, 0.95);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border-color);
-}
-
-.logo h1 {
-    font-family: var(--font-family);
-    font-size: 1.1rem;
-    letter-spacing: 6px;
-    color: var(--text-dark);
-    font-weight: 400;
-    text-transform: uppercase;
-}
-
-.logo h1 span {
-    color: var(--primary-color);
-}
-
-.main-nav {
-    display: flex;
-    gap: 25px;
-}
-
-.nav-btn {
-    background: transparent;
-    border: none;
-    padding: 0;
-    font-size: 0.75rem;
-    font-weight: 500;
-    color: var(--text-muted);
-    cursor: pointer;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    transition: color 0.3s;
-}
-
-.nav-btn.active,  
-.nav-btn:hover {
-    color: var(--primary-color);
-}
-
-/* Botão da Sacola com Posicionamento Perfeito do Contador */
-.cart-btn {
-    position: relative;
-    background: transparent;
-    border: none;
-    font-size: 1.2rem;
-    color: var(--text-dark);
-    cursor: pointer;
-    padding: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: color 0.3s;
-}
-
-.cart-btn:hover {
-    color: var(--primary-color);
-}
-
-#cart-count {
-    position: absolute;
-    top: 2px;
-    right: 2px;
-    background-color: var(--primary-color);
-    color: white;
-    font-size: 0.6rem;
-    font-weight: 600;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 2px 5px rgba(184, 98, 121, 0.4);
-}
-
-/* Páginas */
-.page {
-    display: none; 
-    padding: 60px 7%;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.page.active {
-    display: block; 
-    animation: fadeIn 0.4s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(4px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Hero Estilo Editorial */
-.hero {
-    text-align: center;
-    padding: 80px 20px;
-    background: transparent;
-    border-radius: 0;
-    margin-bottom: 60px;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.hero h2 {
-    font-family: var(--font-family);
-    font-size: 2.8rem;
-    color: var(--text-dark);
-    margin-bottom: 20px;
-    font-weight: 400;
-    letter-spacing: 2px;
-}
-
-.hero p {
-    font-size: 0.95rem;
-    color: var(--text-muted);
-    margin-bottom: 35px;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-    letter-spacing: 0.5px;
-}
-
-.btn-primary {
-    background-color: var(--text-dark);
-    color: white;
-    border: none;
-    padding: 15px 35px;
-    font-size: 0.7rem;
-    font-weight: 600;
-    border-radius: 0;
-    cursor: pointer;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    transition: all 0.3s;
-}
-
-.btn-primary:hover {
-    background-color: var(--primary-color);
-}
-
-/* Benefícios Minimalistas */
-.benefits {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 40px;
-    margin-top: 50px;
-}
-
-.card-benefit {
-    background: transparent;
-    padding: 0;
-    text-align: center;
-    border: none;
-}
-
-.card-benefit i {
-    font-size: 1.6rem;
-    color: var(--primary-color);
-    margin-bottom: 15px;
-}
-
-/* Atalhos de Categoria */
-.category-shortcuts {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    overflow-x: auto;
-    padding-bottom: 15px;
-    margin-bottom: 50px;
-    scrollbar-width: none;
-}
-
-.category-shortcuts::-webkit-scrollbar {
-    display: none;
-}
-
-.category-shortcuts a {
-    white-space: nowrap;
-    text-decoration: none;
-    color: var(--text-muted);
-    background: transparent;
-    border: none;
-    padding: 0;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    transition: color 0.3s;
-    position: relative;
-}
-
-.category-shortcuts a.active,
-.category-shortcuts a:hover {
-    color: var(--primary-color);
-}
-
-.category-shortcuts a.active::after {
-    content: '';
-    position: absolute;
-    bottom: -6px;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: var(--primary-color);
-}
-
-.category-title {
-    font-family: var(--font-family);
-    font-size: 1.6rem;
-    color: var(--text-dark);
-    margin-bottom: 35px;
-    font-weight: 400;
-    letter-spacing: 2px;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 15px;
-}
-
-/* Grade de Produtos */
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 50px 30px;
-}
-
 .product-card {
     position: relative;
     background-color: transparent;
@@ -274,21 +9,18 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
+    height: 100%; /* Garante que todos os cards tenham a mesma altura por linha */
 }
 
 .product-card img {
     width: 100%;
-    height: 320px;
+    height: 280px;
     object-fit: cover;
     border-radius: 0;
     background-color: #f1eae7;
     margin-bottom: 15px;
     cursor: zoom-in;
     transition: opacity 0.3s;
-}
-
-.product-card img:hover {
-    opacity: 0.9;
 }
 
 .product-card .brand {
@@ -300,23 +32,31 @@ body {
     margin-bottom: 4px;
 }
 
+/* Força o título a ocupar sempre o equivalente a 2 linhas para alinhar o restante */
 .product-card h3 {
     font-size: 0.9rem;
     margin: 0 0 8px 0;
     color: var(--text-dark);
     font-weight: 400;
     letter-spacing: 0.5px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 2.8em; /* Altura fixa equivalente a 2 linhas */
 }
 
 .product-card .price {
     font-size: 0.95rem;
     font-weight: 600;
     color: var(--text-dark);
-    margin-bottom: 15px;
+    margin-top: auto; /* Joga o preço e o botão sempre para o rodapé do card */
+    margin-bottom: 12px;
     letter-spacing: 1px;
 }
 
 .btn-add {
+    width: 100%;
     background-color: transparent;
     color: var(--text-dark);
     border: 1px solid var(--text-dark);
@@ -328,209 +68,13 @@ body {
     text-transform: uppercase;
     letter-spacing: 2px;
     transition: all 0.3s;
+    margin-top: 0;
 }
 
 .btn-add:hover {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
     color: white;
-}
-
-/* Sobre Nós */
-.about-container {
-    background: transparent;
-    padding: 0;
-    border: none;
-    max-width: 650px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.about-container h2 {
-    font-family: var(--font-family);
-    color: var(--text-dark);
-    margin-bottom: 30px;
-    font-size: 2rem;
-    font-weight: 400;
-    letter-spacing: 2px;
-}
-
-.about-container p {
-    color: var(--text-muted);
-    margin-bottom: 20px;
-    font-size: 0.95rem;
-    line-height: 1.9;
-}
-
-/* Gaveta Lateral (Carrinho) */
-.cart-modal {
-    position: fixed;
-    top: 0;
-    right: -100%; 
-    width: 100%;
-    max-width: 420px;
-    height: 100vh;
-    background-color: var(--bg-light);
-    box-shadow: -15px 0 50px rgba(0, 0, 0, 0.05);
-    z-index: 200;
-    display: flex;
-    flex-direction: column;
-    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.cart-modal.open {
-    right: 0; 
-}
-
-.cart-header {
-    padding: 30px;
-    border-bottom: 1px solid var(--border-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.cart-header h3 {
-    font-family: var(--font-family);
-    color: var(--text-dark);
-    font-size: 1.1rem;
-    font-weight: 400;
-    letter-spacing: 2px;
-}
-
-.close-btn {
-    background: none;
-    border: none;
-    font-size: 1.2rem;
-    cursor: pointer;
-    color: var(--text-muted);
-}
-
-.cart-items {
-    flex: 1;
-    overflow-y: auto;
-    padding: 30px;
-}
-
-.cart-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.cart-footer {
-    padding: 30px;
-    border-top: 1px solid var(--border-color);
-    background-color: #f5eeec;
-}
-
-.total-box {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.95rem;
-    font-weight: 600;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
-}
-
-.btn-whatsapp {
-    width: 100%;
-    background-color: var(--text-dark);
-    color: white;
-    border: none;
-    padding: 15px;
-    border-radius: 0;
-    font-size: 0.7rem;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    transition: background 0.3s;
-}
-
-.btn-whatsapp:hover {
-    background-color: var(--primary-color);
-}
-
-/* Responsivo */
-@media (max-width: 600px) {
-    .header {
-        padding: 20px 5%;
-    }
-    .hero h2 {
-        font-size: 2rem;
-    }
-    .products-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px 15px;
-    }
-    .product-card img {
-        height: 220px;
-    }
-}
-
-/* Modais e Estados */
-.image-modal {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(45, 38, 39, 0.95);
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.image-modal.active {
-    display: flex;
-}
-
-.image-modal img {
-    max-width: 90%;
-    max-height: 90vh;
-    object-fit: contain;
-}
-
-.image-modal-close {
-    position: absolute;
-    top: 30px;
-    right: 40px;
-    color: #fff;
-    font-size: 2rem;
-    cursor: pointer;
-    background: none;
-    border: none;
-}
-
-.product-card.out-of-stock {
-    opacity: 0.4;
-}
-
-.product-card.out-of-stock img {
-    filter: grayscale(100%);
-}
-
-.out-of-stock-badge {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: var(--text-dark);
-    color: white;
-    padding: 4px 8px;
-    font-size: 0.5rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
 }
 
 .product-card .btn-add:disabled {
